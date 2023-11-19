@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Sujan Bhattarai &#128187"
+  favicon: resume.pdf
   navbar:
     left:
       - href: index.qmd
