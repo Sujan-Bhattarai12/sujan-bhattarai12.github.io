@@ -1,5 +1,5 @@
 ---
-title: "Global Data on Sustainable Energy (2000-2020)"
+title: "Duplicate cover for check"
 author: "Sujan Bhattarai"
 categories: [Data-analysis]
 image: "image.jpg"
