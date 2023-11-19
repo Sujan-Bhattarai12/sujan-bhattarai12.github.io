@@ -1,11 +1,31 @@
 ---
-title: "sujan-bhattarai12.github.io"
+title: "Sujan Bhattarai"
+image: pic.jpg
+resources: resume.pdf
+about:
+  template: jolla
+  image-shape: round
+  image-width: 15em
+  links:
+    - text: Email
+      icon: envelope-check
+      href: mailto:sujan@ucsb.edu
+    - text: GitHub
+      icon: github
+      href: https://github.com/Sujan-Bhattarai12/
+    - text: Resume
+      icon: file-text
+      href: resume.pdf
+  id: ppc
 ---
 
-This is a Quarto website.
+:::{#ppc}
+Use your energy in focus
+:::
+
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
-1 + 1 + 1
+file.exists("resume.pdf")
 ```

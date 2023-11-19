@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "sujan-bhattarai12.github.io"
+  title: "Sujan Bhattarai &#128187"
   navbar:
     left:
       - href: index.qmd
@@ -12,7 +12,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: trestles
     css: styles.css
     toc: true
 
