@@ -3,20 +3,33 @@ project:
   output-dir: docs
 
 website:
-  title: "Sujan Bhattarai &#128187"
-  favicon: resume.pdf
+  favicon: pic.jpg
+  title: ""
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: about.qmd
         text: About
       - href: projects.qmd
-        text: Projects
-
+        text: Project
+      - href: blog.qmd
+        text: Blogs
+ 
+  page-footer:
+    background: light
+    right:
+      - "Copyright 2023, Sujan Bhattarai"
+    left: 
+      - icon: github
+        href: https://github.com/Sujan-Bhattarai12
+    
+    
 format:
   html:
-    theme: trestles
+    theme: 
+      - styles.scss
+    mainfont: Georgia 
     css: styles.css
     toc: true
 

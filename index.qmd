@@ -20,12 +20,8 @@ about:
 ---
 
 :::{#ppc}
-Use your energy in focus
+<h6 id = "tagline">Entrepreneurial and Innovative/analytical/bad following instructions</h6>
 :::
 
+##aded anything else in here 
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-file.exists("resume.pdf")
-```
