@@ -9,23 +9,19 @@ listing:
 page-layout: full
 title-block-style: plain
 ---
+
 :::: columns
 
-::: {.column width = "40%"}
-Image 2
+::: {.column width="40%"}
+![GLobal Energy Sustainability](docs/posts/energy/image.jpg)
 :::
 
-:::{.column width = "5%"}
+::: {.column width="5%"}
 :::
 
-::: {.column width = "55%"}
-Description aslkfjaslkdfj 
-adsfjasdfl asf
-asdfklasdjf 
-asdjfkaklsdf
-aklsdfja
+::: {.column width="55%"}
+###### testing spaces for new columns
 :::
 
 ::::
-
 

@@ -52,9 +52,12 @@ Check the class of each columns
 
 ```{r}
 ##build function to check columns class iteratively
+x <- c()
 for (i in seq_along(energy_data)){
-  print(class(energy_data[[i]]))
+     x = append(x, class(energy_data[[i]]))
 }
+
+print(x)
 ```
 
 Data-type is in correct format except for country. Change the column type. (This code should change data type and it is vital to run this before moving to next step)
@@ -93,7 +96,7 @@ energy_data1 <- energy_data %>%
           Lon = "Longitude")
 ```
 
-Map the data in worldmap to see the change
+sMap the data in worldmap to see the change
 
 ```{r}
 world_map <- ne_countries(returnclass = "sf", scale = "medium")

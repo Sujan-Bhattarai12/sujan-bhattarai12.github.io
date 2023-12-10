@@ -3,7 +3,14 @@
     "listing": "/projects.html",
     "items": [
       "/posts/energy/index.html",
-      "/posts/logistic_regression/index.html"
+      "/posts/12-09-2020-AI-ethics/index.html"
+    ]
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/energy/index.html",
+      "/posts/12-09-2020-AI-ethics/index.html"
     ]
   }
 ]
