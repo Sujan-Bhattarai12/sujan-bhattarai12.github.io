@@ -23,5 +23,18 @@ about:
 <h6 id = "tagline">Entrepreneurial and Innovative/analytical/bad following instructions</h6>
 :::
 
-##aded anything else in here 
+```{css}
+<style>
+  #tagline {
+    animation: fadeInOut 0.5s ease infinite;
+  }
 
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
