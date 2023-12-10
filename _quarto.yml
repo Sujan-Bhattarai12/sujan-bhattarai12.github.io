@@ -13,8 +13,8 @@ website:
         text: About
       - href: projects.qmd
         text: Project
-      - href: blog.qmd
-        text: Blogs
+      - href: posts.qmd
+        text: Blog
  
   page-footer:
     background: light
@@ -23,7 +23,6 @@ website:
     left: 
       - icon: github
         href: https://github.com/Sujan-Bhattarai12
-    
     
 format:
   html:
