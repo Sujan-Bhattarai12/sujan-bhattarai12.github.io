@@ -1,6 +1,6 @@
 ---
 title: "Deployment of AI in Environment Conservation"
-description: "exploration of Aritifical Intelligence and its use in the AI"
+description: "Explore on the use of modern day AI in environment conservation, and discussion on coupled AI-Environment ethics"
 image: "dep_env.jpg"
 author:
   - name: Sujan Bhattarai
@@ -12,7 +12,6 @@ categories: [Quarto, R, MEDS, Python, SAS] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -35,7 +34,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     
     .special-paragraph {
       color: #ff0000; /* Red font color - you can change this */
-      font-weight: bold; /* Bold font - you can change this */
+     font-style: italic; /* Bold font - you can change this */
     }
 
     blockquote {
@@ -48,7 +47,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 </head>
 <body>
 
-  <h1>Development and Deployment of Artificial Intelligence in Environmental Conservation</h1>
+## Development of Artificial Intelligence(AI)
 
   <blockquote>
     <p>The concept of Artificial Intelligence (AI) originated in the 1950s when scientists from esteemed universities, such as Carnegie Mellon University, Stanford University, and the Massachusetts Institute of Technology, envisioned that machines could precisely simulate aspects of human intelligence. Their perspective was rooted in the belief that machines could replicate certain facets of human cognitive abilities. However, during the 1980s and 1990s, AI development faced a period of stagnation, commonly referred to as the AI winter, marked by slower progress than anticipated.</p>
@@ -66,7 +65,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     <p>From developing nations to developed ones, the environmental sector has tapped into the immense potential of AI and its powerful computing capabilities to address pressing conservation challenges. Examples abound, including AI interventions to safeguard oceans from pollution, the implementation of advanced routing plans for efficient e-waste collection, and the optimization of aviation routes to minimize emissions. These applications underscore how AI is making significant contributions globally to mitigate the environmental impact of human activities. The examples provided illustrate how AI's integration into various sectors is not only transformative but also instrumental in mitigating the adverse effects of human activities on the environment.</p>
   </blockquote>
 
-  <h2>How AI is Solving the Environmental Issue</h2>
+## How AI is Solving the Environmental Issue
 
   <blockquote class="special-paragraph">
     <p>Microsoft's AI lab, known as AI For GOOD LAB, has recently demonstrated the potential of AI in tackling environmental challenges, specifically in reducing wild animal poisoning in Masai Mara National Park. The innovative solution involves deploying sophisticated cameras equipped with artificial intelligence (AI) in the heart of the park. These smart cameras utilize special algorithms, such as Convolutional Neural Networks (CNNs), to analyze satellite images and monitor the surroundings. This goes beyond merely protecting the environment; it addresses a pressing issue where indigenous people were using poison to kill wildlife due to increasing human-wildlife conflict. Thanks to the integration of remote sensing and AI, significant progress has been made to identify potential conflict areas.</p>
@@ -80,7 +79,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     <p>The impact of AI extends further with platforms like Fruitpunch AI, where I personally participated in some projects utilizing technologies like RestNet and Deep Learning. This platform engages volunteers from around the world, contributing their AI expertise to various environmental projects. Examples include detecting air pollution plumes and identifying vulnerable coral reefs. The output from these projects is generously shared with stakeholders without any charges. Non-profit initiatives like Fruitpunch AI play a pivotal role in leveraging AI for environmental conservation, making substantial contributions in leveraging AI power in the backwarded areas of research.</p>
   </blockquote>
 
-  <h2>Where is the Problem with AI?</h2>
 
   <blockquote>
     <p>While AI presents significant potential and yields quantifiable results globally, a critical consideration arises regarding its cost-effectiveness. AI enables data-driven decision-making at minimal costs, and its scalability allows solutions developed for one region to be expanded to cover larger areas. However, a potential challenge emerges concerning the "little to no cost" aspect of AI solutions.</p>
@@ -93,6 +91,8 @@ draft: false # setting this to `true` will prevent your post from appearing on y
   <blockquote>
     <p>While AI proves to be a powerful tool in environmental conservation, particularly in addressing specific challenges like wildlife protection and illegal logging, careful consideration is needed to strike a balance between its cost-effective solutions and the crucial role of community participation, especially in developing nations. The synergy of AI and community engagement may pave the way for more holistic and sustainable environmental conservation practices globally.</p></blockquote>
     
+## Ethical Bias in Environmental conservation in developing nations
+
 <blockquote><p> Jobin et al. [16] conducted a thorough examination of AI ethics guidelines, identifying a total of 84. The classification of these guidelines revealed 11 distinct principles, including transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, sustainability, dignity, and solidarity. Despite this comprehensive framework, a notable concern arises – the perceived oversight of the human factor in these ethical considerations.</p> </blockquote>
 
 <blockquote> <p>When applying AI in environmental conservation, diverse challenges surface, underscoring the need for careful consideration of potential biases. A significant issue stems from a lack of awareness among stakeholders regarding available technologies in forestry. The terminology associated with AI, such as "artificial intelligence," can be perplexing, potentially leading to disinterest among those unfamiliar with the technology. Addressing this challenge requires a focus on capacity-building, utilizing case studies and pilot demonstrations to enhance understanding and establish realistic expectations.</p></blockquote>
@@ -104,5 +104,20 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 <blockquote> <p>Adding to the complexity are uncertainties associated with AI, especially regarding reliability and efficacy. The evaluation of reliability before practical application becomes imperative, given potential uncertainties in data and expert knowledge. In species-rich tropical forests, challenges arise in differentiating features due to a lack of adequate labeled data. The reliability of AI outputs depends on substantial training data and expert knowledge. Addressing these biases necessitates a comprehensive approach encompassing awareness-building, adherence to ethical standards, robust technology, commercial viability, and careful consideration of uncertainties in AI applications for environmental conservation.</p></blockquote>
 
 <blockquote> <p>While the discussion thus far has centered on biases in AI components, an equally important consideration is directed towards non-human components. Biodiversity, possessing both instrumental and intrinsic value, prompts an exploration of psychology in biodiversity conservation. Recent research suggests that people prioritize intrinsic value over instrumental value. This insight raises the possibility of AI being utilized more for species perceived to have intrinsic value. Hence, there is an urgent need for moral considerations for non-humans in environmental conservation with AI. Exploring these non-human aspects becomes imperative to mitigate biases and foster a more comprehensive and ethical approach to AI applications in environmental conservation (Owe & Baum, 2021) </p></blockquote>
+
+## Citations
+
+- Fruitpunch AI. [Fruitpunch](https://www.fruitpunch.ai/)
+
+- Microsoft AI at Masai Mara. [Video](https://www.youtube.com/watch?v=nj7nbdSe0wE)
+
+## References
+
+- O'Reilly. [Getting Started with AI](https://www.oreilly.com/library/view/getting-started-with/9781492027805/ch01.html)
+
+- Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. *Nature Machine Intelligence, 1*(9), 389–399. [https://doi.org/10.1038/s42256-019-0088-2](https://doi.org/10.1038/s42256-019-0088-2)
+
+- Owe, A., & Baum, S. D. (2021). Moral consideration of nonhumans in the ethics of artificial intelligence. *AI and Ethics, 1*(4), 517–528. [https://doi.org/10.1007/s43681-021-00065-0](https://doi.org/10.1007/s43681-021-00065-0)
+
 
 
