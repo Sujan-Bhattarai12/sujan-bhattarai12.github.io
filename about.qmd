@@ -2,8 +2,34 @@
 title: "About"
 ---
 
-About this site
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    .about-section {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
 
-```{r}
-1 + 1
-```
+<div class="about-section">
+  <h2>About Us</h2>
+  <p>Welcome to my website, your go-to source for my personal blogs and projects. We're dedicated to providing you with up-to-date information, with a focus on Data Science.</p>
+
+  <p>Founded in 2023, This website has come a long way from its beginnings. We hope you enjoy my creativity and fund thing as much as I enjoy If you have any questions or comments, please don't hesitate to contact me</p>
+
+  <p>Sincerely,<br>
+     Sujan Bhattarai
+</div>
+
+</body>
+</html>
