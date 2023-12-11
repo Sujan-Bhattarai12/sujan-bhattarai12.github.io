@@ -1,5 +1,5 @@
 ---
-title: "Deployment of AI in Environment Conservation"
+title: "Deployment of AI in Environment Conservation and Ethical Considerations"
 description: "Explore on the use of modern day AI in environment conservation, and discussion on coupled AI-Environment ethics"
 image: "dep_env.jpg"
 author:
@@ -51,7 +51,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
   <blockquote>
   <img src="ai.jpg" alt="First AI robot at Stanford" style="float: left; margin-right: 10px; max-width: 280px;">
-    <p>The concept of Artificial Intelligence (AI) originated in the 1950s when scientists from esteemed universities, such as Carnegie Mellon University, Stanford University, and the Massachusetts Institute of Technology, envisioned that machines could precisely simulate aspects of human intelligence. Their perspective was rooted in the belief that machines could replicate certain facets of human cognitive abilities. However, during the 1980s and 1990s, AI development faced a period of stagnation, commonly referred to as the AI winter, marked by slower progress than anticipated.
+    <p>The concept of Artificial Intelligence (AI) originated in the 1950s when scientists from esteemed universities, such as Carnegie Mellon University, Stanford University, and the Massachusetts Institute of Technology, envisioned that machines could precisely simulate aspects of human intelligence. Their perspective was rooted in the belief that machines could replicate certain facets of human cognitive abilities. The image at at the left is the first AI robot developed at Stanford, which was a symbol of rapid innovation in Tech during 1950s. However, during the 1980s and 1990s, AI development faced a period of stagnation, commonly referred to as the AI winter, marked by slower progress than anticipated.
 </p>
 
 </blockquote>
@@ -71,12 +71,12 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 ## How AI is Solving the Environmental Issue
 
   <blockquote >
-    <p>Microsoft's AI lab, known as AI For GOOD LAB, has recently demonstrated the potential of AI in tackling environmental challenges, specifically in reducing wild animal poisoning in Masai Mara National Park. The innovative solution involves deploying sophisticated cameras equipped with artificial intelligence (AI) in the heart of the park. These smart cameras utilize special algorithms, such as Convolutional Neural Networks (CNNs), to analyze satellite images and monitor the surroundings. This goes beyond merely protecting the environment; it addresses a pressing issue where indigenous people were using poison to kill wildlife due to increasing human-wildlife conflict. Thanks to the integration of remote sensing and AI, significant progress has been made to identify potential conflict areas.</p>
+    <p>Microsoft's AI lab, known as AI For GOOD LAB, has recently demonstrated the potential of AI in tackling environmental challenges, specifically in reducing wild animal poisoning in Masai Mara National Park. The innovative solution involves deploying sophisticated cameras equipped with artificial intelligence (AI) in the heart of the park. These smart cameras utilize special algorithms, such as Convolutional Neural Networks (CNNs), to analyze satellite images and monitor the surroundings. This goes beyond merely protecting the environment; it addresses a pressing issue where indigenous people were using poison to kill wildlife due to increasing human-wildlife conflict. Thanks to the integration of remote sensing and AI, significant progress has been made to identify potential conflict areas. Full informatoin at: [Microsoft Research, 2023](https://www.youtube.com/watch?v=nj7nbdSe0wE&t=531s).</p>
   </blockquote>
 
   <blockquote>
    <img src="rainforest.jpg" alt="First AI robot at Stanford" style="float: right; margin-left: 10px; max-width: 400px;">
-    <p style="text-align: justify;">Another remarkable example showcases the use of AI in repurposing old phones to address illegal deforestation. Initiated by an AI startup, this project involves placing unused phones in trees, powered by solar energy. These phones serve as audio sensors, detecting the distinctive sounds of chainsaws—an indicator of potential illegal logging activities. The recorded sounds are transmitted to a central station equipped with a powerful AI system, TensorFlow by Google, which distinguishes chainsaw sounds from other ambient noises. Upon identification, the AI system promptly notifies relevant authorities, enabling them to intervene and prevent further illegal logging. This transformative application of AI, detailed in the scientific journal Sustainability, underscores its real-time problem-solving capabilities in environmental conservation.</p>
+    <p style="text-align: left;">Another remarkable example showcases the use of AI in repurposing old phones to address illegal deforestation. Initiated by an AI startup,[Rainforest Connection, 2015](https://www.dw.com/en/global-ideas-rainforest-connection-illegal-logging-cell-phone-conservation-kickstarter/a-18864863#:~:text=Rainforest%20Connection%2C%20a%20small%20NGO,in%20rainforests%20around%20the%20world.&text=In%20the%20summer%20of%202011,to%20visit%20a%20gibbon%20sanctuary), this project involves placing unused phones in trees, powered by solar energy. The image in the right shows how phones are attached to the tree. These phones serve as audio sensors, detecting the distinctive sounds of chainsaws—an indicator of potential illegal logging activities. The recorded sounds are transmitted to a central station equipped with a powerful AI system, TensorFlow by Google, which distinguishes chainsaw sounds from other ambient noises. Upon identification, the AI system promptly notifies relevant authorities, enabling them to intervene and prevent further illegal logging. This transformative application of AI, detailed in the scientific journal Sustainability, underscores its real-time problem-solving capabilities in environmental conservation.</p>
   </blockquote>
 
   <blockquote>
@@ -91,7 +91,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 ## Low cost AI might disrupt conservation history in developing nations
 
   <blockquote><p>
-    In the context of developing nations, successful conservation practices have often relied on active community participation. Local communities join forces to preserve their environment, leading to both environmental benefits and direct employment opportunities. For instance, the community forest conservation practice in Nepal stands out as one of the most successful models globally. This practice involves transferring forest management to local communities, empowering them to sustainably utilize the resources. However, with the integration of AI, decision-making tends to lean heavily on data, particularly remotely sensed data. While this enhances efficiency, it also raises concerns about limiting job opportunities for locals, as AI does not require active community participation.</p>
+    In the context of developing nations, successful conservation practices have often relied on active community participation. Local communities join forces to preserve their environment, leading to both environmental benefits and direct employment opportunities. For instance, the community forest conservation practice in Nepal stands out as one of the most successful models globally [NASA, 2016](https://earthobservatory.nasa.gov/images/150937/how-nepal-regenerated-its-forests). This practice involves transferring forest management to local communities, empowering them to sustainably utilize the resources. However, with the integration of AI, decision-making tends to lean heavily on data, particularly remotely sensed data. While this enhances efficiency, it also raises concerns about limiting job opportunities for locals, as AI does not require active community participation.</p>
 
 <p>In the Amazon rainforest, where indigenous communities have played a crucial role in conservation efforts, the introduction of AI-powered monitoring systems has sparked debates. Automated drones equipped with AI algorithms can efficiently monitor vast areas, detect illegal logging, and assess biodiversity. While these technologies aid in swift responses to environmental threats, they also raise concerns about job displacement for indigenous forest monitors who traditionally perform these tasks. The shift towards automated monitoring may inadvertently sideline the invaluable traditional knowledge of indigenous communities, impacting their roles in preserving the delicate balance of the rainforest ecosystem.</p>
 
@@ -137,6 +137,10 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 - Owe, A., & Baum, S. D. (2021). Moral consideration of nonhumans in the ethics of artificial intelligence. *AI and Ethics, 1*(4), 517–528. [https://doi.org/10.1007/s43681-021-00065-0](https://doi.org/10.1007/s43681-021-00065-0)
 
 - Schirpke, U., Tasser, E., Borsky, S., Braun, M., Eitzinger, J., Gaube, V., et al. (2023). *Past and future impacts of land-use changes on ecosystem services in Austria*. Journal of Environmental Management, 345(May), 118728.   [https://doi.org/10.1016/j.jenvman.2023.118728](https://doi.org/10.1016/j.jenvman.2023.118728)
+
+- Acharya, K. P. (2002). Twenty-four years of community forestry in Nepal. International Forestry Review, 4(2), 149–156. [https://doi.org/10.1505/IFOR.4.2.149.17447](https://doi.org/10.1505/IFOR.4.2.149.17447)
+
+- Schirpke, U., Tasser, E., Borsky, S., Braun, M., Eitzinger, J., Gaube, V., et al. (2023). Past and future impacts of land-use changes on ecosystem services in Austria. Journal of Environmental Management, 345(May), 118728. [https://doi.org/10.1016/j.jenvman.2023.118728](https://doi.org/10.1016/j.jenvman.2023.118728)
 
 
 
