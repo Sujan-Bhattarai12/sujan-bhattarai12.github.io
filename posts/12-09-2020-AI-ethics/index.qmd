@@ -8,7 +8,7 @@ author:
     affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB) 
     affiliation-url: https://ucsb-meds.github.io/ 
 date: 10-24-2022
-categories: [Quarto, R, MEDS, Python, SAS] # self-defined categories
+categories: [Artificial Intelligence, Ethics, Developing nations] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
@@ -36,7 +36,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
       color: #ff0000; /* Red font color - you can change this */
      font-style: italic; /* Bold font - you can change this */
     }
-
+    
     blockquote {
       margin: 20px;
       padding: 10px;
@@ -50,8 +50,11 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 ## Development of Artificial Intelligence(AI)
 
   <blockquote>
-    <p>The concept of Artificial Intelligence (AI) originated in the 1950s when scientists from esteemed universities, such as Carnegie Mellon University, Stanford University, and the Massachusetts Institute of Technology, envisioned that machines could precisely simulate aspects of human intelligence. Their perspective was rooted in the belief that machines could replicate certain facets of human cognitive abilities. However, during the 1980s and 1990s, AI development faced a period of stagnation, commonly referred to as the AI winter, marked by slower progress than anticipated.</p>
-  </blockquote>
+  <img src="ai.jpg" alt="First AI robot at Stanford" style="float: left; margin-right: 10px; max-width: 280px;">
+    <p>The concept of Artificial Intelligence (AI) originated in the 1950s when scientists from esteemed universities, such as Carnegie Mellon University, Stanford University, and the Massachusetts Institute of Technology, envisioned that machines could precisely simulate aspects of human intelligence. Their perspective was rooted in the belief that machines could replicate certain facets of human cognitive abilities. However, during the 1980s and 1990s, AI development faced a period of stagnation, commonly referred to as the AI winter, marked by slower progress than anticipated.
+</p>
+
+</blockquote>
 
   <blockquote>
     <p>In recent times, we find ourselves in the AI Era, where machines' interaction with the outside world has surpassed previous expectations. Modern machines exhibit remarkable sophistication, challenging conventional perceptions of their capabilities. For instance, computers consistently outperform humans in complex games like AlphaGo, traditionally considered to require high intelligence. This progress has translated into tangible benefits, with robots now capable of identifying tumors more accurately than trained doctors, and supercomputers performing complex calculations for activities such as rocket launching.</p>
@@ -67,12 +70,13 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 ## How AI is Solving the Environmental Issue
 
-  <blockquote class="special-paragraph">
+  <blockquote >
     <p>Microsoft's AI lab, known as AI For GOOD LAB, has recently demonstrated the potential of AI in tackling environmental challenges, specifically in reducing wild animal poisoning in Masai Mara National Park. The innovative solution involves deploying sophisticated cameras equipped with artificial intelligence (AI) in the heart of the park. These smart cameras utilize special algorithms, such as Convolutional Neural Networks (CNNs), to analyze satellite images and monitor the surroundings. This goes beyond merely protecting the environment; it addresses a pressing issue where indigenous people were using poison to kill wildlife due to increasing human-wildlife conflict. Thanks to the integration of remote sensing and AI, significant progress has been made to identify potential conflict areas.</p>
   </blockquote>
 
   <blockquote>
-    <p>Another remarkable example showcases the use of AI in repurposing old phones to address illegal deforestation. Initiated by an AI startup, this project involves placing unused phones in trees, powered by solar energy. These phones serve as audio sensors, detecting the distinctive sounds of chainsaws—an indicator of potential illegal logging activities. The recorded sounds are transmitted to a central station equipped with a powerful AI system, TensorFlow by Google, which distinguishes chainsaw sounds from other ambient noises. Upon identification, the AI system promptly notifies relevant authorities, enabling them to intervene and prevent further illegal logging. This transformative application of AI, detailed in the scientific journal Sustainability, underscores its real-time problem-solving capabilities in environmental conservation.</p>
+   <img src="rainforest.jpg" alt="First AI robot at Stanford" style="float: right; margin-left: 10px; max-width: 400px;">
+    <p style="text-align: justify;">Another remarkable example showcases the use of AI in repurposing old phones to address illegal deforestation. Initiated by an AI startup, this project involves placing unused phones in trees, powered by solar energy. These phones serve as audio sensors, detecting the distinctive sounds of chainsaws—an indicator of potential illegal logging activities. The recorded sounds are transmitted to a central station equipped with a powerful AI system, TensorFlow by Google, which distinguishes chainsaw sounds from other ambient noises. Upon identification, the AI system promptly notifies relevant authorities, enabling them to intervene and prevent further illegal logging. This transformative application of AI, detailed in the scientific journal Sustainability, underscores its real-time problem-solving capabilities in environmental conservation.</p>
   </blockquote>
 
   <blockquote>
@@ -84,13 +88,19 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     <p>While AI presents significant potential and yields quantifiable results globally, a critical consideration arises regarding its cost-effectiveness. AI enables data-driven decision-making at minimal costs, and its scalability allows solutions developed for one region to be expanded to cover larger areas. However, a potential challenge emerges concerning the "little to no cost" aspect of AI solutions.</p>
   </blockquote>
 
-  <blockquote>
-    <p>In the context of developing nations, successful conservation practices have often relied on active community participation. Local communities join forces to preserve their environment, leading to both environmental benefits and direct employment opportunities. For instance, the community forest conservation practice in Nepal stands out as one of the most successful models globally. This practice involves transferring forest management to local communities, empowering them to sustainably utilize the resources. However, with the integration of AI, decision-making tends to lean heavily on data, particularly remotely sensed data. While this enhances efficiency, it also raises concerns about limiting job opportunities for locals, as AI does not require active community participation. In developing nations, where conservation heavily relies on external funding, the potential shift away from community involvement to AI-driven approaches poses challenges. External funding typically compensates conservationists and locals for their active participation in conservation efforts.</p>
+## Low cost AI might disrupt conservation history in developing nations
+
+  <blockquote><p>
+    In the context of developing nations, successful conservation practices have often relied on active community participation. Local communities join forces to preserve their environment, leading to both environmental benefits and direct employment opportunities. For instance, the community forest conservation practice in Nepal stands out as one of the most successful models globally. This practice involves transferring forest management to local communities, empowering them to sustainably utilize the resources. However, with the integration of AI, decision-making tends to lean heavily on data, particularly remotely sensed data. While this enhances efficiency, it also raises concerns about limiting job opportunities for locals, as AI does not require active community participation.</p>
+
+<p>In the Amazon rainforest, where indigenous communities have played a crucial role in conservation efforts, the introduction of AI-powered monitoring systems has sparked debates. Automated drones equipped with AI algorithms can efficiently monitor vast areas, detect illegal logging, and assess biodiversity. While these technologies aid in swift responses to environmental threats, they also raise concerns about job displacement for indigenous forest monitors who traditionally perform these tasks. The shift towards automated monitoring may inadvertently sideline the invaluable traditional knowledge of indigenous communities, impacting their roles in preserving the delicate balance of the rainforest ecosystem.</p>
+
+<p>Similarly, in Australia, where Indigenous Rangers have long been at the forefront of land management and conservation, AI applications are being explored for biodiversity monitoring. AI-driven tools can analyze large datasets to track wildlife movements and assess ecological changes. However, this shift towards technology-driven conservation may diminish the active involvement of Indigenous Rangers, who possess deep-rooted knowledge about local ecosystems and their intricate connections with the land. The potential marginalization of indigenous perspectives in decision-making processes could lead to suboptimal conservation outcomes.</p>
+
+<p>In developing nations, where conservation heavily relies on external funding, the potential shift away from community involvement to AI-driven approaches poses challenges. External funding typically compensates conservationists and locals for their active participation in conservation efforts. Using AI means less of the people will be involved in conservation, again encouraging locals to exploit forest resources. Besides, several concerns regarding the ethical use of AI in these rich natural resource areas make conservation more fragile. The delicate balance between technological advancement and preserving indigenous wisdom remains a critical consideration for sustainable conservation practices.</p>
   </blockquote>
 
-  <blockquote>
-    <p>While AI proves to be a powerful tool in environmental conservation, particularly in addressing specific challenges like wildlife protection and illegal logging, careful consideration is needed to strike a balance between its cost-effective solutions and the crucial role of community participation, especially in developing nations. The synergy of AI and community engagement may pave the way for more holistic and sustainable environmental conservation practices globally.</p></blockquote>
-    
+
 ## Ethical Bias in Environmental conservation in developing nations
 
 <blockquote><p> Jobin et al. [16] conducted a thorough examination of AI ethics guidelines, identifying a total of 84. The classification of these guidelines revealed 11 distinct principles, including transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, sustainability, dignity, and solidarity. Despite this comprehensive framework, a notable concern arises – the perceived oversight of the human factor in these ethical considerations.</p> </blockquote>
@@ -105,11 +115,18 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 <blockquote> <p>While the discussion thus far has centered on biases in AI components, an equally important consideration is directed towards non-human components. Biodiversity, possessing both instrumental and intrinsic value, prompts an exploration of psychology in biodiversity conservation. Recent research suggests that people prioritize intrinsic value over instrumental value. This insight raises the possibility of AI being utilized more for species perceived to have intrinsic value. Hence, there is an urgent need for moral considerations for non-humans in environmental conservation with AI. Exploring these non-human aspects becomes imperative to mitigate biases and foster a more comprehensive and ethical approach to AI applications in environmental conservation (Owe & Baum, 2021) </p></blockquote>
 
-## Citations
+## Conclusion
+  <blockquote>
+    <p>While AI proves to be a powerful tool in environmental conservation, particularly in addressing specific challenges like wildlife protection and illegal logging, careful consideration is needed to strike a balance between its cost-effective solutions and the crucial role of community participation, especially in developing nations. The synergy of AI and community engagement may pave the way for more holistic and sustainable environmental conservation practices globally. And regarding AI ethics, global effort is being made to regulate AI in its potential use case. Europe has become the first continent to prepare AI regulatory frameworks as of Dec 11, 2023 and US congress is working on detailed frameworks for AI ethics. We all can be hopeful about AI regulation, but it will take long time to be enforced and implemented in the field. All we can do  is hope for Optimistic future of AI use in environment conservation.</p></blockquote>
+
+
+## Media Links
 
 - Fruitpunch AI. [Fruitpunch](https://www.fruitpunch.ai/)
 
 - Microsoft AI at Masai Mara. [Video](https://www.youtube.com/watch?v=nj7nbdSe0wE)
+
+- AI regulation Europe [Europe AI regulation](https://www.linkedin.com/pulse/europes-approach-regulating-ai-azeem-azhar%3FtrackingId=Nqlc4Z2QSCCzQ7dbDTcC1Q%253D%253D/?trackingId=dHV%2F0224T3Gk8VIqRzdn1g%3D%3D)
 
 ## References
 
@@ -118,6 +135,8 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 - Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. *Nature Machine Intelligence, 1*(9), 389–399. [https://doi.org/10.1038/s42256-019-0088-2](https://doi.org/10.1038/s42256-019-0088-2)
 
 - Owe, A., & Baum, S. D. (2021). Moral consideration of nonhumans in the ethics of artificial intelligence. *AI and Ethics, 1*(4), 517–528. [https://doi.org/10.1007/s43681-021-00065-0](https://doi.org/10.1007/s43681-021-00065-0)
+
+- Schirpke, U., Tasser, E., Borsky, S., Braun, M., Eitzinger, J., Gaube, V., et al. (2023). *Past and future impacts of land-use changes on ecosystem services in Austria*. Journal of Environmental Management, 345(May), 118728.   [https://doi.org/10.1016/j.jenvman.2023.118728](https://doi.org/10.1016/j.jenvman.2023.118728)
 
 
 
