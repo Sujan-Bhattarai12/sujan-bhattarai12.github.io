@@ -6,9 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sujan Bhattarai">
-<meta name="dcterms.date" content="2022-10-24">
-<meta name="description" content="False Color Image to Detect Fire Events">
 
 <title>False Color Image Analysis</title>
 <style>
@@ -145,44 +142,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">False Color Image Analysis</h1>
-                  <div>
-        <div class="description">
-          False Color Image to Detect Fire Events
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Quarto</div>
-                <div class="quarto-category">Geospatial analysis</div>
-                <div class="quarto-category">Python</div>
-              </div>
-                  </div>
+                      </div>
   </div>
     
-  <div class="quarto-title-meta-author">
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://sujan-bhattarai12.github.io/">Sujan Bhattarai</a> </p>
-    </div>
-      <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              <a href="https://ucsb-meds.github.io/">
-              Master of Environmental Data Science Program @ The Bren School (UCSB)
-              </a>
-            </p>
-        </div>
-      </div>
-
+  
   <div class="quarto-title-meta">
 
-        
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">October 24, 2022</p>
-      </div>
-    </div>
+      
     
       
     </div>
@@ -262,7 +228,7 @@ Development and Deployment of Artificial Intelligence in Environmental Conservat
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Rectangle</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.widgets <span class="im">import</span> Button</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire events around california.</p>
+<p>The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"data/landsat8-2018-01-26-sb-simplified.nc"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>landsat <span class="op">=</span> rioxr.open_rasterio(data_path)</span>
