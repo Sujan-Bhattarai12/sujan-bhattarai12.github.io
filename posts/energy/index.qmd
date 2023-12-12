@@ -7,7 +7,7 @@ format: html
 editor: visual
 ---
 
-The required data is download from the Kaggle
+The required data is download from the Kaggle:
 
 (link: https://www.kaggle.com/datasets/anshtanwar/global-data-on-sustainable-energy)
 

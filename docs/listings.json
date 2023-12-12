@@ -3,14 +3,16 @@
     "listing": "/projects.html",
     "items": [
       "/posts/energy/index.html",
-      "/posts/12-09-2020-AI-ethics/index.html"
+      "/posts/12-09-2020-AI-ethics/index.html",
+      "/posts/False_color_analysis/index.html"
     ]
   },
   {
     "listing": "/posts.html",
     "items": [
       "/posts/energy/index.html",
-      "/posts/12-09-2020-AI-ethics/index.html"
+      "/posts/12-09-2020-AI-ethics/index.html",
+      "/posts/False_color_analysis/index.html"
     ]
   }
 ]
