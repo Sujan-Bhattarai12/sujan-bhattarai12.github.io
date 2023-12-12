@@ -1,16 +1,5 @@
 ---
 title: "False Color Image Analysis"
-description: "False Color Image to Detect Fire Events"
-author:
-  - name: "Sujan Bhattarai"
-    url: "https://sujan-bhattarai12.github.io/"
-    affiliation: "Master of Environmental Data Science Program @ The Bren School (UCSB)"
-    affiliation-url: "https://ucsb-meds.github.io/"
-date: "2022-10-24"
-categories:
-  - "Quarto"
-  - "Geospatial analysis"
-  - "Python"
 format:
   html:
     code-fold: false
