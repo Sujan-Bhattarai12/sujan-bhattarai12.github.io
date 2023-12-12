@@ -1,0 +1,224 @@
+---
+title: "False Color Image Analysis"
+description: "False Color Image to Detect Fire Events"
+author:
+  - name: "Sujan Bhattarai"
+    url: "https://sujan-bhattarai12.github.io/"
+    affiliation: "Master of Environmental Data Science Program @ The Bren School (UCSB)"
+    affiliation-url: "https://ucsb-meds.github.io/"
+date: "2022-10-24"
+categories:
+  - "Quarto"
+  - "Geospatial analysis"
+  - "Python"
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Development and Deployment of Artificial Intelligence in Environmental Conservation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+    }
+    
+    .special-paragraph {
+      color: #ff0000; /* Red font color - you can change this */
+     font-style: italic; /* Bold font - you can change this */
+    }
+
+    blockquote {
+      margin: 20px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-left: 5px solid #428bca;
+    }
+  </style>
+</head>
+<body>
+
+### Investigating the Air Quality During the Thomas Fire
+
+A false color image is an image in which colors are assigned to represent features that may not be visible in the natural spectrum. In environmental studies, false color imagery is crucial for highlighting and distinguishing various environmental elements, such as vegetation health, land cover changes, and pollution levels. By mapping different attributes to distinct colors, false color images provide  with valuable information for assessing and monitoring environmental conditions, aiding in the analysis of ecosystems, climate patterns, and overall environmental health.
+
+In this short analysis, I use false color image to detect Thomas fire event in Santa Barbara County. The analysis involves fetching raster data from open data source from Microsoft Planetary Computer and california government websites.
+
+ All the required packages are installed using pip installer. For this blog, I used base environment of Python3 becuase there was no necessity to download heavy packages for the analysis. Plus, all required packages for the anlaysis are python only dependent so pip installer is used as downloading medium.
+
+```{python}
+#load all required libraries
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import xarray as xr
+import rioxarray as rioxr
+import geopandas as gpd
+from rasterio.features import rasterize
+import matplotlib.dates as mdates
+from matplotlib.patches import Rectangle
+from matplotlib.widgets import Button
+```
+
+ The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire events around california.
+
+
+```{python}
+data_path = os.path.join(os.getcwd(), "data/landsat8-2018-01-26-sb-simplified.nc")
+landsat = rioxr.open_rasterio(data_path)
+# squeeze the band dimension, as it creates problem in plotting,
+# also create dublicate, original unchanged might be required
+landsat1 = landsat.squeeze(['band'])
+
+fire = gpd.read_file("data/California_Fire_Perimeters_2017/California_Fire_Perimeters_2017.shp")
+fire.describe()
+```
+
+The three bands(NIR, SWIR, RED) are filtered for areas around Thomas fire area. The raster is adjusted with shapes and extent with another shape file, since shape file is used to extract area of interest(Thomas fire area) from whole california map. The false color bands are then plotted  for visualization purpose.
+
+```{python}
+#| code-fold: true
+
+#select only thomas fire  
+thomas_fire = fire[fire['FIRE_NAME'] == 'THOMAS'] 
+
+#check if value is only Thomas 
+for index, name in thomas_fire['FIRE_NAME'].items():
+    if name != 'THOMAS':
+        raise('DOUBLE CHECK')
+```
+
+```{python}
+#| code-fold: true
+#change the crs to match with landsat                              
+thomas_fire = thomas_fire.to_crs(landsat.rio.crs)
+
+#validate if they are equal
+thomas_fire.crs == landsat.rio.crs
+
+#also save the false color image of the landsat, it will be required in plotting
+false_color_data = landsat1[['swir22', 'nir08', 'red']].to_array()
+```
+```{python}
+# Data is all set to plot
+fig, ax = plt.subplots(figsize=(5, 5))
+
+false_color_data.plot.imshow(ax=ax, cmap='inferno', robust = True)
+ak_patch = mpatches.Patch(color='lightgreen', 
+                          alpha = 0.8,
+                          label='False color image for fire predictions')
+
+thomas_fire.plot(ax=ax, edgecolor = 'red', color= 'yellow', alpha = 1)
+kodiak_patch = mpatches.Patch(color='yellow', 
+                              alpha = 1,
+                              label='Fire occured')
+
+ax.legend(handles = [ak_patch, kodiak_patch], 
+          frameon=False, 
+          loc='lower left',
+          labelcolor = 'white' ) #create legend
+
+ax.get_xaxis().set_visible(False) #remove xaxis label
+ax.get_yaxis().set_visible(False) #remove yaxis label
+```
+
+The false color image for the thomas fire is plotted in the graph above. Now, evaluate the air quality during, before and after the thomas fire to detect if significant changes occured. The tabular daily data for air quality for the region is available in the [site](https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2017.zip). Download data for both 2017 and 2018 and evaluate the values.
+
+The new air quality data requires some cleaning like spaces in names, inconsistent column names, and includes data for all countries in California. So, clean all the data, lowercase the column names, bind 2017 and 2018 data, replace spaces with underscore in column names, change date to datetime formats that can be recognized by python.
+
+```{python}
+##air quality index
+##webscrape the two dataset based on the guidelines
+aqi_17 = pd.read_csv("https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2017.zip")
+aqi_18 = pd.read_csv("https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2018.zip")
+##concatnate the two datasets, this will be useful in plotting
+aqi = pd.concat([aqi_17, aqi_18])
+
+#check if both 2017 and 2018 data is present
+print(f"{aqi['Date'].head(2)} \n {aqi['Date'].tail(2)}")
+
+# re-assign the column names - .str.lower() makes them lower case
+aqi.columns = aqi.columns.str.lower()
+
+#  re-assign the column names again - .str.replace(' ','_') replaces the space for _
+aqi.columns = aqi.columns.str.replace(' ','_')
+
+# Select data from Santa Barbara county
+aqi_sb = aqi[aqi['county_name'] == 'Santa Barbara']
+
+# Remove specified columns
+col_remove = ['state_name', 'county_name', 'state_code', 'county_code']
+aqi_sb = aqi_sb.drop(columns=col_remove)
+
+##date is in object format, and not in standard datetime python object
+# Convert 'Date' column to datetime
+aqi_sb['date'] = pd.to_datetime(aqi_sb['date'])  
+```
+
+After the data is cleaned, perform the smoothing by calculating moving average for the air quality value. Rolling average with period of 20D offers general average for 20Days. Any other values can be used other than 20.
+
+```{python}
+# Set 'Date' as the index
+aqi_sb.set_index('date', inplace=True)
+#  DataFrame with the Date column as the index
+aqi_sb['five_day_average'] = aqi_sb.aqi.rolling('20D').mean()
+```
+
+At last, plot the change in air quality over the span of two years. There's a clear spike at one point where thomas fire occured. The line graph, along with the rolling average for period of 20 days is enough evidence here to show that air qulaity in Santa Barbara area was impacted by thomas fire events.
+
+```{python}
+# set the plot style
+plt.style.use('seaborn-darkgrid')
+
+# Create a white background
+fig, ax = plt.subplots(figsize=(10, 6))
+fig.patch.set_facecolor('white')
+ax.set_facecolor('white')
+
+# Plot the data
+ax.plot(aqi_sb.index, aqi_sb['aqi'], label='Daily AQI avlu', color='#00AA00')
+ax.plot(aqi_sb.index, aqi_sb['five_day_average'], label='5-Day Average', color='#FFFF00')
+
+# Set the title and labels
+plt.title('Daily air quality and 5-day rolling average in Santa Barbara')
+plt.xlabel('Date')
+plt.ylabel('Air Quality Index')
+plt.legend()
+
+# Add grid for better readability
+ax.grid(True, linestyle='--', alpha=0.7)
+
+# Customize y-axis ticks
+ax.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
+
+# Set the axis ticks to be outside the plot
+ax.tick_params(axis='both', direction='out')
+
+# Remove top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+##add rectangle zoom
+# Add a rectangular zoom box
+zoom_date = '2017-12'  # Replace with your desired zoom date
+rect = Rectangle((mdates.datestr2num(zoom_date), ax.get_ylim()[0]),
+                 20, 150, linewidth=2, edgecolor='r', facecolor='none')  # Adjust rectangle size as needed
+ax.add_patch(rect)
+plt.show()
+```
