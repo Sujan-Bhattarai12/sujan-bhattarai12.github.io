@@ -65,7 +65,7 @@ from matplotlib.patches import Rectangle
 from matplotlib.widgets import Button
 ```
 
- The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire events around california.
+ The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara.
 
 
 ```{python}
