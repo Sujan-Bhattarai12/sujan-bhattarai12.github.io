@@ -271,4 +271,4 @@ Upon downloading and cleaning the air quality data, aligning coordinate referenc
 The utilization of line graphs, coupled with a 20-day rolling average, served as effective tools to illustrate the temporal fluctuations in air quality. The identified spike at the time of the Thomas fire provides clear evidence of the event's influence on the region's air quality. This integrated approach, combining imagery, data analysis, and visualization, enhances our understanding of the broader environmental implications of such natural disasters and underscores the importance of comprehensive monitoring and analysis in safeguarding environmental well-being.
 
 #### Offline Data and Folder structure at:
-[Github](https://github.com/Sujan-Bhattarai12/task3-eds220)
+[Github](https://github.com/Sujan-Bhattarai12/False_color_image_analysis)
