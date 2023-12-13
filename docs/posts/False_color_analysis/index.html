@@ -265,7 +265,23 @@ For this blog, I opted to utilize the base environment of Python3 to avoid the n
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.widgets <span class="im">import</span> Button</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara.</p>
+<p>The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara. The link to data sources are:</p>
+<p>## Data Citation</p>
+<ul>
+<li><strong>False Color Raster Image:</strong>
+<ul>
+<li>Retrieved from the <a href="https://planetarycomputer.microsoft.com/catalog">Microsoft Planetary Computer catalog</a>.</li>
+</ul></li>
+<li><strong>California Shapefile:</strong>
+<ul>
+<li>Downloaded from <a href="https://gis.data.ca.gov/datasets/CALFIRE-Forestry::california-fire-perimeters-all-1/about">California State GIS Data</a>.</li>
+</ul></li>
+<li><strong>Air Quality Data:</strong>
+<ul>
+<li><a href="https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2017.zip">2017 Daily AQI Data</a></li>
+<li><a href="https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2018.zip">2018 Daily AQI Data</a></li>
+</ul></li>
+</ul>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">##set the directory for the data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"data/landsat8-2018-01-26-sb-simplified.nc"</span>)</span>
@@ -276,7 +292,7 @@ For this blog, I opted to utilize the base environment of Python3 to avoid the n
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fire <span class="op">=</span> gpd.read_file(<span class="st">"data/California_Fire_Perimeters_2017/California_Fire_Perimeters_2017.shp"</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>fire.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="76">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -460,7 +476,7 @@ Coordinates:
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>ax.get_xaxis().set_visible(<span class="va">False</span>) <span class="co">#remove xaxis label</span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>ax.get_yaxis().set_visible(<span class="va">False</span>) <span class="co">#remove yaxis label</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-6-output-1.png" width="391" height="351"></p>
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="396" height="356"></p>
 </div>
 </div>
 <p>

@@ -78,7 +78,19 @@ from matplotlib.widgets import Button
 from tabulate import tabulate
 ```
 
- The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara.
+ The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara. The link to data sources are:
+
+ ## Data Citation
+
+- **False Color Raster Image:**
+  - Retrieved from the [Microsoft Planetary Computer catalog](https://planetarycomputer.microsoft.com/catalog).
+
+- **California Shapefile:**
+  - Downloaded from [California State GIS Data](https://gis.data.ca.gov/datasets/CALFIRE-Forestry::california-fire-perimeters-all-1/about).
+
+- **Air Quality Data:**
+  - [2017 Daily AQI Data](https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2017.zip)
+  - [2018 Daily AQI Data](https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2018.zip)
 
 
 ```{python}
