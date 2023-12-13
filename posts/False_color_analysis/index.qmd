@@ -1,13 +1,11 @@
 ---
-title: "Detection of Forest fires using false color analysis in Santa Barbara during Thomas fire"
+title: "Detection of Forest fire using false color Image analysis"
 format:
   html:
     code-fold: false
 author:
   - name: Sujan Bhattarai
-    url: https://sujan-bhattarai12.github.io/
-    affiliation: "Master of Environmental Data Science Program @ The Bren School (UCSB)"
-date: "2023"
+date: "2023-12-15"
 categories: [Python]
 jupyter: python3
 ---
@@ -49,19 +47,20 @@ jupyter: python3
 
 ## Introduction: False Color Image
 
-A false color image involves assigning colors to represent features not easily visible in the natural spectrum. In environmental studies, false color imagery plays a crucial role in highlighting and distinguishing various environmental elements, such as the health of vegetation, changes in land cover, and levels of pollution. By associating different attributes with distinct colors, false color images offer valuable information for assessing and monitoring environmental conditions. They aid in the analysis of ecosystems, climate patterns, and overall environmental health. The provided image illustrates how false color can be applied to enhance the detection of changes.
+A false color image involves assigning colors to represent features not easily visible in the natural spectrum. In environmental studies, false color imagery plays a crucial role in highlighting and distinguishing various environmental elements, such as the health of vegetation, changes in land cover, and levels of pollution. By associating different attributes with distinct colors, false color images offer valuable information for assessing and monitoring environmental conditions. They aid in the analysis of ecosystems, climate patterns, and overall environmental health. The provided image belwo illustrates how false color can be applied to enhance the detection of changes. The image in the right is false color that highlights spherules in rocks in Mars. [further information about the image](https://mars.nasa.gov/resources/5838/stone-mountain/)
 
 <figure>
 <img src="https://www.universetoday.com/wp-content/uploads/2007/10/2007-1001marsrock1.jpg" alt="False Color image comparison">
 <figcaption>Figure 1: Stone mountain rock outcrop in true and false colour. Image credit: NASA/JPL</figcaption>
 </figure>
 
-In this brief analysis, false color imagery is employed to identify the Thomas fire event in Santa Barbara County. The process involves retrieving raster data from open data sources, specifically from Microsoft Planetary Computer and California government websites.
+In this brief analysis, false color imagery is employed to identify the Thomas fire event in Santa Barbara County. The process involves retrieving raster data from open data sources, specifically from Microsoft Planetary Computer and California government websites. The data sources are their citations are listed in Data Citation heading.
 
 <blockquote><p> 
 For this blog, I opted to utilize the base environment of Python3 to avoid the need for downloading resource-intensive packages for the analysis, which could potentially consume significant memory resources. Additionally, I streamlined the installation process by employing the pip installer for all the required packages, including geopandas and rioxarray.</p></blockquote>
 
 ```{python}
+#| code-fold: true
 #load all required libraries
 import os
 import numpy as np
@@ -78,9 +77,8 @@ from matplotlib.widgets import Button
 from tabulate import tabulate
 ```
 
- The downloaded raster image stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the california fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara. The link to data sources are:
-
- ## Data Citation
+## Data Citation {#data-citation}
+ The downloaded raster image(in the chunk below) stores five bands of wavelengths : red, green, blue, near infrared, and shortwave. The near infrared, shortwave and red bands will be used in detection of fire plumes. Likewise, the California fire information is downloaded from California state goverment website, which stores information about fire event around california, Santa Barbara. The links to data sources are:
 
 - **False Color Raster Image:**
   - Retrieved from the [Microsoft Planetary Computer catalog](https://planetarycomputer.microsoft.com/catalog).
@@ -94,6 +92,7 @@ from tabulate import tabulate
 
 
 ```{python}
+#| code-fold: true
 ##set the directory for the data
 data_path = os.path.join(os.getcwd(), "data/landsat8-2018-01-26-sb-simplified.nc")
 landsat = rioxr.open_rasterio(data_path)
@@ -108,9 +107,10 @@ fire.describe()
 The three bands(NIR, SWIR, RED) are filtered for areas around Thomas fire area. The raster is adjusted with shapes and extent with another shape file, since shape file is used to extract area of interest(Thomas fire area) from whole california map. The false color bands are then plotted for visualization purpose.
 
 ## Data Wrangling
-```{python}
-#| code-fold: false
+The first step in Data wrangling involves subsetting the data only for the area of the interest. Then, the CRS of both datasets is matched, or converted as per CRS of other dataset. Converting CRS is important for accurate merging of the two raste files. Next, the grid cells of netcdf data is converted to array representing list of lists(). The format of the NetCDF data-array looks as the ouput below.
 
+```{python}
+#| code-fold: True
 #select only thomas fire  
 thomas_fire = fire[fire['FIRE_NAME'] == 'THOMAS'] 
 
@@ -119,8 +119,6 @@ for index, name in thomas_fire['FIRE_NAME'].items():
     if name != 'THOMAS':
         raise('DOUBLE CHECK')
 ```
-
-The CRS of both datasets is matched, or converted as per CRS of other dataset. Then the grid cells of netcdf data is converted to array representing list of lists(). The format looks as the ouput below.
 
 ```{python}
 #| code-fold: true
@@ -137,8 +135,10 @@ print(false_color_data[1])
 ```
 
 ## Data Visualization
-The dataset is all ready for plotting. Since, it's an array object, imshow function will be used.
+The dataset is ready for visualization. Since, it's an array object, imshow function is used.
+The output image is the raster image and shows different colors for areas where fire occured.
 ```{python}
+#| code-fold: true
 # Data is all set to plot
 fig, ax = plt.subplots(figsize=(5, 5))
 
@@ -147,9 +147,9 @@ ak_patch = mpatches.Patch(color='lightgreen',
                           alpha = 0.8,
                           label='False color image for fire predictions')
 
-thomas_fire.plot(ax=ax, edgecolor = 'red', color= 'yellow', alpha = 1)
+thomas_fire.plot(ax=ax, edgecolor = 'red', color= 'yellow', alpha = 0.3)
 kodiak_patch = mpatches.Patch(color='yellow', 
-                              alpha = 1,
+                              alpha = 0.5,
                               label='Fire occured')
 
 ax.legend(handles = [ak_patch, kodiak_patch], 
@@ -161,7 +161,7 @@ ax.get_xaxis().set_visible(False) #remove xaxis label
 ax.get_yaxis().set_visible(False) #remove yaxis label
 ```
 
-<p>The graph above displays the false color image of the Thomas fire. Now, let's examine the air quality during, before, and after the Thomas fire to spot any notable changes. You can retrieve the tabular daily air quality data for the region from the <a href="https://aqs.epa.gov/aqsweb/airdata/daily_aqi_by_county_2017.zip">provided website</a>. To carry out this assessment, download the data for both 2017 and 2018.</p>
+<p>The graph above displays the false color image of the Thomas fire. Now, examine the air quality during, before, and after the Thomas fire to spot any notable changes. You can retrieve the tabular daily air quality data for the region from the <a href="#data-citation">Data Citation</a>  section. To carry out this assessment, download the data for both 2017 and 2018.</p>
 <p>Prior to moving forward, it's crucial to acknowledge that the new air quality data needs some cleaning. Issues like spaces in names, inconsistent column names, and the inclusion of data for all counties in California need attention. Therefore, execute the following cleaning procedures:</p>
 
   <ol>
@@ -264,7 +264,7 @@ plt.show()
 ```
 
 ## Conclusion
-In conclusion, our exploration into the impact of the Thomas fire on the Santa Barbara area has uncovered crucial insights through the combination of false color imagery and air quality data analysis. The false color image provided a visual representation of the fire event, while the examination of air quality data from 2017 and 2018 allowed us to discern notable changes.
+In conclusion, this exploration into the impact of the Thomas fire on the Santa Barbara area has uncovered crucial insights through the combination of false color imagery and air quality data analysis. The false color image provided a visual representation of the fire event, while the examination of air quality data from 2017 and 2018 allowed us to discern notable changes.
 
 Upon downloading and cleaning the air quality data, aligning coordinate reference systems, and converting netCDF grid cells into a structured array, a comprehensive dataset emerged. The subsequent plotting of air quality changes over the two-year period, along with a discernible spike corresponding to the Thomas fire, painted a compelling narrative of the environmental impact.
 
