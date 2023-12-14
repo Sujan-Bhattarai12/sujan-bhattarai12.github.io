@@ -1,0 +1,353 @@
+---
+title: "Coding_analysis"
+author: "Sujan Bhattarai"
+format: html
+editor: visual
+---
+
+## Research Questions
+
+-   investigate burning or decomposing of crop residues context in South Asia and its contribution to air pollution
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+##Load all required libraries
+library(tidyverse)
+library(readr)
+library(gt)
+library(tufte)
+library(feasts)
+library(here)
+library(janitor)
+```
+
+```{r}
+##read the data and clean the name 
+data_world_bank <- read_csv(here("posts", "southAsia_crop","data",
+                                 "Agrofood_co2_emission.csv"),
+                                 show_col_types = FALSE) %>%
+                   janitor::clean_names()
+
+#filter data for south asia
+south_asian_countries <- c("Nepal", "India", "Bangladesh", "Sri Lanka", "Pakistan",
+                          "Afghanistan", "Maldives")
+                          
+#just filter for south asian region
+south_asian_data <- data_world_bank %>% 
+                    filter(area %in% c(south_asian_countries)) %>% 
+                    mutate(year = as.numeric(year))
+
+```
+
+The emission data has been prepared for south Asia. Now, bring the air quality data of south Asian nations from the world bank database. Clean, transform and arrange the data.
+
+```{r}
+##read the data and transpose it to form a database
+#link to the data: 
+aqi_world_bank1 <- read_csv(here("posts", "southAsia_crop","data", "aqi.csv")) %>% 
+                   clean_names() %>% 
+                   t()
+
+##Perform data cleaning 
+aqi_world_bank <- data.frame(cbind(year1 = rownames(aqi_world_bank1), 
+                                   aqi_world_bank1)) %>%  
+                  mutate(year = as.numeric(sub(".*yr(\\d{4}).*", "\\1", year1)))
+
+##filter only those rows where column is not equal to NA
+
+aqi_world_bank <- aqi_world_bank %>% 
+                  filter(!is.na(year))
+
+##select only required columns and rename bad-columns 
+aqi_world_bank <- aqi_world_bank %>% 
+                  select(year = year, 'aqi_value' = 'V2') %>% 
+                  rownames_to_column(var = "RowID") %>% #drop the index, not required
+                  select(-RowID)
+
+##arrange the data based on numeric columns
+aqi_world_bank <- aqi_world_bank %>% 
+                  arrange(year) %>% 
+                  mutate(year = as.numeric(year))
+             
+```
+
+The air quality data has been downloaded and cleaned as required. The next step is to combine the data frames and keep only the required columns
+
+```{r}
+##filter columns from the first dataset 
+SA_reduced_columns <- south_asian_data %>% 
+                      select(area, year, crop_residues, average_temperature_c)
+
+##group by year and summarize for all countries
+SA_summarized  <- SA_reduced_columns %>% 
+                      group_by(year) %>% 
+                      summarize(crop_residues = sum(crop_residues),
+                                temp_average  = mean(average_temperature_c))
+
+##left join with aqi world bank 
+SA_emission <- left_join(SA_summarized, aqi_world_bank, by = "year") %>% 
+               mutate(aqi_value = as.numeric(aqi_value))
+
+```
+
+```{r}
+# perform exploratory data analysis 
+ggplot(SA_emission, aes(x = year, crop_residues)) +
+  geom_line (stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "Emission from Crop Residues burning in South Asian Countries",
+       x = "Year",
+       y = "Emission (Metric ton)") +
+  theme_minimal()
+
+```
+
+```{r}
+##autoplot
+# fit a regression model of air quality
+# independently check crop residues with air quality
+# include temperature with aqi index, adding interaction between crop residues
+ggplot(SA_emission, aes(year, aqi_value)) +
+  geom_line(color = "blue") +
+  labs(title = "Average air quality increase in South Asian Countries since 1990",
+       x = "Year",
+       y = "AQI value") +
+  ylim(c(0, 10))+
+  theme_minimal()
+
+```
+
+```{r}
+#correlation between these two plots
+cor(SA_emission$aqi_value, SA_emission$crop_residues)
+```
+
+There's already a hint that AQI is not related to crop residues if taken account the factor of annual basis since the correlation is very weak. But, lets see what the model has to say:
+
+Try transforming data, or smoother the data to detect the pattern
+
+```{r}
+library(slider)
+SA_emission <- SA_emission %>% 
+               mutate(aqi_avearge = slide_dbl(aqi_value, mean, .before = 10, 
+                                              .complete = TRUE))
+
+
+cor(SA_emission$aqi_avearge, SA_emission$crop_residues, use = "na.or.complete")
+
+```
+
+Now, I propose a hypothesis:
+
+-   no change in aqi value with crop residues
+-   change in aqi value with crop residues
+
+```{r}
+##without strong correlation, I cannot use the linear regression model
+##which means my estimation of the coeffcients would be insignificant
+MODEL = lm(data = SA_emission, aqi_avearge ~ crop_residues)
+summary(MODEL)
+```
+
+Based on the model, there is statistical relationships between air quality index at 95% significance level. Thus, I reject the null hypothesis.
+
+Since there is association between air quality and emission from crop burning, the next steps involves finding the south Asian country has the highest emission.
+
+```{r}
+#further data exploration
+ggplot(south_asian_data, aes(year, crop_residues, color = area)) +
+  geom_point() +
+  facet_grid(cols = vars(area)) +
+  labs(
+    x = "Year 1990-2020",
+    y = "Emission from Crop Burning"
+  ) +
+  theme(
+      # Remove x-axis title
+    axis.text.x = element_blank()    # Remove x-axis labels
+  )+
+  scale_x_continuous(breaks = seq(min(south_asian_data$year), max(south_asian_data$year), by = 30))  # Adjust the breaks as needed
+
+# Save the plot
+ggsave("explore.png", width = 10, height = 5)
+```
+
+If this graph tells India has the highest value(which should make sense since it has the highest area). Normalize the area by cultivable total-agricultural land in South Asia. Fetch the data from world-bank.
+
+```{r}
+#create a dataframe including values for agricultural land in these countries
+total_agri_area <- read_csv(here("posts", "southAsia_crop","data", "area_sa.csv"))
+
+colnames(total_agri_area)
+
+total_agri_area <- total_agri_area %>%  select(-c(`Country Code`, `Indicator Code`)) %>%                    filter(`Country Name` %in% south_asian_countries)
+
+##Pivot longer the data
+transposed <- total_agri_area %>% pivot_longer(cols = "1960": "2022") %>% 
+              na.omit() %>% 
+              filter(name  >= 1990) %>% 
+              rename("area_cultivable"= "value", "year"= "name", 'area' = 'Country Name') %>% 
+  mutate(year = as.numeric(year))
+transposed
+                   
+```
+
+```{r}
+# Divide crop residues by total agricultural land 
+##SA_asian_data has the required ID for the division
+normalized_area <- left_join(south_asian_data, transposed, by = c("area", "year")) 
+
+normalized_area <- normalized_area %>% 
+                   mutate( norm_crop_residue = crop_residues/area_cultivable * 10^6)
+
+```
+
+```{r}
+## now normalize the area
+ggplot(normalized_area, aes(year, norm_crop_residue, color = area))+
+  geom_point()+
+  facet_grid(cols = vars(area), scales = "free_x")+
+  theme_bw()+
+  theme(axis.text.x = element_blank())+
+   scale_color_discrete(name = "Country") + 
+ labs(
+    x = "Year 1990-2020",
+    y = "Emission from Crop Burning per cultivable area"
+  ) +
+  theme(
+      # Remove x-axis title
+    axis.text.x = element_blank()    # Remove x-axis labels
+  )+
+  scale_x_continuous(breaks = seq(min(south_asian_data$year), max(south_asian_data$year), by = 30))  # Adjust the breaks as needed
+
+# Save the plot
+ggsave("explore2.png", width = 10, height = 5)
+```
+
+So, there's the issue. Bangladesh has so much burn of crop residues per cultivable land. After that, we have Nepal (this is my country)
+
+Now, Bangladesh has the greatest emissions from crop residues in South Asia. So, how strong is the relationship between crop residues and air quality?
+
+```{r}
+# just work for bangladesh
+# Your initial data
+data <- c(52.90993831, 51.64362616,
+53.74695817, 55.06194439, 56.41649854, 60.5358739, 68.94271136, 66.42738113, 73.27082296, 68.97033719, 67.7673598, 62.75318316, 63.27546257)
+
+# Duplicate the first two values four times each
+data <- c(rep(data[1:5], each = 4), data[3:length(data)])
+
+# Create a data frame with a single column
+Bangladesh <- data.frame(aqi_value = data)
+
+```
+
+```{r}
+#combine this with SA Data for Bangladesh only
+bangladesh_filtered <- normalized_area  %>%
+                       filter(area ==  "Bangladesh") %>% 
+                       cbind(Bangladesh)
+```
+
+```{r}
+##test the model here
+model_bangladesh <- lm(data = bangladesh_filtered, aqi_value ~ crop_residues)
+summary(model_bangladesh)
+```
+
+Now, its sure there is some evidence, plot if there is seasonality in air quality index value rising up. Based on my knowledge, there should be a seasonality at specific part of the month every year where crop residues contributes the most.
+
+Fetch the hourly data of Bangladesh, aggregate based on days and observe the seasonality.
+
+```{r}
+files_list <- list.files(here("posts", "southAsia_crop", "data"), 
+                         pattern = "^Dhaka.*\\.csv$")
+daily_aqi <- data.frame()
+
+# Loop through each file name and read the data
+for (file in files_list) {
+  file_path <- here::here("posts", "southAsia_crop", "data", file)  # Adjust the path accordingly
+  x <- readr::read_csv(file_path)
+  daily_aqi <- dplyr::bind_rows(daily_aqi, x)
+}
+  
+##filter where all air quality index values are -999
+daily_aqi_filtered <- daily_aqi  %>% 
+                      filter(!AQI == -999)
+```
+
+It's not useful to conduct time-series analysis by a Daily basis, because crop burning depends every month and not daily. For example: villagers might burn crop residues only in those where there's less wind. And since thousands of villagers exist, they will burn it on a different day. But, there is no online source where I could find monthly data of crop emission. So, we will plot time series for montly air quality.
+
+```{r message = FALSE}
+library(feasts)
+daily_aqi_filtered <- daily_aqi_filtered %>%
+                      mutate(date_column = as.Date(daily_aqi_filtered$`Date (LT)`, 
+                            format = "%m/%d/%Y %H:%M")) %>% 
+                      na.omit()
+
+plot(daily_aqi_filtered$AQI)
+```
+
+```{r}
+library(tsibble)
+library(forecast)
+
+# Aggregate by month
+monthly_aggregated <- daily_aqi_filtered %>%
+                      mutate(month = month(date_column),
+                             year = year(date_column)) %>% 
+                      group_by(year, month) %>% 
+                      summarize(aqi_sum = mean(AQI)) %>% 
+                      mutate(date_column = make_date(year, month))
+
+##convert this to tsibble
+df <- monthly_aggregated %>%
+      mutate(date = yearmonth(date_column))
+df <- as_tsibble(df, index = date)
+df <- df[c('date', 'aqi_sum')]
+
+df %>%
+  stl(t.window = 13, s.window = "periodic", robust = TRUE) %>%
+  autoplot() +
+  ggtitle("STL Decomposition") +
+  labs(x = "Time", y = "Value") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 16, face = "bold"),
+        axis.title = element_text(size = 14),
+        axis.text = element_text(size = 12),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12))
+```
+
+For this time series, I don't expect seasonality based on my knowledge. But, decompose and observe if that is wrong. There's seasonality. To understand the relationships, monthly data is required, which I could not find.
+
+However, we can forecast using multiple forecasting model to see the best model that can predict the best. Seems like the combination model works best.
+
+```{r}
+Bangladesh_crop <- ts(bangladesh_filtered$crop_residues, start=1990, frequency=1)
+
+train <- window(Bangladesh_crop, end=2010)
+h     <- 20  # Forecasting for the next 5 years (12 months per year)
+ETS   <- forecast(ets(train), h=h)
+ARIMA <- forecast(auto.arima(train, lambda=0, biasadj=TRUE), h=h)
+NNAR  <- forecast(nnetar(train), h=h)
+TBATS <- forecast(tbats(train, biasadj=TRUE), h=h)
+
+# Combine forecasts for the next 5 years
+Combination <- (ETS[["mean"]] + ARIMA[["mean"]] +
+                NNAR[["mean"]] + TBATS[["mean"]]) / 4 
+```
+
+```{r}
+autoplot(Bangladesh_crop) +
+  autolayer(ETS, series="ETS", PI=FALSE) +
+  autolayer(ARIMA, series="ARIMA", PI=FALSE) +
+  autolayer(NNAR, series="NNAR", PI=FALSE) +
+  autolayer(TBATS, series="TBATS", PI=FALSE) +
+  autolayer(Combination, series="Combination") +
+  xlab("Year") + ylab("Emission from Crop Residues") +
+  ggtitle("Forecast crop emission in Bangladesh")+
+  theme_bw()
+```
