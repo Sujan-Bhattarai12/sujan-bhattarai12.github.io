@@ -401,7 +401,7 @@ autoplot(Bangladesh_crop) +
 ```
 According to the model, the yellow line demonstrates the closest fit to the actual trend. This yellow line represents a combination model, and its predictions can be extrapolated for the year 2030. As per this output, it is anticipated that Bangladesh's emissions will surpass 4000 tons by the year 2030.
 
-The end to end code for this project can be found at :[South_Asia_Github_link](https://github.com/Sujan-Bhattarai12/southasia_aqi.git)
+The end to end code for this project can be found at :[Github link](https://github.com/Sujan-Bhattarai12/southasia_aqi.git)
 
 ## Next Steps
 - valuate the accuracy of each individual model employed in the combination.

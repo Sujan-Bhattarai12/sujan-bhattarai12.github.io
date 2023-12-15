@@ -8,7 +8,7 @@
 
 <meta name="author" content="Sujan Bhattarai">
 
-<title>Association between Crop burning and Air quality in South Asian Nations</title>
+<title>Crop burning and Air quality in South Asia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Association between Crop burning and Air quality in South Asian Nations</h1>
+      <h1 class="title">Crop burning and Air quality in South Asia</h1>
                       </div>
   </div>
     
@@ -401,7 +401,7 @@ Multiple R-squared:  0.209, Adjusted R-squared:  0.176
 F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 </div>
 </div>
-<p>According to the model’s findings, there is a statistically significant correlation between the air quality index and crop residues. The data indicates that, on average, there is a 0.000097 kilotonnes increase in CO2 emissions for each one-unit rise in the air quality index between 2000 and 2020. This outcome aligns with expectations, as air quality is directly impacted by the smoke and dust emitted from burning crop residues. The subsequent analysis will focus on identifying the country with the highest emissions.</p>
+<p>According to the model’s findings, there is a statistically significant correlation between the air quality index and crop residues. The output indicates that, For each one-unit increase in the variable (crop_residues), the dependent variable (aqi_avearge) is estimated to increase by 9.431e-05 units, assuming all other factors remain constant. This outcome aligns with expectations, as air quality is directly impacted by the smoke and dust emitted from burning crop residues. The subsequent analysis will focus on identifying the country with the highest emissions.</p>
 </section>
 <section id="part-b" class="level2">
 <h2 class="anchored" data-anchor-id="part-b">Part B</h2>
@@ -587,7 +587,7 @@ Multiple R-squared:  0.6231,    Adjusted R-squared:  0.6101
 F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 </div>
 </div>
-<p>s per the model output, a 1-unit increase in the Air Quality Index is associated with a 0.008-ton rise in crop residues. The model’s Residual Square value stands at approximately 62%. The significance of the p-values, all below 5%, and the residual squared error value of 61% suggest that the model has performed well with the chosen variables.</p>
+<p>As per the model output, a 1-unit increase in the crop residues in Bangladesh Air Quality Index is associated with a 0.008-ton rise in AQI. The model’s Residual Square value stands at approximately 62%. The significance of the p-values, all below 5%, and the residual squared error value of 61% suggest that the model has performed well with the chosen variables.</p>
 </section>
 <section id="further-exploration" class="level2">
 <h2 class="anchored" data-anchor-id="further-exploration">Further Exploration</h2>
@@ -666,7 +666,7 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stl</span>(<span class="at">t.window =</span> <span class="dv">13</span>, <span class="at">s.window =</span> <span class="st">"periodic"</span>, <span class="at">robust =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"STL Decomposition"</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">""</span>) <span class="sc">+</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
@@ -729,6 +729,7 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 </div>
 </div>
 <p>According to the model, the yellow line demonstrates the closest fit to the actual trend. This yellow line represents a combination model, and its predictions can be extrapolated for the year 2030. As per this output, it is anticipated that Bangladesh’s emissions will surpass 4000 tons by the year 2030.</p>
+<p>The end to end code for this project can be found at :<a href="https://github.com/Sujan-Bhattarai12/southasia_aqi.git">South_Asia_Github_link</a></p>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
