@@ -404,7 +404,7 @@ According to the model, the yellow line demonstrates the closest fit to the actu
 The end to end code for this project can be found at :[Github link](https://github.com/Sujan-Bhattarai12/southasia_aqi.git)
 
 ## Next Steps
-- valuate the accuracy of each individual model employed in the combination.
+- Valuate the accuracy of each individual model employed in the combination.
 - Gather monthly data specifically for crop emissions to investigate whether winter months contribute significantly to the Air Quality Index (AQI) in South Asia.
 - Leverage World Bank data, which includes emissions for all countries worldwide, to implement clustering techniques for identifying groups of countries emitting similar amounts of CO2.
 
