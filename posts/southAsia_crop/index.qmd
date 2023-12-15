@@ -357,7 +357,7 @@ df <- df[c('date', 'aqi_sum')]
 df %>%
   stl(t.window = 13, s.window = "periodic", robust = TRUE) %>%
   autoplot() +
-  ggtitle("STL Decomposition") +
+  ggtitle("") +
   labs(x = "Time", y = "Value") +
   theme_minimal() +
   theme(plot.title = element_text(size = 16, face = "bold"),
