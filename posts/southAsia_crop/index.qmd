@@ -1,34 +1,23 @@
 ---
-title: "Association between Crop burning and Air quality in South Asian Nations"
+title: "Crop burning and Air quality in South Asia"
 author: "Sujan Bhattarai"
 format:
   html:
     code-fold: true
     code-summary: "Show the code"
 ---
+<style>
+  figure {
+    text-align: center;
+  }
+</style>
 
- <style>
-        img {
-            max-width: 70%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            float: left;
-        }
-        
-        figcaption {
-            margin-top: 10px;
-            text-align: center;
-        }
- </style>
 
 ```{r setup, include=FALSE}
 #| code-fold: true
 knitr::opts_chunk$set(
   warning = FALSE,
-  message = FALSE
-)
+  message = FALSE)
 ```
 
 ## Background
@@ -196,13 +185,13 @@ MODEL = lm(data = SA_emission, aqi_avearge ~ crop_residues)
 summary(MODEL)
 ```
 
-According to the model's findings, there is a statistically significant correlation between the air quality index and crop residues. The data indicates that, on average, there is a 0.000097 kilotonnes increase in CO2 emissions for each one-unit rise in the air quality index between 2000 and 2020. This outcome aligns with expectations, as air quality is directly impacted by the smoke and dust emitted from burning crop residues. The subsequent analysis will focus on identifying the country with the highest emissions.
+According to the model's findings, there is a statistically significant correlation between the air quality index and crop residues. The output indicates that, For each one-unit increase in the variable (crop_residues), the dependent variable (aqi_avearge) is estimated to increase by 9.431e-05 units, assuming all other factors remain constant. This outcome aligns with expectations, as air quality is directly impacted by the smoke and dust emitted from burning crop residues. The subsequent analysis will focus on identifying the country with the highest emissions.
 
 ## Part B
 In this analysis, I replicated the methodology employed in the initial phase, with a slight alteration in the data transformation process. Instead of utilizing a rolling mean, I opted to normalize the data by the total cultivable area. To elaborate, the graph presented illustrates emissions categorized by country. However, this representation is biased due to the fact that India, with its larger area and population, naturally yields a higher total emission. To address this bias, the emission values were divided by the total cultivable area within each country, resulting in emissions per unit of cultivable area. This approach is more precise and provides a more accurate assessment.
 
 ```{r}
-#| Total crop burning emission in Each south Asian Nations since 1990
+#| fig-cap: Total crop burning emission in Each south Asian Nations since 1990
 #further data exploration
 ggplot(south_asian_data, aes(year, crop_residues, color = area)) +
   geom_point() +
@@ -301,7 +290,7 @@ bangladesh_filtered <- normalized_area  %>%
 model_bangladesh <- lm(data = bangladesh_filtered, aqi_value ~ crop_residues)
 summary(model_bangladesh)
 ```
-s per the model output, a 1-unit increase in the Air Quality Index is associated with a 0.008-ton rise in crop residues. The model's Residual Square value stands at approximately 62%. The significance of the p-values, all below 5%, and the residual squared error value of 61% suggest that the model has performed well with the chosen variables.
+As per the model output, a 1-unit increase in the crop residues in Bangladesh Air Quality Index is associated with a 0.008-ton rise in AQI. The model's Residual Square value stands at approximately 62%. The significance of the p-values, all below 5%, and the residual squared error value of 61% suggest that the model has performed well with the chosen variables.
 
 ## Further Exploration
 Up to this juncture, the analysis has been based on annual average data. The next step involves a shift to a more detailed exploration using monthly time series to uncover the nuanced trends in air quality in Bangladesh. This process includes decomposing the time series and employing various forecasting models to determine the most suitable model for the dataset.
@@ -342,7 +331,7 @@ daily_aqi_filtered <- daily_aqi_filtered %>%
 
 ```{r message = FALSE}
 #| fig-cap: Hourly time-series data for AQI value in Bangladesh between 2016(inclusive) and 2022(inclusive)
-plot(daily_aqi_filtered$AQI,  xlab = "Year 2016 - 2022", ylab = "AQI value", main = "")
+plot(daily_aqi_filtered$AQI,  xlab = "Year 2016 - 2022", ylab = "AQI value", main = NA)
 
 ```
 

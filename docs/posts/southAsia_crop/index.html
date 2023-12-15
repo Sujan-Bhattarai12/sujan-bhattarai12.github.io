@@ -185,20 +185,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <style>
-        img {
-            max-width: 70%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            float: left;
-        }
-        
-        figcaption {
-            margin-top: 10px;
-            text-align: center;
-        }
- </style>
+  figure {
+    text-align: center;
+  }
+</style>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>In South Asian cities, extreme air pollution during winter is a recurring issue, attributed significantly to crop burning in agricultural lands. Another contributing factor is the reduced wind circulation caused by fog during the winter season, preventing the dispersion of city dust.As part of this project, the focus will be on assessing the strength of the relationships between crop burning and the air quality index in South Asian nations. The analysis will address three key questions:</p>
@@ -435,7 +425,12 @@ F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(south_asian_data<span class="sc">$</span>year), <span class="fu">max</span>(south_asian_data<span class="sc">$</span>year), <span class="at">by =</span> <span class="dv">30</span>))  <span class="co"># Adjust the breaks as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/Total crop burning emission in Each south Asian Nations since 1990-1.png" class="img-fluid" width="672"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Total crop burning emission in Each south Asian Nations since 1990</figcaption>
+</figure>
+</div>
 </div>
 <details>
 <summary>Code</summary>
@@ -636,7 +631,7 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daily_aqi_filtered<span class="sc">$</span>AQI,  <span class="at">xlab =</span> <span class="st">"Year 2016 - 2022"</span>, <span class="at">ylab =</span> <span class="st">"AQI value"</span>, <span class="at">main =</span> <span class="st">"Air quality Index Hourly Timeseries"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daily_aqi_filtered<span class="sc">$</span>AQI,  <span class="at">xlab =</span> <span class="st">"Year 2016 - 2022"</span>, <span class="at">ylab =</span> <span class="st">"AQI value"</span>, <span class="at">main =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
