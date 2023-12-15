@@ -1,5 +1,5 @@
 ---
-title: "Sujan Bhattarai - Landing Page"
+title: "Sujan Bhattarai"
 image: pic.jpg
 resources: resume.pdf
 about:
