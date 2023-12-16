@@ -211,6 +211,7 @@ economic_zone +
 ```{r include=TRUE, message=FALSE}
 #| code-fold: true
 #| fig-cap: "Percentage area suitable for Oyster in Each region in West Coast"
+# plot the bar plot to visualize percentage by zone
 ggplot(combined_v_areas_under) +
 geom_bar(aes(x = reorder(rgn, percentage_of_area), y = percentage_of_area),
            stat = "identity", fill = 'lightblue') +
