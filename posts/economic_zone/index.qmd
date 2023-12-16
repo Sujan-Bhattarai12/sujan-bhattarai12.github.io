@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 ## Introduction
 
-Marine aquaculture stands at the forefront of sustainable solutions for meeting the growing global demand for protein. In comparison to conventional land-based meat production, marine aquaculture offers a more eco-friendly approach. Previous research, such as the work by [Gentry et al. (2017)](https://www.nature.com/articles/s41559-017-0257-9), has mapped the global potential for marine aquaculture, considering various constraints. In this project, our focus narrows to the Exclusive Economic Zones (EEZ) along the West Coast of the United States, aiming to identify the most suitable regions for developing marine aquaculture, specifically for various species of oysters.
+Marine aquaculture stands at the forefront of sustainable solutions for meeting the growing global demand for protein. In comparison to conventional land-based meat production, marine aquaculture offers a more eco-friendly approach. Previous research, such as the work by [Gentry et al. (2017)](https://www.nature.com/articles/s41559-017-0257-9), has mapped the global potential for marine aquaculture, considering various constraints. In this project, my focus narrows to the Exclusive Economic Zones (EEZ) along the West Coast of the United States, aiming to identify the most suitable regions for developing marine aquaculture, specifically for various species of oysters.
 
 Oysters, known for their unique ecological contributions and nutritional value, thrive under specific conditions. To ensure optimal growth, factors such as sea surface temperature and ocean depth play a crucial role. My analysis leverages data from NOAA and GEBCO to characterize these conditions and pinpoint the most favorable locations for oyster aquaculture.
 
@@ -72,10 +72,10 @@ temperature <- stack(c(year_2008, year_2009, year_2010, year_2011, year_2012))
 
 
 ```{r include=TRUE, warning=FALSE, messages=FALSE, collapse=TRUE}
-#| fig-cap: "East Coast Region with Five Sub-division"
+#| fig-cap: "West Coast Region with Five Sub-division"
 ##economic region data
 west_coast_shape <- st_read("data/data/wc_regions_clean.shp")
-plot(west_coast_shape['rgn_id'], main = "West Coast")
+plot(west_coast_shape['rgn_id'], main = NA)
 ```
 
 #### Data Processing
@@ -131,6 +131,7 @@ and_logic <- function(x, y){
 # use local function to operate on each cells
 suitable_for_sucker_fish <- terra::lapp(rast(ocean_sst_stacked), fun = and_logic)
 plot(suitable_for_sucker_fish)
+
 ```
 
 #### Prioritize Marine Aquaculture Zones
@@ -195,33 +196,35 @@ economic_zone <- ggplot(combined_v_areas_under)+
   geom_sf(aes(fill = rgn), alpha = 0.5)+
   labs(fill = "Economic zone")+
   annotation_scale()+
-  ggtitle(as.character("Economic region with Suitable areas"))+
   annotation_north_arrow( location = "tr", 
                           height = unit(0.7, "cm"),
                           width  = unit(0.7, "cm"),
                           style = north_arrow_minimal())
 economic_zone +
   geom_sf(data = cliped_points, aes(color = Suitable_region), shape = 20, alpha = 0.5) +
-  theme_bw()
+  theme_bw()+
+  theme(aspect.ratio = 1.5)
+
 ```
 
 
 ```{r include=TRUE, message=FALSE}
 #| code-fold: true
-#| fig-cap: "Percentage area in Each region in West Coast"
-## plot percent suitable area by region by block
-ggplot(combined_v_areas_under)+
-  geom_sf(aes(fill = percentage_of_area))+
-  scale_fill_continuous(low="lightgreen", high = "darkgreen")+
-  ggtitle(as.character("Percentage suitable for Lump Sucker Fish"))+
-  annotation_scale()+
-  annotation_north_arrow( location = "tr", 
-                          height = unit(0.7, "cm"),
-                          width  = unit(0.7, "cm"),
-                          style = north_arrow_minimal())
+#| fig-cap: "Percentage area suitable for Oyster in Each region in West Coast"
+ggplot(combined_v_areas_under) +
+geom_bar(aes(x = reorder(rgn, percentage_of_area), y = percentage_of_area),
+           stat = "identity", fill = 'lightblue') +
+          labs(x = "Region", y = "Percentage area") +
+          theme_bw()+
+          coord_flip()
+
 ```
 
 ##### Fetch basemaps
+
+There used to be stamenmap function for the Basemap, but recently, there has been a change. The package requires API verification through google. So, I used the data stored inside SF package and loaded as Basemap for the west coast region.
+This is not the best way, but it does provide clues on which region the each suitable EEZ falls into.
+
 ```{r, collapse= TRUE, include = FALSE}
 ##wit basemaps
 invisible(suppressMessages({
@@ -232,26 +235,30 @@ invisible(suppressMessages({
 
 ```{r}
 #| code-fold: true
-#| fig-cap: "East Coast Region with basemap for regions around it"
+#| fig-cap: "West Coast Region with basemap for regions around it"
 ##subset each region and overlay on the coastline
 california <- us_geo %>% filter(NAME == 'California')
 oregon     <- us_geo %>% filter(NAME == "Oregon")
 washington <- us_geo %>% filter(NAME == "Washington")
+```
 
+
+```{r}
+#| fig-cap: Alternative maps including basemaps for the Economic Zone
+#| fig-width: 4
+#| fig-height: 4.5
 ##use tmshape to plot the data
 tm_shape(combined_v_areas_under)+
   tm_polygons(fill = 'percentage_of_area')+
   tm_shape(california)+
   tm_text("California", size = 0.8, col = "black", bg.col = "white")+
-  tm_borders(col = 'red')+
+  tm_borders(col = 'black')+
   tm_shape(oregon)+
   tm_text("Oregon", size = 0.8, col = "black", bg.col = "white")+
   tm_borders()+
   tm_shape(washington)+
   tm_text("Washington", size = 0.8, col = "black", bg.col = "white")+
-  tm_borders()+ 
-  tm_layout(title = "Alternative maps including basemaps for the Economic Zone")
-
+  tm_borders()
 ```
 
 ### Create a Function
@@ -369,7 +376,8 @@ economic_zone <- ggplot(combined_v_areas_under)+
 
 suitable_eez <- economic_zone +
                 geom_sf(data = cliped_points, aes(color = Suitable_region), shape = 20, alpha = 0.5) +
-                theme_bw()
+                theme_bw()+
+                theme(aspect.ratio = 1.5)
   
 ## percent suitable area by region 
 percent_area <- ggplot(combined_v_areas_under)+
