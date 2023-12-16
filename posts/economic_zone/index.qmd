@@ -111,12 +111,7 @@ cropped_depth_ocean[is.na(cropped_depth_ocean)] <- 0
 reclass_matrix   <- matrix(c(-10000, -71, NA, -70, 0, 1, 1, Inf, NA), ncol = 3, byrow = TRUE)
 ocean_classified <- classify(cropped_depth_ocean, rcl = reclass_matrix)
 
-##perform multiplication between two layers using lapp to create suitable areas 
-## stack them to check if they works
-
-#crs(sst_classified)==crs(ocean_classified)
-
-#stack them
+#stack both rasters
 ocean_sst_stacked = stack(x= c(sst_classified, ocean_classified))
 
 ##function for stacking
@@ -396,13 +391,14 @@ with_basemap <- tm_shape(combined_v_areas_under)+
                 tm_borders()+
                 tm_layout(title = "Percentage area with basemap")
 
-return(list(suitable_eez, percent_area, with_basemap))
-}
+return(list(suitable_eez, with_basemap))}
 ```
 
-#### Function that create EEZ for your species
+#### Function that create EEZ for a sample species
+The function can be used for any marine species around the west coast, if their temperature and depth range is known. Depth is always taken at negative, however there is no need to insert negative values in depth, as the function call automatically makes it negative when a function is called.
+
 ```{r, collapse=TRUE}
-##  calculate for abra aequalis that survives between 0 to 28 degree depth, and tempetaure up to 73 degrees                         
+##calculate for abra aequalis that survives between 0 to 28 degree depth, and tempetaure up to 73 degrees                         
 economic_zone_finder(min_temp = 0, max_temp = 73, min_depth = 0, max_depth = 28, fish_species = "Abra aequalis")
 ```
 

@@ -642,12 +642,12 @@ Geodetic CRS:  WGS 84
 <span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a>                <span class="fu">tm_borders</span>()<span class="sc">+</span></span>
 <span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a>                <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Percentage area with basemap"</span>)</span>
 <span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">list</span>(suitable_eez, percent_area, with_basemap))</span>
-<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">list</span>(suitable_eez, with_basemap))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="function-that-create-eez-for-your-species" class="level4">
-<h4 class="anchored" data-anchor-id="function-that-create-eez-for-your-species">Function that create EEZ for your species</h4>
+<section id="function-that-create-eez-for-a-sample-species" class="level4">
+<h4 class="anchored" data-anchor-id="function-that-create-eez-for-a-sample-species">Function that create EEZ for a sample species</h4>
+<p>The function can be used for any marine species around the west coast, if their temperature and depth range is known. Depth is always taken at negative, however there is no need to insert negative values in depth, as the function call automatically makes it negative when a function is called.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -668,9 +668,7 @@ Geodetic CRS:  WGS 84
 <p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
-## [[2]]
-## 
-## [[3]]</code></pre>
+## [[2]]</code></pre>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid" width="672"></p>
 </div>
