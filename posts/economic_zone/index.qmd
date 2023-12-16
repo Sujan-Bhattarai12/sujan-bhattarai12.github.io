@@ -8,6 +8,11 @@ format:
 date: 12-15-2023
 categories: [Python, Geospatial]
 ---
+<style>
+  figure {
+    text-align: center;
+  }
+</style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
