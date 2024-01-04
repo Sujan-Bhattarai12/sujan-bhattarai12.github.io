@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
 <html lang="en">
@@ -22,13 +22,23 @@ title: "About"
 <body>
 
 <div class="about-section">
-  <h2>About Us</h2>
-  <p>Welcome to my website, your go-to source for my personal blogs and projects. We're dedicated to providing you with up-to-date information, with a focus on Data Science.</p>
+👋
+I'm Sujan Bhattarai, a passionate Data Science student currently pursuing my degree at the University of California, Santa Barbara, based in CA.
 
-  <p>Founded in 2023, This website has come a long way from its beginnings. We hope you enjoy my creativity and fund thing as much as I enjoy If you have any questions or comments, please don't hesitate to contact me</p>
+🌐 Portfolio Website
 
-  <p>Sincerely,<br>
-     Sujan Bhattarai
+📧 Contact:
+University Email: sujan@ucsb.edu
+Personal Email: sujanbhattarai.jr@gmail.com
+
+🔍 About Me:
+I am dedicated to exploring the realms of data science, leveraging my skills to derive meaningful insights from complex datasets. I had a non-tech background during my undergrad, but I self-studied programming and mathematics, passed a couple of tech job interviews, and Worked as a Clinical Data analyst for a year. Now, My academic journey at UCSB is tech-based and I spend 10 hours exploring and learning tech skills.
+
+💻 Portfolio Highlights:
+Feel free to explore my website to discover projects showcasing my proficiency in <b>Machine Learning, CLI interface, Apache Based SQL(Hive & Impala), data manipulation, exploratory data analysis, predictive modeling, Forecasting</b> and more. Each project reflects my commitment to applying data science techniques to solve real-world problems.
+
+🤝 Let's Connect:
+I am open to collaborations, discussions, and networking opportunities. Whether you have questions about my projects or want to explore potential partnerships, feel free to reach out. Looking forward to connecting with fellow data enthusiasts!
 </div>
 
 </body>

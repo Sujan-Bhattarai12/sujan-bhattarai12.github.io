@@ -8,7 +8,7 @@
 
 <meta name="author" content="Sujan Bhattarai">
 
-<title>Global Data on Sustainable Energy (2000-2020)</title>
+<title>Predicting CO2 Emission in Nepal: An In-Depth Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -121,10 +122,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html" rel="" target="">
- <span class="menu-text">Project</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../posts.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
@@ -139,9 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Global Data on Sustainable Energy (2000-2020)</h1>
+      <h1 class="title">Predicting CO2 Emission in Nepal: An In-Depth Analysis</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Data-analysis</div>
+                <div class="quarto-category">R</div>
               </div>
                   </div>
   </div>
@@ -169,7 +167,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#potential-use-cases" id="toc-potential-use-cases" class="nav-link active" data-scroll-target="#potential-use-cases"><strong>Potential Use cases</strong></a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
   </ul>
 </nav>
     </div>
@@ -179,155 +179,152 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>The required data is download from the Kaggle:</p>
-<p>(link: https://www.kaggle.com/datasets/anshtanwar/global-data-on-sustainable-energy)</p>
-<section id="potential-use-cases" class="level1">
-<h1><strong>Potential Use cases</strong></h1>
-<ol type="1">
-<li><p><strong>Energy Consumption Prediction:</strong> Predict future energy usage, aid planning, and track SDG 7 progress.</p></li>
-<li><p><strong>Carbon Emission Forecasting:</strong> Forecast CO2 emissions, support climate strategies.</p></li>
-<li><p><strong>Energy Access Classification:</strong> Categorize regions for infrastructure development, understand sustainable energy’s role.</p></li>
-<li><p><strong>Sustainable Development Goal Tracking:</strong> Monitor progress towards Goal 7, evaluate policy</p></li>
-</ol>
-<p>Load required libraries</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Sustainable energy is a critical component in addressing global challenges such as climate change and achieving sustainable development goals. In this data analysis, we delve into the global dataset on sustainable energy spanning from 2000 to 2020, with a specific focus on Nepal. Our aim is to understand energy trends, explore potential use cases, and employ predictive modeling to forecast CO2 emissions in Nepal.</p>
+</section>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
+<p>The dataset used in this analysis is sourced from Kaggle. You can find the dataset <a href="link:%20https://www.kaggle.com/datasets/anshtanwar/global-data-on-sustainable-energy">here</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">##load all required libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>Read the data, view first few columns, and sum the NA values for each column</p>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<p>The process begins with reading the “energy_data.csv” file, and the first code chunk calculates the total count of missing values for each column in the dataset. Subsequently, it checks for and reports any duplicated rows in the dataset. The next code chunk iteratively examines the data types of each column and prints the results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/sujan/OneDrive/Documents/MEDS/vs_code_blog/sujan-bhattarai12.github.io/posts/energy"</code></pre>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##read the energy data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>energy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"energy_data.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">total_NA_count =</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(energy_data)))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                                                                  total_NA_count</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Entity                                                                        0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Year                                                                          0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Access to electricity (% of population)                                      10</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Access to clean fuels for cooking                                           169</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Renewable-electricity-generating-capacity-per-capita                        931</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Financial flows to developing countries (US $)                             2089</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Renewable energy share in the total final energy consumption (%)            194</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Electricity from fossil fuels (TWh)                                          21</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Electricity from nuclear (TWh)                                              126</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Electricity from renewables (TWh)                                            21</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Low-carbon electricity (% electricity)                                       42</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Primary energy consumption per capita (kWh/person)                            0</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Energy intensity level of primary energy (MJ/$2017 PPP GDP)                 207</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Value_co2_emissions_kt_by_country                                           428</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Renewables (% equivalent primary energy)                                   2137</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="do">## gdp_growth                                                                  317</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="do">## gdp_per_capita                                                              282</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Density\\n(P/Km2)                                                             1</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Land Area(Km2)                                                                1</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Latitude                                                                      1</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Longitude                                                                     1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>energy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"energy_data.csv"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(energy_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 21
-  Entity       Year Access to electricity (% of populat…¹ Access to clean fuel…²
-  &lt;chr&gt;       &lt;dbl&gt;                                 &lt;dbl&gt;                  &lt;dbl&gt;
-1 Afghanistan  2000                                  1.61                    6.2
-2 Afghanistan  2001                                  4.07                    7.2
-3 Afghanistan  2002                                  9.41                    8.2
-4 Afghanistan  2003                                 14.7                     9.5
-5 Afghanistan  2004                                 20.1                    10.9
-6 Afghanistan  2005                                 25.4                    12.2
-# ℹ abbreviated names: ¹​`Access to electricity (% of population)`,
-#   ²​`Access to clean fuels for cooking`
-# ℹ 17 more variables:
-#   `Renewable-electricity-generating-capacity-per-capita` &lt;dbl&gt;,
-#   `Financial flows to developing countries (US $)` &lt;dbl&gt;,
-#   `Renewable energy share in the total final energy consumption (%)` &lt;dbl&gt;,
-#   `Electricity from fossil fuels (TWh)` &lt;dbl&gt;, …</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">total_NA_count =</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(energy_data)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                                                 total_NA_count
-Entity                                                                        0
-Year                                                                          0
-Access to electricity (% of population)                                      10
-Access to clean fuels for cooking                                           169
-Renewable-electricity-generating-capacity-per-capita                        931
-Financial flows to developing countries (US $)                             2089
-Renewable energy share in the total final energy consumption (%)            194
-Electricity from fossil fuels (TWh)                                          21
-Electricity from nuclear (TWh)                                              126
-Electricity from renewables (TWh)                                            21
-Low-carbon electricity (% electricity)                                       42
-Primary energy consumption per capita (kWh/person)                            0
-Energy intensity level of primary energy (MJ/$2017 PPP GDP)                 207
-Value_co2_emissions_kt_by_country                                           428
-Renewables (% equivalent primary energy)                                   2137
-gdp_growth                                                                  317
-gdp_per_capita                                                              282
-Density\\n(P/Km2)                                                             1
-Land Area(Km2)                                                                1
-Latitude                                                                      1
-Longitude                                                                     1</code></pre>
-</div>
-</div>
-<p>Check duplicate rows if present</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(energy_data)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(energy_data)) </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
-<p>Check the class of each columns</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">##build function to check columns class iteratively</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(energy_data)){</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     x <span class="ot">=</span> <span class="fu">append</span>(x, <span class="fu">class</span>(energy_data[[i]]))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "character" "numeric"   "numeric"   "numeric"   "numeric"   "numeric"  
- [7] "numeric"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric"  
-[13] "numeric"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric"  
-[19] "numeric"   "numeric"   "numeric"  </code></pre>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">##build function to check columns class iteratively</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(energy_data)){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     x <span class="ot">=</span> <span class="fu">append</span>(x, <span class="fu">class</span>(energy_data[[i]]))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] "character" "numeric"   "numeric"   "numeric"   "numeric"   "numeric"  </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  [7] "numeric"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric"  </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [13] "numeric"   "numeric"   "numeric"   "numeric"   "numeric"   "numeric"  </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [19] "numeric"   "numeric"   "numeric"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
-<p>Data-type is in correct format except for country. Change the column type. (This code should change data type and it is vital to run this before moving to next step)</p>
+<p>Following the initial data inspection, the document proceeds to address data type inconsistencies. The code iterates through the columns, converting character columns to factors and numeric columns to appropriate numeric types. This step is crucial for ensuring the dataset’s readiness for subsequent analysis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(energy_data)){</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">class</span>(energy_data[[i]]) <span class="sc">==</span> <span class="st">"character"</span>){</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    energy_data[[i]] <span class="ot">=</span> <span class="fu">as.factor</span>(energy_data[[i]])</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    energy_data[[i]] <span class="ot">=</span> <span class="fu">as.numeric</span>(energy_data[[i]])</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Data-type is in correct format except for country. Change the column type. #(This code should change data type and it is vital to run this before moving #to next step)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(energy_data)){</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">class</span>(energy_data[[i]]) <span class="sc">==</span> <span class="st">"character"</span>){</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    energy_data[[i]] <span class="ot">=</span> <span class="fu">as.factor</span>(energy_data[[i]])</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    energy_data[[i]] <span class="ot">=</span> <span class="fu">as.numeric</span>(energy_data[[i]])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>Shorten column names from energy_data. Short names are better in models and corr-plot.</p>
+<p>Subsequently, the document shortens the column names for ease of reference and plotting, using the rename function. The new column names are more concise and user-friendly, facilitating clearer data visualization and interpretation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>energy_data1 <span class="ot">&lt;-</span> energy_data <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>( <span class="at">popElectric =</span> <span class="st">"Access to electricity (% of population)"</span>,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">cleanfuels =</span> <span class="st">"Access to clean fuels for cooking"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">renewable_elec_cap =</span>  <span class="st">"Renewable-electricity-generating-capacity-per-capita"</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">finance_flow =</span> <span class="st">"Financial flows to developing countries (US $)"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">renewable_inTotal=</span> <span class="st">"Renewable energy share in the total final energy consumption (%)"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">fossil_eng=</span> <span class="st">"Electricity from fossil fuels (TWh)"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">n_elece =</span> <span class="st">"Electricity from nuclear (TWh)"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">electric =</span> <span class="st">"Low-carbon electricity (% electricity)"</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">electric_re =</span> <span class="st">"Electricity from renewables (TWh)"</span>,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">energy_cap =</span> <span class="st">"Primary energy consumption per capita (kWh/person)"</span>,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">energy_in =</span> <span class="st">"Energy intensity level of primary energy (MJ/$2017 PPP GDP)"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">co2_emis =</span> <span class="st">"Value_co2_emissions_kt_by_country"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">renewables =</span> <span class="st">"Renewables (% equivalent primary energy)"</span>,</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">gdp =</span> <span class="st">"gdp_growth"</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">gdp_cap =</span> <span class="st">"gdp_per_capita"</span>,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">pop_density =</span> <span class="st">"Density</span><span class="sc">\\</span><span class="st">n(P/Km2)"</span>,</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">land_area =</span> <span class="st">"Land Area(Km2)"</span>,</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">Lat =</span> <span class="st">"Latitude"</span>,</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">Lon =</span> <span class="st">"Longitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Shorten the column names, useful when plotting and also #refferint to the columns</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>energy_data1 <span class="ot">&lt;-</span> energy_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>( <span class="at">popElectric =</span> <span class="st">"Access to electricity (% of population)"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">cleanfuels =</span> <span class="st">"Access to clean fuels for cooking"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">renewable_elec_cap =</span>  <span class="st">"Renewable-electricity-generating-capacity-per-capita"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">finance_flow =</span> <span class="st">"Financial flows to developing countries (US $)"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">renewable_inTotal=</span> <span class="st">"Renewable energy share in the total final energy consumption (%)"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">fossil_eng=</span> <span class="st">"Electricity from fossil fuels (TWh)"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">n_elece =</span> <span class="st">"Electricity from nuclear (TWh)"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">electric =</span> <span class="st">"Low-carbon electricity (% electricity)"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">electric_re =</span> <span class="st">"Electricity from renewables (TWh)"</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">energy_cap =</span> <span class="st">"Primary energy consumption per capita (kWh/person)"</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">energy_in =</span> <span class="st">"Energy intensity level of primary energy (MJ/$2017 PPP GDP)"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">co2_emis =</span> <span class="st">"Value_co2_emissions_kt_by_country"</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">renewables =</span> <span class="st">"Renewables (% equivalent primary energy)"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">gdp =</span> <span class="st">"gdp_growth"</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">gdp_cap =</span> <span class="st">"gdp_per_capita"</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">pop_density =</span> <span class="st">"Density</span><span class="sc">\\</span><span class="st">n(P/Km2)"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">land_area =</span> <span class="st">"Land Area(Km2)"</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">Lat =</span> <span class="st">"Latitude"</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">Lon =</span> <span class="st">"Longitude"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>sMap the data in worldmap to see the change</p>
+<p>The initial code chunk generates a world map using the ne_countries function, presenting countries at a medium scale. The resulting map is created using the ggplot package with the geom_sf function, providing a visual representation of global geography.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">returnclass =</span> <span class="st">"sf"</span>, <span class="at">scale =</span> <span class="st">"medium"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> world_map <span class="sc">%&gt;%</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">returnclass =</span> <span class="st">"sf"</span>, <span class="at">scale =</span> <span class="st">"medium"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> world_map <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>Join the raw energy data with the global data based on ID so that data can be integrated in world map</p>
+<p>the code performs a right join between the world map data and the processed energy data (energy_data1) based on the country ID (sovereignt and Entity). The resulting joined dataset (joined) is then filtered to include only the data for the year 2020. For each variable from the year to population density, individual maps are created and displayed using the geom_sf function. These maps offer a spatial representation of the selected variable across countries, aiding in the identification of patterns or disparities.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>joined <span class="ot">&lt;-</span> <span class="fu">right_join</span>(world_map,energy_data1,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by=</span><span class="fu">c</span>(<span class="st">"sovereignt"</span><span class="ot">=</span><span class="st">"Entity"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">which</span>(<span class="fu">colnames</span>(joined)<span class="sc">==</span><span class="st">"Year"</span>)<span class="sc">:</span> <span class="fu">which</span>(<span class="fu">colnames</span>(joined)<span class="sc">==</span><span class="st">"pop_density"</span>)){</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  maps <span class="ot">&lt;-</span> world_map <span class="sc">%&gt;%</span> </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs=</span><span class="st">"+proj=robin"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sf</span>(<span class="at">color=</span><span class="st">"darkgrey"</span>)<span class="sc">+</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sf</span>(<span class="at">data=</span>joined, <span class="fu">aes</span>(<span class="at">fill=</span>joined[[i<span class="sc">+</span><span class="dv">1</span>]]))<span class="sc">+</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">colnames</span>(joined[i<span class="sc">+</span><span class="dv">1</span>][<span class="dv">1</span>]))<span class="sc">+</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title=</span> <span class="fu">element_text</span>(<span class="st">"none"</span>))</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(maps)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>joined <span class="ot">&lt;-</span> <span class="fu">right_join</span>(world_map,energy_data1,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by=</span><span class="fu">c</span>(<span class="st">"sovereignt"</span><span class="ot">=</span><span class="st">"Entity"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2020</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">which</span>(<span class="fu">colnames</span>(joined)<span class="sc">==</span><span class="st">"Year"</span>)<span class="sc">:</span> <span class="fu">which</span>(<span class="fu">colnames</span>(joined)<span class="sc">==</span><span class="st">"pop_density"</span>)){</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  maps <span class="ot">&lt;-</span> world_map <span class="sc">%&gt;%</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs=</span><span class="st">"+proj=robin"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sf</span>(<span class="at">color=</span><span class="st">"darkgrey"</span>)<span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sf</span>(<span class="at">data=</span>joined, <span class="fu">aes</span>(<span class="at">fill=</span>joined[[i<span class="sc">+</span><span class="dv">1</span>]]))<span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">colnames</span>(joined[i<span class="sc">+</span><span class="dv">1</span>][<span class="dv">1</span>]))<span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title=</span> <span class="fu">element_text</span>(<span class="st">"none"</span>))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(maps)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -380,33 +377,42 @@ Longitude                                                                     1<
 <p><img src="index_files/figure-html/unnamed-chunk-8-17.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Correlation to see association between variables, it is important to understand the presence of multi-collinearity in the dataset</p>
+<p>The following code chunk explores the correlation between variables in the processed energy dataset (energy_data1). The correlation matrix is visualized as a heatmap using the ggplot package, with colors ranging from blue (indicating lower correlation) to orange (indicating higher correlation). This analysis helps assess the degree of association between different energy-related variables, providing insights into potential multicollinearity.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data_for_correlation <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(energy_data1[<span class="dv">10</span><span class="sc">:</span><span class="fu">length</span>(energy_data1)])</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>corelation_matrix <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="fu">cor</span>(data_for_correlation, <span class="at">use =</span> <span class="st">'pairwise.complete.obs'</span>), <span class="dv">2</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> corelation_matrix, <span class="fu">aes</span>(Var1, Var2)) <span class="sc">+</span> </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> value)) <span class="sc">+</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">"blue"</span>, <span class="at">high =</span><span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data_for_correlation <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(energy_data1[<span class="dv">10</span><span class="sc">:</span><span class="fu">length</span>(energy_data1)])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>corelation_matrix <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="fu">cor</span>(data_for_correlation, <span class="at">use =</span> <span class="st">'pairwise.complete.obs'</span>), <span class="dv">2</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> corelation_matrix, <span class="fu">aes</span>(Var1, Var2)) <span class="sc">+</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">"blue"</span>, <span class="at">high =</span><span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Energy data contains energy trend since 2000 to 2020 for 178 countries. This project focuses in Nepal, model and forecast the future energy changes.</p>
+<p>The subsequent analysis narrows the focus to Nepal by filtering the energy data for this specific country. A series of line graphs is then generated to visualize the general trends of various energy-related variables in Nepal from 2000 to 2020. These visualizations offer an overview of the country’s energy landscape over the selected time period.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nepal_energy_data <span class="ot">&lt;-</span> energy_data <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">filter</span>(Entity<span class="sc">==</span><span class="st">"Nepal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>nepal_energy_data <span class="ot">&lt;-</span> energy_data <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">filter</span>(Entity<span class="sc">==</span><span class="st">"Nepal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Observe the general trend for all variables</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">which</span>(<span class="fu">colnames</span>(nepal_energy_data)<span class="sc">==</span><span class="st">"Year"</span>)<span class="sc">:</span><span class="fu">which</span>(<span class="fu">colnames</span>    (nepal_energy_data)<span class="sc">==</span> <span class="st">"Density</span><span class="sc">\\</span><span class="st">n(P/Km2)"</span>)){</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  graph <span class="ot">=</span><span class="fu">ggplot</span>(nepal_energy_data, <span class="fu">aes</span>(Year, nepal_energy_data[[i]]))<span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">colnames</span>(nepal_energy_data[i][<span class="dv">1</span>]))<span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Measure"</span>)<span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(graph)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">which</span>(<span class="fu">colnames</span>(nepal_energy_data)<span class="sc">==</span><span class="st">"Year"</span>)<span class="sc">:</span><span class="fu">which</span>(<span class="fu">colnames</span>    (nepal_energy_data)<span class="sc">==</span> <span class="st">"Density</span><span class="sc">\\</span><span class="st">n(P/Km2)"</span>)){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  graph <span class="ot">=</span><span class="fu">ggplot</span>(nepal_energy_data, <span class="fu">aes</span>(Year, nepal_energy_data[[i]]))<span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="fu">colnames</span>(nepal_energy_data[i][<span class="dv">1</span>]))<span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Measure"</span>)<span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(graph)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -483,24 +489,30 @@ Longitude                                                                     1<
 </ol>
 <p>Step 1: rearrange the columns</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>nepal_energy_data <span class="ot">&lt;-</span> nepal_energy_data <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">select</span>(Year, <span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span>, </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">`</span><span class="at">Access to electricity (% of population)</span><span class="st">`</span><span class="sc">:</span> <span class="st">`</span><span class="at">Energy intensity level of primary energy (MJ/$2017 PPP GDP)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nepal_energy_data <span class="ot">&lt;-</span> nepal_energy_data <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">select</span>(Year, <span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span>, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">`</span><span class="at">Access to electricity (% of population)</span><span class="st">`</span><span class="sc">:</span> <span class="st">`</span><span class="at">Energy intensity level of primary energy (MJ/$2017 PPP GDP)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>step 2: Step wise regression to see if all variables are predictors for CO2 emission</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>intercept_only <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span> <span class="sc">~</span> <span class="dv">1</span>, </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data=</span>nepal_energy_data)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#define model with all predictors</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>all <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span> <span class="sc">~</span> ., </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">data=</span>nepal_energy_data)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#perform forward stepwise regression</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>forward <span class="ot">&lt;-</span> <span class="fu">step</span>(intercept_only, <span class="at">direction=</span><span class="st">"both"</span> , </span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">scope=</span><span class="fu">formula</span>(all), <span class="at">trace=</span><span class="dv">0</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span> <span class="fu">kable</span>(forward<span class="sc">$</span>anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>intercept_only <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span> <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data=</span>nepal_energy_data)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#define model with all predictors</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>all <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span> <span class="sc">~</span> ., </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">data=</span>nepal_energy_data)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#perform forward stepwise regression</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>forward <span class="ot">&lt;-</span> <span class="fu">step</span>(intercept_only, <span class="at">direction=</span><span class="st">"both"</span> , </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">scope=</span><span class="fu">formula</span>(all), <span class="at">trace=</span><span class="dv">0</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span> <span class="fu">kable</span>(forward<span class="sc">$</span>anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -567,7 +579,10 @@ Longitude                                                                     1<
 
 
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span> <span class="fu">kable</span>(forward<span class="sc">$</span>coefficients)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span> <span class="fu">kable</span>(forward<span class="sc">$</span>coefficients)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -610,37 +625,46 @@ Longitude                                                                     1<
 <p>Step3: Feature selection</p>
 <p>result from step-wise regression shows that only six variables are significant in defining co2 emission. this could be wrong but I believe in statistics though its seldom correct. So, keep only those columns</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nepal_feature_selected_data  <span class="ot">&lt;-</span> nepal_energy_data <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(Year,</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">Co2_emission =</span> <span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span>, </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="at">Energy_perCap =</span> <span class="st">`</span><span class="at">Primary energy consumption per capita (kWh/person)</span><span class="st">`</span>,</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="at">renewble_fraction =</span> <span class="st">`</span><span class="at">Renewable energy share in the total final energy consumption (%)</span><span class="st">`</span>, </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="at">electricity_perCap =</span> <span class="st">`</span><span class="at">Renewable-electricity-generating-capacity-per-capita</span><span class="st">`</span>,</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="at">low_carbon_electricity =</span> <span class="st">`</span><span class="at">Low-carbon electricity (% electricity)</span><span class="st">`</span>,</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="at">energy_intensity =</span> <span class="st">`</span><span class="at">Energy intensity level of primary energy (MJ/$2017 PPP GDP)</span><span class="st">`</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>nepal_feature_selected_data  <span class="ot">&lt;-</span> nepal_energy_data <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(Year,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">Co2_emission =</span> <span class="st">`</span><span class="at">Value_co2_emissions_kt_by_country</span><span class="st">`</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="at">Energy_perCap =</span> <span class="st">`</span><span class="at">Primary energy consumption per capita (kWh/person)</span><span class="st">`</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">renewble_fraction =</span> <span class="st">`</span><span class="at">Renewable energy share in the total final energy consumption (%)</span><span class="st">`</span>, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="at">electricity_perCap =</span> <span class="st">`</span><span class="at">Renewable-electricity-generating-capacity-per-capita</span><span class="st">`</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="at">low_carbon_electricity =</span> <span class="st">`</span><span class="at">Low-carbon electricity (% electricity)</span><span class="st">`</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="at">energy_intensity =</span> <span class="st">`</span><span class="at">Energy intensity level of primary energy (MJ/$2017 PPP GDP)</span><span class="st">`</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Split the data into test and train model</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>smp_size <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fl">0.75</span> <span class="sc">*</span> <span class="fu">nrow</span>(nepal_feature_selected_data))</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="do">## set the seed to make your partition reproducible</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>train_ind <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(nepal_feature_selected_data)), <span class="at">size =</span> smp_size)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> nepal_feature_selected_data[train_ind, ]</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span>  nepal_feature_selected_data[<span class="sc">-</span>train_ind, ] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>smp_size <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fl">0.75</span> <span class="sc">*</span> <span class="fu">nrow</span>(nepal_feature_selected_data))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="do">## set the seed to make your partition reproducible</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>train_ind <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(nepal_feature_selected_data)), <span class="at">size =</span> smp_size)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> nepal_feature_selected_data[train_ind, ]</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span>  nepal_feature_selected_data[<span class="sc">-</span>train_ind, ] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Fit the linear regression model on train data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> train,</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                   Co2_emission <span class="sc">~</span> (<span class="st">`</span><span class="at">Energy_perCap</span><span class="st">`</span> <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                                     renewble_fraction <span class="sc">+</span> </span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                                     electricity_perCap <span class="sc">+</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                                     low_carbon_electricity <span class="sc">+</span> </span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                                     energy_intensity))</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> train,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                   Co2_emission <span class="sc">~</span> (<span class="st">`</span><span class="at">Energy_perCap</span><span class="st">`</span> <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                                     renewble_fraction <span class="sc">+</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                                     electricity_perCap <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                                     low_carbon_electricity <span class="sc">+</span> </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                                     energy_intensity))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -668,7 +692,10 @@ Residual standard error: 305.5 on 8 degrees of freedom
 Multiple R-squared:  0.9961,    Adjusted R-squared:  0.9937 
 F-statistic: 413.5 on 5 and 8 DF,  p-value: 1.983e-09</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(broom<span class="sc">::</span><span class="fu">glance</span>(lm_model)) <span class="do">##glance creates in long columns, transpose changes it to one column format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(broom<span class="sc">::</span><span class="fu">glance</span>(lm_model)) <span class="do">##glance creates in long columns, transpose changes it to one column format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                       [,1]
 r.squared      9.961452e-01
@@ -687,11 +714,14 @@ nobs           1.400000e+01</code></pre>
 </div>
 <p>Test model accuracy using test dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>train[<span class="st">"model_predict"</span>] <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_model, train)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(train, <span class="fu">aes</span>(Year, Co2_emission))<span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(Year, model_predict), <span class="at">color=</span><span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>train[<span class="st">"model_predict"</span>] <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_model, train)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(train, <span class="fu">aes</span>(Year, Co2_emission))<span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(Year, model_predict), <span class="at">color=</span><span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).
 Removed 1 row containing missing values (`geom_line()`).</code></pre>
@@ -703,24 +733,33 @@ Removed 1 row containing missing values (`geom_line()`).</code></pre>
 <p>Linear model has high accuracy for the data set. Now use the same model to forecast the co2 consumption for next 10 years.</p>
 <p>Use mathematic metrics MAE to check the accuracy of the model</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>MAE <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">/</span><span class="fu">nrow</span>(train))<span class="sc">*</span><span class="fu">sum</span>((train<span class="sc">$</span>model_predict<span class="sc">-</span> train<span class="sc">$</span>Co2_emission), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(MAE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>MAE <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">/</span><span class="fu">nrow</span>(train))<span class="sc">*</span><span class="fu">sum</span>((train<span class="sc">$</span>model_predict<span class="sc">-</span> train<span class="sc">$</span>Co2_emission), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(MAE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8.852415e-12</code></pre>
 </div>
 </div>
 <p>The MAE calculation gave output a number. It’s hard to interpret. Normalize it between 0 to 1, so that low values of MAE is the best fit</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>range_actual <span class="ot">&lt;-</span> <span class="fu">max</span>(train<span class="sc">$</span>Co2_emission, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(train<span class="sc">$</span>Co2_emission, </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                                                            <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize MAE</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>normalized_MAE <span class="ot">&lt;-</span> (MAE<span class="sc">/</span>range_actual)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>normalized_MAE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>range_actual <span class="ot">&lt;-</span> <span class="fu">max</span>(train<span class="sc">$</span>Co2_emission, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(train<span class="sc">$</span>Co2_emission, </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                                                            <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize MAE</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>normalized_MAE <span class="ot">&lt;-</span> (MAE<span class="sc">/</span>range_actual)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>normalized_MAE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7.081932e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">##shorcut to measure more accuracy metrics</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span> <span class="fu">accuracy</span>(train<span class="sc">$</span>Co2_emission, train<span class="sc">$</span>model_predict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">##shorcut to measure more accuracy metrics</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span> <span class="fu">accuracy</span>(train<span class="sc">$</span>Co2_emission, train<span class="sc">$</span>model_predict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Registered S3 method overwritten by 'quantmod':
   method            from
@@ -731,7 +770,6 @@ Removed 1 row containing missing values (`geom_line()`).</code></pre>
 Test set 9.484732e-12 230.8992 174.0716 -0.5198316 3.669876</code></pre>
 </div>
 </div>
-<p>Forecast using Naive method</p>
 
 
 </section>
