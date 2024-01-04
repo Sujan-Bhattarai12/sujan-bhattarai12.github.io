@@ -15,7 +15,7 @@ about:
       href: https://github.com/Sujan-Bhattarai12/
     - text: Resume
       icon: file-text
-      href: resume.pdf
+      href: BhattaraiS_resume.pdf
   id: ppc
 navbar:
   links:
@@ -31,7 +31,9 @@ navbar:
 
 :::{#ppc}
 <h1 id="tagline">Entrepreneurial and Innovative</h1>
+<center>
 <p id="description">Analytical thinker with a passion for innovation. Committed to excellence and continuous improvement.</p>
+</center>
 :::
 
 ```{css}
