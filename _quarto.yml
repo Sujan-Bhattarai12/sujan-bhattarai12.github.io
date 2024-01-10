@@ -28,7 +28,7 @@ format:
       - styles.scss
     mainfont: Georgia 
     css: styles.css
-    toc: true
+    toc: true sdfsdf 
 
 
 
