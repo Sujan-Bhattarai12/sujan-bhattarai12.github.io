@@ -10,6 +10,19 @@
     ]
   },
   {
+    "listing": "/health.html",
+    "items": [
+      "/health_posts/dogs/index.html",
+      "/health_posts/grass_fed vs grain-fed/index.html",
+      "/health_posts/gut_diversity/index.html",
+      "/health_posts/hiking/index.html",
+      "/health_posts/mental_health/index.html",
+      "/health_posts/morning-ritual/index.html",
+      "/health_posts/seasonings/index.html",
+      "/health_posts/sunlight/index.html"
+    ]
+  },
+  {
     "listing": "/posts.html",
     "items": [
       "/posts/energy/index.html",

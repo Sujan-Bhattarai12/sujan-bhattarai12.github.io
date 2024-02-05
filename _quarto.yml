@@ -8,11 +8,13 @@ website:
   navbar:
     right:
       - href: index.qmd
-        text: Home
+        text: HOME
       - href: about.qmd
-        text: About
+        text: ABOUT
       - href: posts.qmd
-        text: Blog
+        text: DATA_SCIENCE-BLOGS
+      - href: health.qmd
+        text: HEALTH_BLOGS
  
   page-footer:
     background: light
@@ -28,7 +30,7 @@ format:
       - styles.scss
     mainfont: Georgia 
     css: styles.css
-    toc: true sdfsdf 
+    toc: true 
 
 
 

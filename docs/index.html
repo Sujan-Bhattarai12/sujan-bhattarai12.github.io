@@ -78,15 +78,19 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+ <span class="menu-text">HOME</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">ABOUT</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./posts.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+ <span class="menu-text">DATA_SCIENCE-BLOGS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./health.html" rel="" target="">
+ <span class="menu-text">HEALTH_BLOGS</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
@@ -134,7 +138,7 @@ Analytical thinker with a passion for innovation. Committed to excellence and co
     <i class="bi bi-github"></i>
      <span class="about-link-text">GitHub</span>
   </a>
-  <a href="/BhattaraiS_resume.pdf" class="about-link" rel="" target="">
+  <a href="/Bhattarai_sujan_resume.pdf" class="about-link" rel="" target="">
     <i class="bi bi-file-text"></i>
      <span class="about-link-text">Resume</span>
   </a>
@@ -147,7 +151,7 @@ Analytical thinker with a passion for innovation. Committed to excellence and co
     color: #3498db; /* Change color to your preference */
   }
 
-  #description {
+ #description {
     font-size: 1.2em;
     color: #555;
     max-width: 600px;
@@ -160,14 +164,25 @@ Analytical thinker with a passion for innovation. Committed to excellence and co
   }
 
   nav a {
-    color: #ecf0f1; /* Change color to your preference */
+    color: #3498db; /* Change color to your preference */
     margin: 0 1em;
     text-decoration: none;
     transition: color 0.3s ease;
+    position: relative;
   }
 
   nav a:hover {
     color: #3498db; /* Change color to your preference */
+  }
+
+  nav a:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10px; /* Adjust thickness as needed */
+    background-color: #3498db; /* Change color to your preference */
+    bottom: -2px; /* Adjust distance from text */
+    left: 0;
   }
 
   @keyframes fadeInOut {
@@ -177,6 +192,10 @@ Analytical thinker with a passion for innovation. Committed to excellence and co
     50% {
       opacity: 1;
     }
+  }
+  
+  body {
+    background-color: #ffffff; /* Change color to your preference */
   }
 </style>
 

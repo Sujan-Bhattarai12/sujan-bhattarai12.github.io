@@ -1,45 +1,51 @@
----
-title: "About Me"
----
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-    }
-    .about-section {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-  </style>
-</head>
-<body>
-
-<div class="about-section">
-👋
-I'm Sujan Bhattarai, a passionate Data Science student currently pursuing my degree at the University of California, Santa Barbara, based in CA.
-
-🌐 Portfolio Website
-
-📧 Contact:
-University Email: sujan@ucsb.edu
-Personal Email: sujanbhattarai.jr@gmail.com
-
-🔍 About Me:
-I am dedicated to exploring the realms of data science, leveraging my skills to derive meaningful insights from complex datasets. I had a non-tech background during my undergrad, but I self-studied programming and mathematics, passed a couple of tech job interviews, and Worked as a Clinical Data analyst for a year. Now, My academic journey at UCSB is tech-based and I spend 10 hours exploring and learning tech skills.
-
-💻 Portfolio Highlights:
-Feel free to explore my website to discover projects showcasing my proficiency in <b>Machine Learning, CLI interface, Apache Based SQL(Hive & Impala), data manipulation, exploratory data analysis, predictive modeling, Forecasting</b> and more. Each project reflects my commitment to applying data science techniques to solve real-world problems.
-
-🤝 Let's Connect:
-I am open to collaborations, discussions, and networking opportunities. Whether you have questions about my projects or want to explore potential partnerships, feel free to reach out. Looking forward to connecting with fellow data enthusiasts!
+<div id="header" style="text-align: center;">
+  <img src="https://media2.giphy.com/media/3o7qE1YN7aBOFPRw8E/giphy.gif?cid=ecf05e471znfcirjxm6vianun3sbijamo88oa489zph9lh30&ep=v1_gifs_related&rid=giphy.gif&ct=g" width="200"/>
 </div>
 
-</body>
-</html>
+<div id="badges" style="text-align: center;">
+  <a href="https://www.linkedin.com/in/bhattarai1/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+
+<h1 style="text-align: center;">
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
+</h1>
+
+
+
+## Updates:
+   🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br>
+   🚀 Learning Big Data System with Apache Hive & Impala<br>
+   📚 Reading Machine Learning with Scikit Learn book by O'Reilly<br>
+   🌐 Initiating a new Python project for a new blog in ML 
+
+
+## Tech Skills
+1. Python 🐍
+2. R 📊
+3. SQL 💾
+4. SAS 📈
+5. Big Data 🌐
+6. Machine Learning 🤖
+7. Data Visualization 📊
+8. Geospatial Analysis 🌍
+9. Data Mining ⛏️
+
+## Blogs:
+
+[Forecasting Air-Quality Emission](https://sujan-bhattarai12.github.io/posts/southAsia_crop/) 🌬️
+
+[Geospatial Analysis](https://sujan-bhattarai12.github.io/posts/economic_zone/) 🗺️
+
+[Artificial Intelligence and Nature Conservation](https://sujan-bhattarai12.github.io/posts/12-09-2020-AI-ethics/) 🌿
+
+## Statistics:
+[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=sujan-bhattarai12&theme=dark&background=000000)](https://git.io/streak-stats?v=1) 📈
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=sujan-bhattarai12&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats?v=1) 🔝
+
+
+### Thanks for Visiting
+If you have come this far, revise Hadoop CLI(HDFS DFS) commands, extremely useful if you are using SQL for Big data analysis)
+[Apache_CLI](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+

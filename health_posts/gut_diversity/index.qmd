@@ -1,0 +1,40 @@
+---
+title: "What shapes gut diversity?"
+image: ""
+author:
+  - name: Sujan Bhattarai
+categories: [Health] # self-defined categories
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+
+<span style="font-size: 14pt; font-family: georgia, palatino, serif;">The human gut is home to trillions of microorganisms that comprise the gut microbiome. Every individual's gut microbiome is unique and comprises over 100 different species of microorganisms. Based on scientific evidence, human colons host 10^11 to 10^12 per mm power micro-organism, which means for an average of 20 feet colon, the count goes almost to infinity. Not just the colon, whole human body is regulated and balanced by microbiome. For example: the skin and scalp which gets dry during winter is due to change in microbiome composition in skin in response to weather change.</span>
+
+<p style="padding-left: 40px;"><span style="font-family: georgia, palatino, serif;"><span style="font-size: 14.0pt;"></span><span style="font-size: 14pt;">But why are gut biotas so crucial in modern-day clinical discovery, and why have their studies sky-rocketed since the last decade?  Well, the answer is simple: Every disease that does not have a physical existence, like anxiety, depression, diabetes etc, often links with poor gut flora. For example, Patients with obesity levels have poor biota composition, autoimmune victims have a low abundance of bacteria, depression and anxiety sufferers have low gut flora, and many more to go.</span></span></p>
+
+<strong><span style="font-size: 14pt; font-family: georgia, palatino, serif;">But what things alters gut biome that in turn invites unwanted diseases? It is crucial to understand such alternating agent to remain healthy and fit in all ages ?</span></strong>
+
+<span style="font-size: 14pt; font-family: georgia, palatino, serif;"><img class="alignnone wp-image-166 size-large" src="https://images.unsplash.com/photo-1706201320711-3d85bf15bac4?q=80&w=1981&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="700" height="500" /></span>
+<blockquote><span style="font-size: 12pt; font-family: georgia, palatino, serif;">Since pre-history, humans have willingly consumed soils as a supplement to good health of the gut, historically termed as “geophagy”. To this date, the practice has been well-preserved across communities worldwide. The indigenous community, especially in lower western Australia, often takes a pinch of soil after rain as to promote good health through intake of soil microbiomes. Surprisingly, When I was watching Dr. Berg's video in YouTube, someone there from the city area also commented on geophagy as their established habit.</span></blockquote>
+<ol>
+ 	<li><span style="font-family: georgia, palatino, serif;"><span style="font-size: 14pt;">[ </span><strong><span style="font-size: 14pt;">One factor that affects gut diversity is the individual's diet]
+</span></strong><span style="font-size: 14pt;"> Dietary habits, infant weaning, and feeding practices are essential determinants that play a crucial role in gut microbiome variations. The introduction of high-fiber and carbohydrate foods causes an increase in Firmicutes and Prevotella, while the introduction of high-fiber and animal protein foods causes an increase in Bacteroidetes. Moreover, the gut microbiome remains relatively stable in adulthood but differs between individuals due to enterotypes, body mass index (BMI) level, exercise frequency, lifestyle, and cultural and dietary habits.
+</span></span>
+<blockquote><span style="font-family: georgia, palatino, serif;">for example: Between the male hunters and females non-hunters among the tribes in Tanzania, massive difference in gut biome was recorded. Male hunters who were regularly on hunting had low availability of fiber foods and they had low gut diversity. while females whose diet were regularly composed of healthy earthly fibers had increased abundance of healthy gut bacteria.</span></blockquote>
+</li>
+ 	<li><span style="font-family: georgia, palatino, serif;"><span style="font-size: 14pt;"> [<strong>gut diversity can also be influenced by external factors, including neurological disorders]</strong>
+</span><span style="font-size: 14pt;">Recent discoveries on how the microbiota-brain-gut axis works have revealed that patients with neurological disorders have a reduced number of certain strains of bacteria. For example, bifidobacteria were found to be in reduced numbers in patients with schizophrenia and Parkinson's disease. Similarly, other bacteria like Coprococcus, Roseburia, and Blautia species were less abundant as well.
+</span><span style="font-size: 14pt;">Brain and the gut interact through the central nervous system and vagal nerve. Thus unstable brain influences the higher synthesis of neurotransmitters like serotonin. An overabundance of bad gut flora results in more stress and other similar anxiety symptoms.  In parallel, the unhealthy gut has more serotonin-producing bacteria that affect the brain and increase neurological disorders. Because particular strains of bacteria like Lactobacillus Rhamnosus get reduced with bad brain health, neurological imbalance coerces bad gut health.
+</span></span>
+<blockquote><span style="font-size: 14pt; font-family: georgia, palatino, serif;"><span style="font-size: 12pt;">It is therefore important to maintain good brain health, by following one's passion, reducing stress from work and maintaining healthy relationships with closed ones</span> </span></blockquote>
+</li>
+ 	<li><span style="font-family: georgia, palatino, serif;"><span style="font-size: 14pt;"><strong> [Physical exercise and fitness are also found to have an impact on gut diversity]
+</strong></span><span style="font-size: 14pt;">Moderate exercise has been shown to increase gut flora diversity in both young and adult individuals. Certain strains of bacteria, especially bifid bacteria strains, increase in abundance with regular exercise. However, </span><span style="font-size: 14pt;">while moderate exercise has been shown to increase good bacteria in both young and older adults, extensive training is found to have reduced intestinal diversity. For example, in a 160 km (100-mile) race, up to 47% of participants reported upper GI complaints. All types of exercise we do as non-professional athletes fall under moderate exercise, and they have good benefits.</span></span></li>
+</ol>
+<span style="font-family: georgia, palatino, serif;"><span style="font-size: 14pt;"><img class="wp-image-164 alignnone" src="https://plus.unsplash.com/premium_photo-1679938885972-180ed418f466?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="700" height="500" /></span></span>
+
+<span style="font-family: georgia, palatino, serif;"><span style="font-size: 14pt;">In conclusion, gut diversity is essential for maintaining good health. Individuals must prioritize their diet, exercise, and physical fitness levels to maintain a healthy gut microbiome. Moreover, individuals with neurological disorders must know their gut microbiome's health and take measures to promote a healthy microbiome. The gut-brain axis is an essential aspect of our overall health and well-being, and more research is needed to understand how it works and how we can improve it.</span></span>
+
+&nbsp;
+
+&nbsp;
