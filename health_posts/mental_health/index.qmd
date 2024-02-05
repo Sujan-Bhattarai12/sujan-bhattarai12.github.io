@@ -1,8 +1,17 @@
+---
+title: "Ayurveda: The Oldest Form of Medicine in the World"
+image: "mental.jpg"
+author:
+  - name: Sujan Bhattarai
+categories: [Health] # self-defined categories
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Impact of Mental Stress on Physical Health</title>
+<title> Impact of Mental Stress on Physical Health</title>
 <style>
   body {
     font-family: Arial, sans-serif;

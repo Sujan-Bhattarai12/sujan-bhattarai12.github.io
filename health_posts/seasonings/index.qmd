@@ -1,6 +1,6 @@
 ---
 title: "Importance of food seasonings"
-image: ""
+image: "seasonigs.jpg"
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories

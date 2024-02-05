@@ -1,14 +1,12 @@
 ---
 title: "Health benifits of having dogs"
-image: ""
+image: "dogs.jpg"
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
-
-<p><span style="font-size: 14pt;"><!-- wp:paragraph --></span></p>
 <p><span style="font-size: 14pt;">Humans obviously don't share a recent relationship history with dogs and cats. Let's assume science is 100% credible; then dogs and humans share relationships as old as 10000-15000 years. This was when Eagles still hunted humans in the grasslands of Africa. It is not sure whether dogs evolved to be with humans so that they could secure food or humans needed dogs to help them with hunting, so they domesticated them. Whatever the case, humans' relationship with dogs is not just some generational long.</span></p>
 <p><span style="font-size: 14pt;"><!-- /wp:paragraph -->
 

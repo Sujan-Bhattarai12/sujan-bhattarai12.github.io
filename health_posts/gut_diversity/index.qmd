@@ -1,6 +1,6 @@
 ---
 title: "What shapes gut diversity?"
-image: ""
+image: "gut.jpg"
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories

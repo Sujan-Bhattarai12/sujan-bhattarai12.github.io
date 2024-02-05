@@ -1,16 +1,14 @@
 ---
-title: "Hindu culture and gut micro-biome? astonishing interplay"
-image: ""
+title: "Benifits of morning sun"
+image: "hindu.jpg"
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
 
-
 <p style="padding-left: 40px;"><span style="font-size: 14pt;">We all have our own morning routines, whether it's grabbing a cup of coffee and checking our emails, hitting the snooze button and rolling out of bed at the last minute, or diving into a workout before the sun rises. But have you ever stopped to think about how your morning ritual affects the rest of your day? Establishing a healthy morning ritual can have a multitude of benefits, both physically and mentally. Here are just a few of the ways that starting your day off on the right foot can positively impact your life.
 
-##add an image using https
 ![morning](https://images.unsplash.com/photo-1526066843114-f1623fde3476?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
   
   

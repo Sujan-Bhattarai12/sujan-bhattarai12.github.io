@@ -1,6 +1,6 @@
 ---
 title: "Hiking Benifits"
-image: ""
+image: "hiking.jpg"
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories
@@ -15,8 +15,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 # Hiking in the Mountains: what an amazing experience!
 ![Hiking](https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
-
-<p><span style="font-size: 14pt;"><!-- wp:paragraph --></span></p>
 <p><span style="font-size: 14pt;">It should not be surprising that there exists a suicide forest in Japan named Aokigahara, which reports the highest number of suicidal incidents worldwide. Historically suicide was considered an act of courage by Samurai, trained warriors. However, the present scenario has changed, and many suicidal incidents come from stress, financial burden, betrayal in love, arguments, etc. A psychologist researching the Aokigahara forest identified that many suicidal incidents were from the mental cause, primarily from work stress. Well, Japan and Korea report the highest number of work hours per day, which makes sense that the country has such a high massive death rate from self-slaughter.</span></p>
 <p><span style="font-size: 14pt;"><!-- /wp:paragraph -->
 
