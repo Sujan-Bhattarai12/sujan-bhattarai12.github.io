@@ -1,13 +1,13 @@
 /* Styles for span */
 span {
     font-size: 14pt;
-    font-family: georgia, palatino, serif;
+    font-family: Verdana, palatino, serif;
 }
 
 /* Styles for strong */
 strong {
     font-size: 14pt;
-    font-family: georgia, palatino, serif;
+    font-family: Georgia, palatino, serif;
 }
 
 /* Styles for p */
@@ -16,7 +16,7 @@ strong {
 p { 
     padding-left: 40px;
     font-size: 14pt;
-    font-family: georgia, palatino, serif;
+    font-family: Verdana, palatino, serif;
 }
 
 /* Styles for blockquote */
