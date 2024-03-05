@@ -1,6 +1,11 @@
 ---
 title: "Ayurveda: The Oldest Form of Medicine in the World"
 image: "image1.jpg"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: /health_posts/style.css
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories

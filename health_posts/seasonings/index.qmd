@@ -1,6 +1,11 @@
 ---
 title: "Importance of food seasonings"
 image: "seasonigs.jpg"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: /health_posts/style.css
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories

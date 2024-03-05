@@ -1,6 +1,11 @@
 ---
 title: "Health benifits of having dogs"
 image: "dogs.jpg"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: /health_posts/style.css
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories
