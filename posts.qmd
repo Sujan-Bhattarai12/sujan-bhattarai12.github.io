@@ -1,5 +1,5 @@
 ---
-title: "Analytic Blogs"
+title: "Application of Data science in studying world's most pressing issue"
 listing: 
   contents: posts # all Quarto docs in the `posts` directory will be included on your listing page
   type: grid # or `default` or `table`; each type has its own set of yaml options to include

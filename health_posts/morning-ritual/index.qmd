@@ -9,8 +9,10 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 <p style="padding-left: 40px;"><span style="font-size: 14pt;">We all have our own morning routines, whether it's grabbing a cup of coffee and checking our emails, hitting the snooze button and rolling out of bed at the last minute, or diving into a workout before the sun rises. But have you ever stopped to think about how your morning ritual affects the rest of your day? Establishing a healthy morning ritual can have a multitude of benefits, both physically and mentally. Here are just a few of the ways that starting your day off on the right foot can positively impact your life.
 
-![morning](https://images.unsplash.com/photo-1526066843114-f1623fde3476?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
-  
+#load static image1 here from the directory
+# Hiking in the Mountains: what an amazing experience!
+<p><span style="font-size: 14pt;"><img class=" wp-image-106 alignleft" src="image1.jpg" alt="" width="700" height="500" /></span></p>
+
   
 <ol>
  	<li><span style="font-size: 14pt;">Boosts Energy and Productivity</span></li>
@@ -32,7 +34,8 @@ Our morning runs also had a remarkable effect on our sleep cycle. Despite being 
  	<li><span style="font-size: 14pt;">Boosts Mental Clarity and Creativity</span></li>
 </ol>
 
-![morning](https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+# Hiking in the Mountains: what an amazing experience!
+<p><span style="font-size: 14pt;"><img class=" wp-image-106 alignleft" src="image2.jpg" alt="" width="700" height="500" /></span></p>
 
 <span style="font-size: 14pt;">A healthy morning ritual can also boost your mental clarity and creativity. When you take time to quiet your mind and focus on the present moment, you may find that your thoughts become clearer and more organized. This can help you approach your work and personal life with a greater sense of creativity and innovation.</span>
 

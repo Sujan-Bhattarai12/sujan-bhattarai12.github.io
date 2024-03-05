@@ -8,13 +8,17 @@ website:
   navbar:
     right:
       - href: index.qmd
-        text: HOME
+        text: Home
       - href: about.qmd
-        text: ABOUT
+        text: About
       - href: posts.qmd
-        text: DATA_SCIENCE-BLOGS
+        text: Data-science
       - href: health.qmd
-        text: HEALTH_BLOGS
+        text: Health
+      - href: certifications.qmd
+        text: Certificates
+      - href: featured_projects.qmd
+        text: Featured_projects
  
   page-footer:
     background: light

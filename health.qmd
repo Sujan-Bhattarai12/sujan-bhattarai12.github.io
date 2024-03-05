@@ -1,5 +1,5 @@
 ---
-title: "What I am curious about ?"
+title: "If Environment is global pressing issue, health is global individuals issue"
 listing: 
   contents: health_posts # all Quarto docs in the `posts` directory will be included on your listing page
   type: grid # or `default` or `table`; each type has its own set of yaml options to include

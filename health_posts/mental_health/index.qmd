@@ -1,6 +1,6 @@
 ---
 title: "Ayurveda: The Oldest Form of Medicine in the World"
-image: "mental.jpg"
+image: "image1.jpg"
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories
@@ -49,7 +49,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 <body>
 <div class="container">
 
-Ayurveda is the oldest form of medicine in the world, practiced by ancient Rishis who could be termed as supernatural scientists. These superhumans measured the speed of light, counted the total number of constellations, and even measured the orbital period of Haley's comet, all without any technological devices. They also established medicinal practices that have minimal or no side-effects at all. To this day, Ayurveda medicine is well practiced in India and Nepal, but modern medicine has shadowed its potency in healing methods.<span style="font-size: 14pt;"><img class="alignnone wp-image-183 size-large" src="https://images.unsplash.com/photo-1504448252408-b32799ff32f3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="1024" height="576" /></span>
+Ayurveda is the oldest form of medicine in the world, practiced by ancient Rishis who could be termed as supernatural scientists. These superhumans measured the speed of light, counted the total number of constellations, and even measured the orbital period of Haley's comet, all without any technological devices. They also established medicinal practices that have minimal or no side-effects at all. To this day, Ayurveda medicine is well practiced in India and Nepal, but modern medicine has shadowed its potency in healing methods.<span style="font-size: 14pt;"><img class="alignnone wp-image-183 size-large" src="image1.jpg" alt="" width="1024" height="576" /></span>
 
 Ayurveda mentions that "a bad mental health can create a bad physical health and vice versa." This means that a person who has mental instability can have poor physical health. In modern-day medicine, this is known as the Psychosomatic theory. Ayurveda describes it in a more surprising way. It says, "a living body is composed of five components of the earth system. If any component has an anomaly, the whole body gets disturbed." This is indeed true, and we have long understood it. In this writing, we will primarily focus on how mental stress brings an anomaly in the body and produces physical effects.
 

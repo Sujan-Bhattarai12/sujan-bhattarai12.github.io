@@ -13,7 +13,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 
 # Hiking in the Mountains: what an amazing experience!
-![Hiking](https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+<p><span style="font-size: 14pt;"><img class=" wp-image-106 alignleft" src="image1.jpg" alt="" width="700" height="500" /></span></p>
 
 <p><span style="font-size: 14pt;">It should not be surprising that there exists a suicide forest in Japan named Aokigahara, which reports the highest number of suicidal incidents worldwide. Historically suicide was considered an act of courage by Samurai, trained warriors. However, the present scenario has changed, and many suicidal incidents come from stress, financial burden, betrayal in love, arguments, etc. A psychologist researching the Aokigahara forest identified that many suicidal incidents were from the mental cause, primarily from work stress. Well, Japan and Korea report the highest number of work hours per day, which makes sense that the country has such a high massive death rate from self-slaughter.</span></p>
 <p><span style="font-size: 14pt;"><!-- /wp:paragraph -->
@@ -64,6 +64,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 <!-- wp:paragraph --></span></p>
 <p><span style="font-size: 14pt;">4. <strong>Improves physical health</strong></span></p>
-<p><span style="font-size: 14pt;"><img class=" wp-image-106 alignleft" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1840&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="700" height="500" />Well, improvement of physical health is the most imminent benefit of hiking. On average, 100 calories get burnt for every mile of walking at a rate of 2.5 miles per hour. If the walking speed increases, the calorie burn reaches 500 per hour. All these calorie-burning processes and walking increase bone density and reduce bone wear. The exact process also reduces arthritis and osteoporosis. Other health benefits include increased insulin resistance and prevention of diabetes that develops from increased physical activities such as walking in the forest.</span></p>
+<p><span style="font-size: 14pt;"><img class=" wp-image-106 alignleft" src="image3.jpg" alt="" width="700" height="500" />Well, improvement of physical health is the most imminent benefit of hiking. On average, 100 calories get burnt for every mile of walking at a rate of 2.5 miles per hour. If the walking speed increases, the calorie burn reaches 500 per hour. All these calorie-burning processes and walking increase bone density and reduce bone wear. The exact process also reduces arthritis and osteoporosis. Other health benefits include increased insulin resistance and prevention of diabetes that develops from increased physical activities such as walking in the forest.</span></p>
 <p><span style="font-size: 14pt;"><!-- /wp:paragraph --></span></p>
 <p>&nbsp;</p>

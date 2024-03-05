@@ -1,0 +1,31 @@
+
+
+
+```{r, out.width = "100%", out.height="100%", fig.align = "center", echo = F}
+#use knit to add the pdf
+knitr::include_graphics("files/certificates/data_scientist_with_r.jpg")
+```
+
+```{r, echo = F}
+#use knit to add the pdf
+knitr::include_graphics("files/certificates/intro_to_bigdata.jpg")
+```
+
+```{r, echo = F}
+#use knit to add the pdf
+knitr::include_graphics("files/certificates/big_data_modeling.jpg")
+```
+```{r, echo = F}
+#use knit to add the pdf
+knitr::include_graphics("files/certificates/multivariate_calculus_page.jpg")
+```
+
+```{r echo = F}
+#use knit to add the pdf
+knitr::include_graphics("files/certificates/linear_algebra_page.jpg")
+```
+
+
+
+
+

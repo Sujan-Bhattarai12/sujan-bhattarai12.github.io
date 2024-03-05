@@ -11,7 +11,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 <p><span style="font-size: 14pt;"><!-- /wp:paragraph -->
 
 <!-- wp:image {"id":13,"width":563,"height":375,"sizeSlug":"large","linkDestination":"none"} --></span></p>
-<figure class="wp-block-image size-large is-resized"><span style="font-size: 14pt;"><img class="wp-image-13" src="https://hips.hearstapps.com/hmg-prod/images/group-portrait-of-adorable-puppies-royalty-free-image-1687451786.jpg?crop=0.89122xw:1xh;center,top&resize=1200:*" alt="" width="563" height="375" /></span></figure>
+<figure class="wp-block-image size-large is-resized"><span style="font-size: 14pt;"><img class="wp-image-13" src="image1.jpg" alt="" width="563" height="375" /></span></figure>
 <p><span style="font-size: 14pt;"><!-- /wp:image -->
 
 <!-- wp:paragraph --></span></p>
@@ -50,7 +50,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 </span></p>
   
-<figure class="wp-block-image size-large is-resized"><span style="font-size: 14pt;"><img class="wp-image-14" src="https://images.unsplash.com/photo-1568572933382-74d440642117?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="385" height="385" /></span></figure>
+<figure class="wp-block-image size-large is-resized"><span style="font-size: 14pt;"><img class="wp-image-14" src="image2.jpg" alt="" width="385" height="385" /></span></figure>
 <p><span style="font-size: 14pt;"><!-- /wp:image -->
 
 <!-- wp:paragraph --></span></p>
