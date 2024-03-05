@@ -53,6 +53,7 @@ navbar:
   nav {
     background-color: #2c3e50; /* Change color to your preference */
     padding: 1em;
+    font-size: 1.1em;
   }
 
   nav a {
@@ -66,12 +67,12 @@ navbar:
   nav a:hover {
     color: #3498db; /* Change color to your preference */
   }
-
-  nav a:hover::before {
+  
+   nav a:hover::before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 10px; /* Adjust thickness as needed */
+    height: 5px; /* Adjust thickness as needed */
     background-color: #3498db; /* Change color to your preference */
     bottom: -2px; /* Adjust distance from text */
     left: 0;
@@ -90,3 +91,9 @@ navbar:
     background-color: #ffffff; /* Change color to your preference */
   }
 </style>
+  
+
+
+
+
+ 
