@@ -1,0 +1,10 @@
+
+## add background of website as #0c432c in this css style
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0c243c;
+  color: #333;
+  margin: 20px;
+}
+

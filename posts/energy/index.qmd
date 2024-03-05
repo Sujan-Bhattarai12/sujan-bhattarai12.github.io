@@ -7,18 +7,17 @@ format:
   html:
     code-fold: true
     code_summary: "show the code"
+    css: "/health_posts/style.css"
 editor: visual
-css: "styles.css"
-
 ---
 
 ## Introduction
+
 Sustainable energy is a critical component in addressing global challenges such as climate change and achieving sustainable development goals. In this data analysis, we delve into the global dataset on sustainable energy spanning from 2000 to 2020, with a specific focus on Nepal. Our aim is to understand energy trends, explore potential use cases, and employ predictive modeling to forecast CO2 emissions in Nepal.
 
-
 ## Data Source
-The dataset used in this analysis is sourced from Kaggle. You can find the dataset [here](link: https://www.kaggle.com/datasets/anshtanwar/global-data-on-sustainable-energy)
 
+The dataset used in this analysis is sourced from Kaggle. You can find the dataset [here](link:%20https://www.kaggle.com/datasets/anshtanwar/global-data-on-sustainable-energy)
 
 ```{r  message=FALSE, warning=FALSE}
 ##load all required libraries
@@ -31,6 +30,7 @@ library(kableExtra)
 ```
 
 ## Data Cleaning
+
 The process begins with reading the "energy_data.csv" file, and the first code chunk calculates the total count of missing values for each column in the dataset. Subsequently, it checks for and reports any duplicated rows in the dataset. The next code chunk iteratively examines the data types of each column and prints the results.
 
 ```{r  message=FALSE, warning=FALSE, collapse=TRUE}
@@ -52,6 +52,7 @@ for (i in seq_along(energy_data)){
 
 print(x)
 ```
+
 Following the initial data inspection, the document proceeds to address data type inconsistencies. The code iterates through the columns, converting character columns to factors and numeric columns to appropriate numeric types. This step is crucial for ensuring the dataset's readiness for subsequent analysis.
 
 ```{r}
@@ -64,6 +65,7 @@ for (i in seq_along(energy_data)){
     energy_data[[i]] = as.numeric(energy_data[[i]])
 }
 ```
+
 Subsequently, the document shortens the column names for ease of reference and plotting, using the rename function. The new column names are more concise and user-friendly, facilitating clearer data visualization and interpretation.
 
 ```{r}
@@ -98,6 +100,7 @@ map <- world_map %>%
        ggplot() +
        geom_sf()
 ```
+
 the code performs a right join between the world map data and the processed energy data (energy_data1) based on the country ID (sovereignt and Entity). The resulting joined dataset (joined) is then filtered to include only the data for the year 2020. For each variable from the year to population density, individual maps are created and displayed using the geom_sf function. These maps offer a spatial representation of the selected variable across countries, aiding in the identification of patterns or disparities.
 
 ```{r  message=FALSE, warning=FALSE}
@@ -117,6 +120,7 @@ for (i in which(colnames(joined)=="Year"): which(colnames(joined)=="pop_density"
 }
 
 ```
+
 The following code chunk explores the correlation between variables in the processed energy dataset (energy_data1). The correlation matrix is visualized as a heatmap using the ggplot package, with colors ranging from blue (indicating lower correlation) to orange (indicating higher correlation). This analysis helps assess the degree of association between different energy-related variables, providing insights into potential multicollinearity.
 
 ```{r}
@@ -261,4 +265,3 @@ normalized_MAE
 ##shorcut to measure more accuracy metrics
 forecast:: accuracy(train$Co2_emission, train$model_predict)
 ```
-

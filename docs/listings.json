@@ -1,0 +1,30 @@
+[
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/energy/index.html",
+      "/posts/southAsia_crop/index.html",
+      "/posts/economic_zone/index.html",
+      "/posts/False_color_analysis/index.html",
+      "/posts/12-09-2020-AI-ethics/index.html"
+    ]
+  },
+  {
+    "listing": "/health.html",
+    "items": [
+      "/health_posts/a_gut_diversity/index.html",
+      "/health_posts/c_hiking/index.html",
+      "/health_posts/dogs/index.html",
+      "/health_posts/grass_fed vs grain-fed/index.html",
+      "/health_posts/mental_health/index.html",
+      "/health_posts/morning-ritual/index.html",
+      "/health_posts/seasonings/index.html"
+    ]
+  },
+  {
+    "listing": "/featured_projects.html",
+    "items": [
+      "/featured_projects/ml_spotify/index.html"
+    ]
+  }
+]
