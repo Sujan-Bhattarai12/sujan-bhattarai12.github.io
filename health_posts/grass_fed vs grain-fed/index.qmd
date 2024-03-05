@@ -13,7 +13,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 ---
 
 
-<span style="font-size: 14pt;">Before writing this blog post, I did research for hours, trying to jot down research papers that have assessed how grass-fed meats impact health. However, I did not find a single scientific paper covering this context. For somebody who knows well about the dark side of the food industry, not finding any research paper did not surprise at all.  Food research is governed by food industries that donate millions to conduct biased research, only assessing the good side and covering up any findings that have a negative impact on business.</span>
+<p>Before writing this blog post, I did research for hours, trying to jot down research papers that have assessed how grass-fed meats impact health. However, I did not find a single scientific paper covering this context. For somebody who knows well about the dark side of the food industry, not finding any research paper did not surprise at all.  Food research is governed by food industries that donate millions to conduct biased research, only assessing the good side and covering up any findings that have a negative impact on business.</p>
 
 <span style="font-size: 14pt;">However, there exists great non-profits organization, clinical researchers, and doctors who have detailed knowledge of such dark sides and try to fill the gap. For this post, I have gathered information from reputed online doctors, non-profits reports, extracts from reputed magazines, and notes from health-related books.</span>
 

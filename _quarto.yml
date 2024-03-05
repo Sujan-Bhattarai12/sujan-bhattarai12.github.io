@@ -32,7 +32,7 @@ format:
   html:
     theme: 
       - styles.scss
-    mainfont: Georgia 
+    mainfont: Verdana 
     css: styles.css
     toc: true 
 

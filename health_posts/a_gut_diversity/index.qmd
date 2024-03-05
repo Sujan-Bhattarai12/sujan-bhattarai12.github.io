@@ -15,7 +15,7 @@ editor:
     wrap: 72
 ---
 
-[The human gut is home to trillions of microorganisms that comprise the
+<p>The human gut is home to trillions of microorganisms that comprise the
 gut microbiome. Every individual's gut microbiome is unique and
 comprises over 100 different species of microorganisms. Based on
 scientific evidence, human colons host 10\^11 to 10\^12 per mm power
@@ -23,8 +23,7 @@ micro-organism, which means for an average of 20 feet colon, the count
 goes almost to infinity. Not just the colon, whole human body is
 regulated and balanced by microbiome. For example: the skin and scalp
 which gets dry during winter is due to change in microbiome composition
-in skin in response to weather
-change.]{style="font-size: 14pt; font-family: georgia, palatino, serif;"}
+in skin in response to weather change.</p>s
 
 <p style="padding-left: 40px;">
 
