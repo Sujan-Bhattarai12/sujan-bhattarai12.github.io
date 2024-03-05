@@ -1,5 +1,5 @@
 ---
-title: "Comparison of competing classificaiont Machine Learning Models in songs classification"
+title: "Comparing competing ML models in classifying songs"
 format:
   html:
     toc: true
@@ -33,7 +33,7 @@ library(caret)
 
 ### Data Preparation
 
-The data is downloaded from <https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify>. Do some aspects of data cleaning, selecting only fewer columns and rows based on interest.
+The data is downloaded from <https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify>. Do some of data cleaning, selecting only fewer columns and rows based on interest.
 
 ```{r, warning=FALSE, message=FALSE}
 # read the online spotify data

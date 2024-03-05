@@ -7,7 +7,7 @@ format:
   html:
     code-fold: true
     code_summary: "show the code"
-    css: "/health_posts/style.css"
+    css: /health_posts/style.css
 editor: visual
 ---
 
