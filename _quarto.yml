@@ -9,8 +9,6 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
       - href: posts.qmd
         text: Data-science
       - href: health.qmd
@@ -19,6 +17,8 @@ website:
         text: Certificates
       - href: featured_projects.qmd
         text: Featured_projects
+      - href: about.qmd
+        text: About
  
   page-footer:
     background: light
