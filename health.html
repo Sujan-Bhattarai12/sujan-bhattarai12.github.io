@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>certifications</title>
+<title>What I am curious about</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./pic.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -60,7 +62,38 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -90,11 +123,11 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data-science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./health.html" rel="" target="">
+    <a class="nav-link active" href="./health.html" rel="" target="" aria-current="page">
  <span class="menu-text">Health</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./certifications.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./certifications.html" rel="" target="">
  <span class="menu-text">Certificates</span></a>
   </li>  
   <li class="nav-item">
@@ -118,44 +151,205 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-<section id="since-2019" class="level4">
-<h4 class="anchored" data-anchor-id="since-2019">Since 2019</h4>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/certificates/data_scientist_with_r.jpg" style="width:100.0%;height:100.0%" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="files/certificates/intro_to_bigdata.jpg" class="img-fluid" width="825"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="files/certificates/big_data_modeling.jpg" class="img-fluid" width="1650"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="files/certificates/multivariate_calculus_page.jpg" class="img-fluid" width="825"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="files/certificates/linear_algebra_page.jpg" class="img-fluid" width="825"></p>
-</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">What I am curious about</h1>
 </div>
 
 
-</section>
 
-</main> <!-- /main -->
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Health" data-listing-file-modified-sort="1709607867348" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="./health_posts/a_gut_diversity/index.html"> <img src="./health_posts/a_gut_diversity/gut.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/a_gut_diversity/index.html">
+<h3 class="no-anchor listing-title">
+What shapes gut diversity?
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/a_gut_diversity/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/a_gut_diversity/index.html">
+<div class="listing-author">
+Sujan Bhattarai
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Health" data-listing-file-modified-sort="1709606664107" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="./health_posts/c_hiking/index.html"> <img src="./health_posts/c_hiking/hiking.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/c_hiking/index.html">
+<h3 class="no-anchor listing-title">
+Hiking Benefits
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/c_hiking/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/c_hiking/index.html">
+<div class="listing-author">
+Sujan Bhattarai
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Health" data-listing-file-modified-sort="1709608034292" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="./health_posts/dogs/index.html"> <img src="./health_posts/dogs/dogs.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/dogs/index.html">
+<h3 class="no-anchor listing-title">
+Health benifits of having dogs
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/dogs/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/dogs/index.html">
+<div class="listing-author">
+Sujan Bhattarai
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Health" data-listing-file-modified-sort="1709607675183" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="./health_posts/grass_fed vs grain-fed/index.html"> <img src="./health_posts/grass_fed vs grain-fed/meat.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/grass_fed vs grain-fed/index.html">
+<h3 class="no-anchor listing-title">
+Grass fed vs grain fed red meat
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/grass_fed vs grain-fed/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/grass_fed vs grain-fed/index.html">
+<div class="listing-author">
+Sujan Bhattarai
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Health" data-listing-file-modified-sort="1709607639213" data-listing-reading-time-sort="4">
+<div class="thumbnail">
+<p><a href="./health_posts/mental_health/index.html"> <img src="./health_posts/mental_health/image1.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/mental_health/index.html">
+<h3 class="no-anchor listing-title">
+Ayurveda: The Oldest Form of Medicine in the World
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/mental_health/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/mental_health/index.html">
+<div class="listing-author">
+Sujan Bhattarai
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Health" data-listing-file-modified-sort="1709608356697" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="./health_posts/morning-ritual/index.html"> <img src="./health_posts/morning-ritual/hindu.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/morning-ritual/index.html">
+<h3 class="no-anchor listing-title">
+Benifits of morning sun
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/morning-ritual/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/morning-ritual/index.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Health" data-listing-file-modified-sort="1709607402656" data-listing-reading-time-sort="3">
+<div class="thumbnail">
+<p><a href="./health_posts/seasonings/index.html"> <img src="./health_posts/seasonings/seasonigs.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./health_posts/seasonings/index.html">
+<h3 class="no-anchor listing-title">
+Importance of food seasonings
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:health_posts/seasonings/index.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./health_posts/seasonings/index.html">
+<div class="listing-author">
+Sujan Bhattarai
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

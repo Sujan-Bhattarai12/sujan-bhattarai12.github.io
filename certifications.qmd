@@ -1,6 +1,5 @@
 
-
-
+#### Since 2019
 ```{r, out.width = "100%", out.height="100%", fig.align = "center", echo = F}
 #use knit to add the pdf
 knitr::include_graphics("files/certificates/data_scientist_with_r.jpg")
