@@ -14,7 +14,7 @@ editor:
     wrap: 72
 ---
 
-<p> This a intensive project, exploring 4 competing popular machine learning model to classify a song into either of the two genre. The dataset is from Spotify API and it contains 18 audio features of the song. The dataset is filtered to include only the tracks of the two genres, Underground Rap and dnb. The models are k-nearest neighbor, decision tree, bagged tree and random forest. The models are compared based on their accuracy, sensitivity and specificity. The best model is then selected based on the comparison.</p>
+<p> This a long project, exploring 4 competing popular machine learning model to classify a song into either of the two genre. The dataset is from Spotify API and it contains 18 audio features of the song. The dataset is filtered to include only the tracks of the two genres, Underground Rap and dnb. The models are k-nearest neighbor, decision tree, bagged tree and random forest. The models are compared based on their accuracy, sensitivity and specificity. The best model is then selected based on the comparison.</p>
 
 ```{r include=FALSE}
 #set knitr option such that all warning and messages are not displayed
@@ -33,8 +33,9 @@ library(caret)
 
 ### Data Preparation
 
-The data is downloaded from <https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify>. Do some of data cleaning, selecting only fewer columns and rows based on interest.
+The data is downloaded from <https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify>. 
 
+#### Data cleaning and feature selection
 ```{r, warning=FALSE, message=FALSE}
 # read the online spotify data
 genre <- read_csv("genres_v2.csv")
@@ -54,7 +55,6 @@ spotify_data <- spotify_data %>%
 ```
 
 ### Data Exploration 
-Just for an overview, look at the first few rows of the dataset and also the summary of the dataset. The output table is formated based on kable package, which is pretty popular in R.
 
 ```{r, out.width = "70%", fig.align = "center"}
 # remove columns that you won't be feeding model
@@ -73,7 +73,7 @@ kableExtra:: kable(top_20_songs,
                    caption = "Top 20 most danceable tracks in the dataset")
 
 ```
-
+##### Visual interpretation of the data
 ```{r}
 #difference between genres for some of the audio features
 #---drop song name, not required for models
@@ -102,7 +102,6 @@ spotify %>%
 
 ```
 
-###  Begin with Modeling
 
 ### 1.K-nearest neighbor
 The k-nearest neighbors (KNN) method is a non-parametric classification algorithm used for recommendation systems. In the context of a Spotify dataset, the KNN algorithm can be employed to recommend songs or artists to a user based on the preferences of other users with similar listening histories. The algorithm calculates the distances between the target user and other users in the dataset based on their features, such as the artists or genres they have listened to. It then selects the k nearest neighbors, which are the users with the shortest distances to the target user, and recommends songs or artists that are popular among these neighbors.
@@ -119,7 +118,6 @@ library(tidymodels) #re-entering tidymodel mode
 library(kknn) #knn modeling
 library(caTools) #for splitting the data
 ```
-
 
 
 ```{r}
@@ -240,8 +238,7 @@ knn_estimate <- bind_test_pred %>%
 ```
 
 
-
-#### 2.Decision tree
+### 2.Decision tree
 Decision trees uses CART algorithm to split the data into two or more homogeneous sets. The algorithm uses the Gini index to create the splits. The model is then tuned with grid search to find the best hyperparameters. The model is then fit to the testing set and the performance is evaluated with confusion matrix, precision, recall and f1 score, as for knn model.
 
 ```{r}
