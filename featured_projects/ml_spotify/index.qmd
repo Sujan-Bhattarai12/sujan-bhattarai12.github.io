@@ -1,5 +1,6 @@
 ---
 title: "Comparing competing ML models in classifying songs"
+image: "image.jpg"
 format:
   html:
     toc: true
