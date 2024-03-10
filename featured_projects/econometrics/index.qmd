@@ -1,6 +1,5 @@
 ---
 title: 'Applied Statistics for Social Sciences: How incentivizing household failed?'
-author: "Sujan Bhattarai"
 date: "2023-09-20"
 format:
   html:
@@ -39,7 +38,7 @@ library(estimatr)
 library(Hmisc)
 ```
 
-# Part 1 Treatment Ignorability Assumption and Applying Matching Estimators
+### Part 1 Treatment Ignorability Assumption and Applying Matching Estimators
 
 The goal is to estimate the causal effect of maternal smoking during pregnancy on infant birth weight using the treatment ignorability assumptions. The data are taken from the National Natality Detail Files, and the extract “SMOKING_EDS241.csv”' is a random sample of all births in Pennsylvania during 1989-1991. Each observation is a mother-infant pair. The key variables are:
 
@@ -58,9 +57,9 @@ The goal is to estimate the causal effect of maternal smoking during pregnancy o
 smoking_data <- read_csv(here("featured_projects/econometrics/data/SMOKING_EDS241.csv"))
 ```
 
-## Mean Differences, Assumptions, and Covariates 
+#### Mean Differences, Assumptions, and Covariates 
 
-a)  What is the mean difference in birth weight of infants with smoking and non-smoking mothers ? Under what assumption does this correspond to the average treatment effect of maternal smoking during pregnancy on infant birth weight. Calculate and create a table demonstrating the differences in the mean proportions/values of covariates observed in smokers and non-smokers (remember to report whether differences are statistically significant) and discuss whether this provides empirical evidence for or against this assumption.
+a)  What is the mean difference in birth weight of infants with smoking and non-smoking mothers ? Under what assumption does this correspond to the average treatment effect of maternal smoking during pregnancy on infant birth weight. Calculate and create a table demonstrating the differences in the mean proportions/values of covariates observed in smokers and non-smokers 
 
 ```{r , include=TRUE}
 ## Calculate mean difference. Remember to calculate a measure of statistical significance
@@ -134,9 +133,9 @@ print(table)
 
 For all other covariates, there is significant difference between the treatment and control groups under 5% confidence interval. The p value is extremely low that it rounds to zero even at rounding at 6 decimal places. This suggests that the assumptions, Common Support, is not satisfied. There isn't sufficient overlap between treatment and control group, which means smoking mothers and non smoking mothers already represent disimilar population. Regardding ignorability assumption, we cannot yet make inference from t-test. The part b, where ATE will be used, will help us test the ignorability assumption.
 
-## ATE and Covariate Balance 
+#### ATE and Covariate Balance 
 
- Assume that maternal smoking is randomly assigned conditional on the observable covariates listed above. Estimate the effect of maternal smoking on birth weight using an OLS regression with NO linear controls for the covariates. Perform the same estimate including the control variables. Next, compute indices of covariate imbalance between the treated and non-treated regarding these covariates.
+Assume that maternal smoking is randomly assigned conditional on the observable covariates listed above. Estimate the effect of maternal smoking on birth weight using an OLS regression with NO linear controls for the covariates. Perform the same estimate including the control variables. Next, compute indices of covariate imbalance between the treated and non-treated regarding these covariates.
 
 ```{r , include=TRUE}
 # ATE Regression univariate
@@ -170,7 +169,7 @@ as.data.frame(x[1]) %>%
 
 Based on the outputs above, several covariates, except the presence of diabetes in mothers, shows statistically significant relationships with birthweight, having p values close to zero. This means our assumption of ignorability for this observational studies is violated and not fulfilled becuase there are several confounders that is significantly influencing the outcome. So we can't make casual inference that tobacco has caused lower birth weights in smoker mothers.
 
-## Propensity Score Estimation
+#### Propensity Score Estimation
 
 Next, estimate propensity scores (i.e. probability of being treated) for the sample, using the provided covariates. Create a regression table reporting the results of the regression and discuss what the covariate coefficients indicate and interpret one coefficient. Create histograms of the propensity scores comparing the distributions of propensity scores for smokers ('treated') and non-smokers ('control'), discuss the overlap and what it means.
 
@@ -240,7 +239,7 @@ histbackback(split(smoking_data$prospensity_scores,	smoking_data$tobacco),
 
 **Overlap and its meaning** Overlap refers to the degree of similarity or commonality between the treatment group (those who received the treatment being studied) and the control group (those who did not receive the treatment). The overlap is important because it is a necessary condition for the ignorability assumption to hold. If there is no overlap, then the treatment and control groups are so different that it is impossible to make causal inferences. The histogram above shows that there is a only some overlap between the treatment and control group, more individuals in the control group with lower propensity scores than in the treatment group. This is a violation of the Common Support assumption.
 
-## Matching Balance 
+#### Matching Balance 
 
  Next, match treated/control mothers using your estimated propensity scores and nearest neighbor matching. Compare the balancing of pretreatment characteristics (covariates) between treated and non-treated units in the original dataset (from c) with the matched dataset (think about comparing histograms/regressions).
 
@@ -273,7 +272,7 @@ xBalance(tobacco ~ mage +  meduc + mblack + alcohol + first + diabete + anemia +
 
 After the matching, the nature and weight of the regression coefficients changed. Previously in unmatched data, I discussed that with increase age of mother, propensity score decreases. But post matching, the coefficients is showing that propensity score actually increases with increasing age of the mother. This is a sign that matching have accounted fixed effects in the observational dataset. Moreover, some covariates which were significant in determining the treatement status in the pre matching, are not significant anymore post matching. Like diabete, anemia, birthwgt, and mblack. Thus mother being black, having diabetes, and having anaemia, does not determine if she will receive the treatment or not.
 
-## ATE with Nearest Neighbor 
+#### ATE with Nearest Neighbor 
 
  Estimate the ATT using the matched dataset. Report and interpret your result
 
@@ -292,7 +291,7 @@ ATT_weighted_count
 
 For the treated smoker mothers, the tobacco effects on their child birth weight is lower by 13 grams on average than for its counterfactual non smoking mothers. This means that the treatment has caused lower birth weight in the treated group of mothers. For any other units of population who shares similar covariates as treated group, the birth weight of their child will be lower by 13 grams on average if they were to start smoking tobacco.
 
-## ATE with WLS Matching 
+#### ATE with WLS Matching 
 
  Last, use the original dataset and perform the weighted least squares estimation of the ATE using the propensity scores (including controls). Report and interpret your results, here include both size and precision of estimate in reporting and interpretation.
 
@@ -313,17 +312,17 @@ summary(wls)
 
 The WLS matching is weighted based on propensity scores, meaning unit with higher similarity in covariates gets more weights. Based on this matching, the average birth weight of children for non smoker mother or control group is 3122.7338, keeping all other variables unchanged. This is statistically significant at 5% signficance. Of all the covariates, mblack covariates has greatest influence in outcome. i.e If the women identifies as black, the birth weight of the child is lower by 241 grams, which is significant. Besides, other covariates like drinking alcohol, first born child, and diabetes in covariates also significantly influence birthweight. However, tobacco appears insignificant at 5 percent signficance level. The model only explains 3 percent of variation given by R squared in birth weight of children. This means that the model is not a good fit for the data.
 
-## Differences in Estimates 
+#### Differences in Estimates 
 
 There are certain factors that influences the output more than other covariates. This was also shown by the coefficients in Balance estimates in previous step. When using ATT with propensity score matching, the model assumed that all covariates has equal influence in determining the treatment status. But in reality, this is not always true. The WLS matching takes weights of each covariates into account, thus providing different output than ATT. if all the covariates had same weights, we would have got same estimate using both ATT and WLS matching.
 
 \newpage
 
-# Part 2 Panel model and fixed effects 
+### Part 2 Panel model and fixed effects 
 
 \indent We will use the progresa data from last time as well as a new dataset. In the original dataset, treatment households had been receiving the transfer for a year. Now, you get an additional dataset with information on the same households from before the program was implemented, establishing a baseline study (from 1997), and the same data we worked with last time (from 1999). \indent \*Note: You will need to install the packages plm and dplyr (included in template preamble). Again, you can find a description of the variables at the bottom of PDF and HERE.
 
-## Estimating Effect with First Difference 
+#### Estimating Effect with First Difference 
 
 Setup: Load the new baseline data (progresa_pre_1997.csv) and the follow-up data (progresa_post_1999.csv) into R. Note that we created a time denoting variable (with the same name, 'year') in BOTH datasets. Then, create a panel dataset by appending the data (i.e. binding the dataset row-wise together creating a single dataset). We want to examine the same outcome variable as before, value of animal holdings (vani).
 
@@ -369,7 +368,7 @@ stargazer(first_difference_manual, keep=c("treatment"), se = se_fdman, type="tex
 
 First Difference regression estimate tells that there is an average of 287.905 increase in animal holdings in treated households. This is statistically significant at 5% significance level, and standards errors at 86.805, which is also significant. When the estimate was calculated without calculating the first difference, the estimate had shown decreased in animal holding. This change in estimate values infers that there is unseen omitted variable that has constant effect on animal holdings which FD accounted. However, the model only explains 0.1% of all variations that is observed in animal holding, meanings there are unseen omitted variables.
 
-## Fixed Effects Estimates
+#### Fixed Effects Estimates
 
 Now also run a fixed effects (FE or ‘within’) regression and compare the results. Interpret the estimated treatment effects briefly (size of coefficient and precision!)
 
