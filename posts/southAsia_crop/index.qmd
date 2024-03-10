@@ -1,24 +1,27 @@
 ---
 title: "Crop burning and Air quality in South Asia"
-author: "Sujan Bhattarai"
+Date : "2023-08-20"
 format:
   html:
-    code-fold: true
-    code-summary: "Show the code"
+    toc: true
+    html-math-method: katex
+    css: /featured_projects/style.css
+author:
+  - name: Sujan Bhattarai
+categories: [Data analysis] # self-defined categories
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+editor: 
+  markdown: 
+    wrap: 72
 ---
-<style>
-  figure {
-    text-align: center;
-  }
-</style>
 
-
-```{r setup, include=FALSE}
-#| code-fold: true
-knitr::opts_chunk$set(
-  warning = FALSE,
-  message = FALSE)
+```{r, include=FALSE}
+#hide all warnings and messages
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
+
+
+
 
 ## Background
 In South Asian cities, extreme air pollution during winter is a recurring issue, attributed significantly to crop burning in agricultural lands. Another contributing factor is the reduced wind circulation caused by fog during the winter season, preventing the dispersion of city dust.As part of this project, the focus will be on assessing the strength of the relationships between crop burning and the air quality index in South Asian nations. The analysis will address three key questions:

@@ -1,50 +1,18 @@
 ---
 title: "Detection of Forest fire using false color Image analysis"
+author: "Sujan Bhattarai"
 format:
   html:
     code-fold: false
-author:
-  - name: Sujan Bhattarai
-date: "2023-12-15"
-categories: [Python]
-jupyter: python3
-engine: knitr
+    code-summary: "Show the code"
+    css: /featured_projects/style.css
+date: 12-15-2023
+categories: [Python, Geospatial]
 ---
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-    }
-
-    h1, h2, h3 {
-      color: #333;
-    }
-
-    p {
-      color: #555;
-    }
-    
-    .special-paragraph {
-      color: #ff0000; /* Red font color - you can change this */
-     font-style: italic; /* Bold font - you can change this */
-    }
-
-    blockquote {
-      margin: 20px;
-      padding: 10px;
-      background-color: #f5f5f5;
-      border-left: 5px solid #428bca;
-    }
-  </style>
-</head>
-<body>
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
 
 ## Introduction: False Color Image
 

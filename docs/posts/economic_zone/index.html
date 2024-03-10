@@ -99,6 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../featured_projects/style.css">
 </head>
 
 <body class="nav-fixed">
@@ -202,11 +203,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<style>
-  figure {
-    text-align: center;
-  }
-</style>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Marine aquaculture stands at the forefront of sustainable solutions for meeting the growing global demand for protein. In comparison to conventional land-based meat production, marine aquaculture offers a more eco-friendly approach. Previous research, such as the work by <a href="https://www.nature.com/articles/s41559-017-0257-9">Gentry et al.&nbsp;(2017)</a>, has mapped the global potential for marine aquaculture, considering various constraints. In this project, my focus narrows to the Exclusive Economic Zones (EEZ) along the West Coast of the United States, aiming to identify the most suitable regions for developing marine aquaculture, specifically for various species of oysters.</p>
@@ -231,8 +227,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
 <p>To initiate the analysis, I load necessary packages and read in the West Coast EEZ shapefile (wc_regions_clean.shp). Additionally, I acquire and combine SST rasters for the years 2008 to 2012 and the bathymetry raster (depth.tif). The data undergoes checks for consistent coordinate reference systems.</p>
 <div class="cell" data-messages="false">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load required packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stars)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
@@ -242,11 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-messages="false">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##read the data </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>depth_ocean <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"economic_zone"</span>, <span class="st">"data"</span>,<span class="st">"data"</span>, <span class="st">"depth.tif"</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -259,15 +250,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#stack all these SST data</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">&lt;-</span> <span class="fu">stack</span>(<span class="fu">c</span>(year_2008, year_2009, year_2010, year_2011, year_2012))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-messages="false">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">##economic region data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>west_coast_shape <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/data/wc_regions_clean.shp"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Reading layer `wc_regions_clean' from data source </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   `C:\Users\sujan\OneDrive\Documents\MEDS\website\sujan-bhattarai12.github.io\posts\economic_zone\data\data\wc_regions_clean.shp' </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   `C:\Users\sujan\OneDrive\Documents\MEDS\1_website\web\sujan-bhattarai12.github.io\posts\economic_zone\data\data\wc_regions_clean.shp' </span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   using driver `ESRI Shapefile'</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple feature collection with 5 features and 5 fields</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Geometry type: MULTIPOLYGON</span></span>
@@ -275,7 +263,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Bounding box:  xmin: -129.1635 ymin: 30.542 xmax: -117.097 ymax: 49.00031</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Geodetic CRS:  WGS 84</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(west_coast_shape[<span class="st">'rgn_id'</span>], <span class="at">main =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -289,8 +276,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="data-processing">Data Processing</h4>
 <p>The process involves calculating mean SST for the specified years, converting temperatures to Celsius, and aligning SST and depth data. I reclassify SST and depth data to identify areas suitable for marine aquaculture, particularly for oysters.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#average SST between 2008 and 2012</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SST_temperature <span class="ot">&lt;-</span> <span class="fu">mean</span>(year_2008, year_2009, year_2010, year_2011, year_2012)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -308,15 +293,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#resample to match the resolution</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>cropped_depth_ocean <span class="ot">=</span> <span class="fu">resample</span>(cropped_depth_ocean, <span class="at">y =</span> SST_temperature, <span class="at">method =</span> <span class="st">"near"</span>)  <span class="do">##Minimum and maximum values are out of range</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="identify-optimal-locations" class="level4">
 <h4 class="anchored" data-anchor-id="identify-optimal-locations">Identify Optimal Locations</h4>
 <p>The process involves calculating mean SST for the specified years, converting temperatures to Celsius, and aligning SST and depth data. I reclassify SST and depth data to identify areas suitable for marine aquaculture, particularly for oysters.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">##reclassify SST </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reclass_matrix_sst <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">10</span>, <span class="cn">NA</span>, <span class="dv">11</span>, <span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">31</span>, <span class="cn">Inf</span>, <span class="cn">NA</span>), <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sst_classified     <span class="ot">&lt;-</span> <span class="fu">classify</span>(SST_temperature, <span class="at">rcl =</span> reclass_matrix_sst)</span>
@@ -333,15 +315,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>and_logic <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> y <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use local function to operate on each cells</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>suitable_for_sucker_fish <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">lapp</span>(<span class="fu">rast</span>(ocean_sst_stacked), <span class="at">fun =</span> and_logic)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(suitable_for_sucker_fish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -356,8 +334,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="prioritize-marine-aquaculture-zones">Prioritize Marine Aquaculture Zones</h4>
 <p>The next step involves calculating the total suitable area within each EEZ. I rasterize the EEZ data, determine suitable cells within each zone, and calculate the total suitable area. The percentage of each zone that is suitable is then computed. The output below shows the percent of area suitable for whole region.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create dummy variable for operation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span>  west_coast_shape  <span class="co">#shape file</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span> suitable_for_sucker_fish <span class="do">## raster data</span></span>
@@ -385,14 +361,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">group_by</span>(<span class="st">'rgn_id'</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">mutate</span>(<span class="at">percentage_of_area =</span> area<span class="sc">/</span>area_km2 <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percentage of area suitable for EEZ</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>combined_v_areas_under[<span class="fu">c</span>(<span class="st">'rgn'</span>, <span class="st">'percentage_of_area'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 5 features and 2 fields
 Geometry type: MULTIPOLYGON
@@ -415,8 +387,6 @@ Geodetic CRS:  WGS 84
 <h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
 <p>To enhance understanding, I visualize the results through various plots and maps. Basemaps provide context, and these visualizations include maps of suitable regions within each EEZ and the percentage of suitable areas.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#prepare the necessary class of the data</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cliped_points <span class="ot">&lt;-</span> <span class="fu">as.polygons</span>(suitable_for_sucker_fish) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">st_as_sf</span>() </span>
@@ -424,7 +394,6 @@ Geodetic CRS:  WGS 84
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="do">##clip the area nad make it ready for maps</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>cliped_points <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(cliped_points, combined_v_areas_under)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>cliped_points[<span class="st">"Suitable_region"</span>] <span class="ot">&lt;-</span> <span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot the suitable regions within each eez</span></span>
@@ -482,8 +451,6 @@ Geodetic CRS:  WGS 84
 </details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">##use tmshape to plot the data</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(combined_v_areas_under)<span class="sc">+</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">fill =</span> <span class="st">'percentage_of_area'</span>)<span class="sc">+</span></span>
@@ -496,7 +463,6 @@ Geodetic CRS:  WGS 84
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(washington)<span class="sc">+</span></span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="st">"Washington"</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">bg.col =</span> <span class="st">"white"</span>)<span class="sc">+</span></span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -511,8 +477,6 @@ Geodetic CRS:  WGS 84
 <h3 class="anchored" data-anchor-id="create-a-function">Create a Function</h3>
 <p>This workflow concludes by providing a function for broader applicability. The function allows external users to analyze the suitability of locations for different fish species by specifying temperature and depth requirements. We demonstrate this by running the function for the “Abra aequalis” species. <a href="https://www.sealifebase.ca/search.php">SeaLifeBase</a></p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">##write whole function out on this </span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>economic_zone_finder <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">min_temp  =</span>  min_temp,</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">max_temp  =</span>  max_temp,</span>
@@ -653,18 +617,15 @@ Geodetic CRS:  WGS 84
 <span id="cb15-138"><a href="#cb15-138" aria-hidden="true" tabindex="-1"></a>                <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Percentage area with basemap"</span>)</span>
 <span id="cb15-139"><a href="#cb15-139" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-140"><a href="#cb15-140" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">list</span>(suitable_eez, with_basemap))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="function-that-create-eez-for-a-sample-species" class="level4">
 <h4 class="anchored" data-anchor-id="function-that-create-eez-for-a-sample-species">Function that create EEZ for a sample species</h4>
 <p>The function can be used for any marine species around the west coast, if their temperature and depth range is known. Depth is always taken at negative, however there is no need to insert negative values in depth, as the function call automatically makes it negative when a function is called.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">##calculate for abra aequalis that survives between 0 to 28 degree depth, and tempetaure up to 73 degrees                         </span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">economic_zone_finder</span>(<span class="at">min_temp =</span> <span class="dv">0</span>, <span class="at">max_temp =</span> <span class="dv">73</span>, <span class="at">min_depth =</span> <span class="dv">0</span>, <span class="at">max_depth =</span> <span class="dv">28</span>, <span class="at">fish_species =</span> <span class="st">"Abra aequalis"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Reading layer `wc_regions_clean' from data source </span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   `C:\Users\sujan\OneDrive\Documents\MEDS\website\sujan-bhattarai12.github.io\posts\economic_zone\data\data\wc_regions_clean.shp' </span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   `C:\Users\sujan\OneDrive\Documents\MEDS\1_website\web\sujan-bhattarai12.github.io\posts\economic_zone\data\data\wc_regions_clean.shp' </span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   using driver `ESRI Shapefile'</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Simple feature collection with 5 features and 5 fields</span></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Geometry type: MULTIPOLYGON</span></span>
@@ -673,7 +634,6 @@ Geodetic CRS:  WGS 84
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Geodetic CRS:  WGS 84</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 318.8414</span></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [[1]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>

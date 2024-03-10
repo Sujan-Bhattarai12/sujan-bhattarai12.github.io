@@ -98,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../featured_projects/style.css">
 </head>
 
 <body class="nav-fixed">
@@ -148,7 +149,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Crop burning and Air quality in South Asia</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Data analysis</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -192,11 +196,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<style>
-  figure {
-    text-align: center;
-  }
-</style>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>In South Asian cities, extreme air pollution during winter is a recurring issue, attributed significantly to crop burning in agricultural lands. Another contributing factor is the reduced wind circulation caused by fog during the winter season, preventing the dispersion of city dust.As part of this project, the focus will be on assessing the strength of the relationships between crop burning and the air quality index in South Asian nations. The analysis will address three key questions:</p>
@@ -209,8 +208,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="setup">Setup</h4>
 <p>The initial chunk of the project involves loading all the required libraries, with subsequent chunks introducing specific libraries as needed, providing clarity on the functions used from each package.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Load all required libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -220,7 +217,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(slider)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 </section>
@@ -228,8 +224,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="data-collection-and-wrangling">Data collection and wrangling</h2>
 <p>The required data are downloaded from <a href="https://datacatalog.worldbank.org/home">World bank</a> data catalogue, <a href="https://www.kaggle.com/">Kaggle website</a>, and <a href="https://www.climatewatchdata.org/">ClimateWatch</a>. The datasets are cleaned based on requirement using stringR package, dplyr, and tidyverse. In the first part, the emission data from the kaggle is cleaned and joined with air quality data from worldbank. The data are summarized in yearly basis, ranging from 1990 to 2020. The detailed data analysis is shown in the code chunks.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##read the data and clean the name </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_world_bank <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"southAsia_crop"</span>,<span class="st">"data"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Agrofood_co2_emission.csv"</span>),</span>
@@ -244,11 +238,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>south_asian_data <span class="ot">&lt;-</span> data_world_bank <span class="sc">%&gt;%</span> </span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">filter</span>(area <span class="sc">%in%</span> <span class="fu">c</span>(south_asian_countries)) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">##read the data and transpose it to form a database</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>aqi_world_bank1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"southAsia_crop"</span>,<span class="st">"data"</span>, <span class="st">"aqi.csv"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
@@ -274,11 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>aqi_world_bank <span class="ot">&lt;-</span> aqi_world_bank <span class="sc">%&gt;%</span> </span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">arrange</span>(year) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">##filter columns from the first dataset </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SA_reduced_columns <span class="ot">&lt;-</span> south_asian_data <span class="sc">%&gt;%</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">select</span>(area, year, crop_residues, average_temperature_c)</span>
@@ -292,15 +280,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">##left join with aqi world bank </span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>SA_emission <span class="ot">&lt;-</span> <span class="fu">left_join</span>(SA_summarized, aqi_world_bank, <span class="at">by =</span> <span class="st">"year"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mutate</span>(<span class="at">aqi_value =</span> <span class="fu">as.numeric</span>(aqi_value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="data-exploration" class="level2">
 <h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
 <p>Visualizations have been generated for the cleaned data as part of the exploratory phase, aimed at observing the general trends and characteristics within the dataframe. This preliminary exploration is valuable for subsequent analyses, helping to identify patterns, missing data, and errors. The graph presented below illustrates the long-term trend of crop emissions in South Asian countries. A notable and robust increasing trend in crop burning is evident from the graph, indicating a substantial rise in emissions over the depicted period.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># perform exploratory data analysis </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SA_emission, <span class="fu">aes</span>(<span class="at">x =</span> year, crop_residues)) <span class="sc">+</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span> (<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
@@ -308,11 +293,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Emission (kilotonnes)"</span>) <span class="sc">+</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Total emission from crop burning in South Asia since 1990</figcaption>
 </figure>
 </div>
@@ -320,8 +304,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Likewise, the presented graph depicts the trend in the Air Quality Index values across South Asian nations. At a 1-unit interval on the x-axis scale, the graph might initially resemble white noise, though underlying trends may exist. This is where the utility of moving averages becomes apparent. Employing a 10-year moving average has been instrumental in reconstructing this graph, revealing a discernible upward trend in air quality values over time.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include temperature with aqi index, adding interaction between crop residues</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(SA_emission, <span class="fu">aes</span>(year, aqi_value)) <span class="sc">+</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_line</span>() <span class="sc">+</span></span>
@@ -346,11 +328,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying Plots Side by Side</span></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>gridExtra<span class="sc">::</span><span class="fu">grid.arrange</span>(x, y, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Air quality Index value before(a) and After(B) rolling mean transformation</figcaption>
 </figure>
 </div>
@@ -361,16 +342,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="data-transformation">Data Transformation</h2>
 <p>The data exploration phase has provided valuable insights, prompting the next step in the analysis—data transformation. In this phase, mathematical transformations will be applied to the data to ensure adherence to the assumptions of the intended model. Given the plan to utilize a linear regression model, establishing a robust association between the predictor variable (crop emission) and the response variable (Air Quality Index) is crucial. As part of this transformation, the predictor variable has been subjected to a rolling average, a method aimed at enhancing the correlation between the variables and facilitating the fitting of the linear regression model.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#correlation between these two plots, when no transformation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(SA_emission<span class="sc">$</span>aqi_value, SA_emission<span class="sc">$</span>crop_residues)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.1064666</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Try transforming data, or smoother the data to detect the pattern</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(slider)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>SA_emission <span class="ot">&lt;-</span> SA_emission <span class="sc">%&gt;%</span> </span>
@@ -378,7 +354,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">.complete =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(SA_emission<span class="sc">$</span>aqi_avearge, SA_emission<span class="sc">$</span>crop_residues, <span class="at">use =</span> <span class="st">"na.or.complete"</span>)</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.4571707</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="fitting-a-linear-model" class="level2">
@@ -415,8 +390,6 @@ F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 <h2 class="anchored" data-anchor-id="part-b">Part B</h2>
 <p>In this analysis, I replicated the methodology employed in the initial phase, with a slight alteration in the data transformation process. Instead of utilizing a rolling mean, I opted to normalize the data by the total cultivable area. To elaborate, the graph presented illustrates emissions categorized by country. However, this representation is biased due to the fact that India, with its larger area and population, naturally yields a higher total emission. To address this bias, the emission values were divided by the total cultivable area within each country, resulting in emissions per unit of cultivable area. This approach is more precise and provides a more accurate assessment.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#further data exploration</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(south_asian_data, <span class="fu">aes</span>(year, crop_residues, <span class="at">color =</span> area)) <span class="sc">+</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -431,25 +404,19 @@ F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()    <span class="co"># Remove x-axis labels</span></span>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(south_asian_data<span class="sc">$</span>year), <span class="fu">max</span>(south_asian_data<span class="sc">$</span>year), <span class="at">by =</span> <span class="dv">30</span>))  <span class="co"># Adjust the breaks as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Total crop burning emission in Each south Asian Nations since 1990</figcaption>
 </figure>
 </div>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"explore.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Upon normalizing the emissions, the resulting graph reveals a notable shift in findings. Contrary to the initial assumption that India had the highest emissions, the new data indicates that Bangladesh emerges as the country with the highest emissions.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a dataframe including values for agricultural land in these countries</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>total_agri_area <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"southAsia_crop"</span>,<span class="st">"data"</span>, <span class="st">"area_sa.csv"</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -495,22 +462,16 @@ F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 <span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Afghanistan  1998          378680</span></span>
 <span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Afghanistan  1999          377640</span></span>
 <span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 214 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide crop residues by total agricultural land </span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">##SA_asian_data has the required ID for the division</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>normalized_area <span class="ot">&lt;-</span> <span class="fu">left_join</span>(south_asian_data, transposed, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"area"</span>, <span class="st">"year"</span>)) </span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>normalized_area <span class="ot">&lt;-</span> normalized_area <span class="sc">%&gt;%</span> </span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">mutate</span>( <span class="at">norm_crop_residue =</span> crop_residues<span class="sc">/</span>area_cultivable <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## now normalize the area</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(normalized_area, <span class="fu">aes</span>(year, norm_crop_residue, <span class="at">color =</span> area))<span class="sc">+</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
@@ -527,25 +488,19 @@ F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()    <span class="co"># Remove x-axis labels</span></span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(south_asian_data<span class="sc">$</span>year), <span class="fu">max</span>(south_asian_data<span class="sc">$</span>year), <span class="at">by =</span> <span class="dv">30</span>))  <span class="co"># Adjust the breaks as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Total Emission Per country per cultivable area. Bangladesh has the highest emission per cultivable area since 1990.</figcaption>
 </figure>
 </div>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"explore2.png"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The subsequent phase of my analysis is centered on Bangladesh, given its distinction as the country with the highest emissions per cultivable land. In this context, I applied a linear regression model to assess the strength of the relationship between crop residues and air quality. Bangladesh stands out as having the highest emissions from crop residues in the South Asian region. The objective is to quantify the robustness of the correlation between crop residues and air quality in this particular context.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  work for bangladesh</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">52.90993831</span>, <span class="fl">51.64362616</span>,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fl">53.74695817</span>, <span class="fl">55.06194439</span>, <span class="fl">56.41649854</span>, <span class="fl">60.5358739</span>, <span class="fl">68.94271136</span>, <span class="fl">66.42738113</span>, <span class="fl">73.27082296</span>, <span class="fl">68.97033719</span>, <span class="fl">67.7673598</span>, <span class="fl">62.75318316</span>, <span class="fl">63.27546257</span>)</span>
@@ -555,25 +510,18 @@ F-statistic: 6.342 on 1 and 24 DF,  p-value: 0.01887</code></pre>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame with a single column</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>Bangladesh <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">aqi_value =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#combine this with SA Data for Bangladesh only</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>bangladesh_filtered <span class="ot">&lt;-</span> normalized_area  <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">filter</span>(area <span class="sc">==</span>  <span class="st">"Bangladesh"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">cbind</span>(Bangladesh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">##test the model here</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>model_bangladesh <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> bangladesh_filtered, aqi_value <span class="sc">~</span> crop_residues)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_bangladesh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -601,8 +549,6 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <h2 class="anchored" data-anchor-id="further-exploration">Further Exploration</h2>
 <p>Up to this juncture, the analysis has been based on annual average data. The next step involves a shift to a more detailed exploration using monthly time series to uncover the nuanced trends in air quality in Bangladesh. This process includes decomposing the time series and employing various forecasting models to determine the most suitable model for the dataset.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">##read all year data and combine them using list methods</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>files_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="fu">here</span>(<span class="st">"posts"</span>, <span class="st">"southAsia_crop"</span>, <span class="st">"data"</span>), </span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">pattern =</span> <span class="st">"^Dhaka.*</span><span class="sc">\\</span><span class="st">.csv$"</span>)</span>
@@ -618,12 +564,9 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="do">##filter where all air quality index values are -999</span></span>
 <span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>daily_aqi_filtered <span class="ot">&lt;-</span> daily_aqi  <span class="sc">%&gt;%</span> </span>
 <span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">filter</span>(<span class="sc">!</span>AQI <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Conducting a time-series analysis on a daily basis may not yield meaningful insights, given that crop burning is typically influenced by monthly patterns rather than daily occurrences. For instance, villagers might engage in burning crop residues on days with less wind, and with numerous villagers participating, these activities may take place on different days. Unfortunately, the unavailability of online sources providing monthly data on crop emissions has led us to focus on plotting a time series for monthly air quality. This approach aims to capture the broader trends associated with air quality fluctuations in the absence of specific monthly data on crop emissions.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">##load feasts package, these contains mostly time series functions </span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(feasts)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tsibble)</span>
@@ -634,25 +577,19 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">mutate</span>(<span class="at">date_column =</span> <span class="fu">as.Date</span>(daily_aqi_filtered<span class="sc">$</span><span class="st">`</span><span class="at">Date (LT)</span><span class="st">`</span>, </span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">format =</span> <span class="st">"%m/%d/%Y %H:%M"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(daily_aqi_filtered<span class="sc">$</span>AQI,  <span class="at">xlab =</span> <span class="st">"Year 2016 - 2022"</span>, <span class="at">ylab =</span> <span class="st">"AQI value"</span>, <span class="at">main =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Hourly time-series data for AQI value in Bangladesh between 2016(inclusive) and 2022(inclusive)</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate by month</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>monthly_aggregated <span class="ot">&lt;-</span> daily_aqi_filtered <span class="sc">%&gt;%</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(date_column),</span>
@@ -666,11 +603,8 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date_column))</span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(df, <span class="at">index =</span> date)</span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">c</span>(<span class="st">'date'</span>, <span class="st">'aqi_sum'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stl</span>(<span class="at">t.window =</span> <span class="dv">13</span>, <span class="at">s.window =</span> <span class="st">"periodic"</span>, <span class="at">robust =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
@@ -682,11 +616,10 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Seasonal and Trend decomposition using Loess(STL)</figcaption>
 </figure>
 </div>
@@ -698,8 +631,6 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <h2 class="anchored" data-anchor-id="forecasting">Forecasting</h2>
 <p>The given R codes in chunks below are for predicting air quality index in Bangladesh over the next five years using four different models: Exponential Smoothing State Space Models (ETS), AutoRegressive Integrated Moving Average (ARIMA), Nonlinear AutoRegressive Neural Network (NNAR), and Trigonometric seasonality, Box-Cox transformation, ARMA errors, Trend and Seasonal components (TBATS). The data for training goes up to the year 2010, and forecasts are made for 20 time points (5 years). The individual predictions from each model are combined by averaging them, creating a combined forecast. This combined forecast, along with the original data and predictions from each individual model, is then presented graphically using the autoplot function. The aim is to evaluate how well these models perform and if combining them improves the accuracy of predictions.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">##preapre train model and fit the forecasting model</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Bangladesh_crop <span class="ot">&lt;-</span> <span class="fu">ts</span>(bangladesh_filtered<span class="sc">$</span>crop_residues, <span class="at">start=</span><span class="dv">1990</span>, <span class="at">frequency=</span><span class="dv">1</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -713,11 +644,8 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine forecasts for the next 5 years</span></span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>Combination <span class="ot">&lt;-</span> (ETS[[<span class="st">"mean"</span>]] <span class="sc">+</span> ARIMA[[<span class="st">"mean"</span>]] <span class="sc">+</span></span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>                NNAR[[<span class="st">"mean"</span>]] <span class="sc">+</span> TBATS[[<span class="st">"mean"</span>]]) <span class="sc">/</span> <span class="dv">4</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(Bangladesh_crop) <span class="sc">+</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autolayer</span>(ETS, <span class="at">series=</span><span class="st">"ETS"</span>, <span class="at">PI=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autolayer</span>(ARIMA, <span class="at">series=</span><span class="st">"ARIMA"</span>, <span class="at">PI=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
@@ -726,11 +654,10 @@ F-statistic: 47.95 on 1 and 29 DF,  p-value: 1.307e-07</code></pre>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autolayer</span>(Combination, <span class="at">series=</span><span class="st">"Combination"</span>) <span class="sc">+</span></span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Emission from Crop Residues(Kilotonnes)"</span>)<span class="sc">+</span></span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Forecast of Crop Emission in Bangladesh in 2030 using four different forecasting model</figcaption>
 </figure>
 </div>
