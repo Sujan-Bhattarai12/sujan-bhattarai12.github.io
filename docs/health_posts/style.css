@@ -34,3 +34,9 @@ ol {
 li {
     font-size: 14pt;
 }
+
+ nav {
+    background-color: #2c3e50; /* Change color to your preference */
+    padding: 1em;
+    font-size: 1em;
+  }

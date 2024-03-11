@@ -17,7 +17,6 @@ website:
         text: Health
       - href: certifications.qmd
         text: Certificates
-
       - href: about.qmd
         text: About
  

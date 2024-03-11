@@ -1,51 +1,15 @@
 ---
 title: "Deployment of AI in Environment Conservation and Ethical Considerations"
-description: "Explore on the use of modern day AI in environment conservation, and discussion on coupled AI-Environment ethics"
 image: "dep_env.jpg"
 author:
   - name: Sujan Bhattarai
     url: https://sujan-bhattarai12.github.io/
-    affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB) 
-    affiliation-url: https://ucsb-meds.github.io/ 
+style:
+  css: /posts/style_posts.css
 date: 2023-05-01
-categories: [Artificial Intelligence, Ethics, Developing nations] # self-defined categories
+categories: [Ethics] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Development and Deployment of Artificial Intelligence in Environmental Conservation</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-    }
-
-    h1, h2, h3 {
-      color: #333;
-    }
-
-    p {
-      color: #666;
-    }
-    
-    .special-paragraph {
-      color: #ff0000; /* Red font color - you can change this */
-     font-style: italic; /* Bold font - you can change this */
-    }
-    
-    blockquote {
-      margin: 20px;
-      padding: 10px;
-      background-color: #f5f5f5;
-      border-left: 5px solid #428bca;
-    }
-  </style>
-</head>
-<body>
 
 ## Development of Artificial Intelligence(AI)
 

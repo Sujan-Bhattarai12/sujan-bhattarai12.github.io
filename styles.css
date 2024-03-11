@@ -1,12 +1,10 @@
-
-/* make text red  */
+/* for all paragraphs */
 p { 
     padding-left: 15px;
     font-size: 11pt;
     font-family: Verdana, palatino, serif;
     color: white;
 }
-
 
 /* Background color for body */
 body {
@@ -18,3 +16,68 @@ h1, h2, h3, h4 {
     color: lightgrey;
 }
 
+/* this is for the animation text in front page */
+<style>
+  #tagline {
+    animation: fadeInOut 1s ease infinite;
+    color: white ; /* Change color to your preference #3498db */
+  }
+
+/* this is for the description in front page */
+ #description {
+    font-size: 1.2em;
+    color: lightgrey;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+/* this setup is for the navbar size and margin */
+  nav {
+    background-color: #2c3e50; /* Change color to your preference */
+    padding: 1.5em;
+    margin: 0em; /* Change margin of navbar whole box */
+    font-size: 1.1em;
+  }
+
+/*just for smooth transition, but i see no difference at all */
+  nav a {
+    color: white; /* Change color to your preference */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+/*highlights the navbar */
+  nav a:hover {
+    background-color: white; /* Change color to your preference */
+  }
+
+/*when hovered to navbar, colors all the navbar */  
+  nav:hover {
+    background-color: lightgrey; /* Change background color to your preference */
+    transition: background-color 0.3s ease;
+}
+
+  
+   nav a:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px; /* Adjust thickness as needed */
+    background-color: #003152; /* Change color to your preference */
+    bottom: -2px; /* Adjust distance from text */
+    left: 0;
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  body {
+    background-color: #003152; /* Change color to your preference */
+  }
+</style>

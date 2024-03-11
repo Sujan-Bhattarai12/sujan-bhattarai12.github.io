@@ -1,6 +1,6 @@
 /* Styles for span */
 span {
-    font-size: 14pt;
+    font-size: 10pt;
     font-family: Verdana, palatino, serif;
 }
 
@@ -14,14 +14,15 @@ strong {
 /* add georgia font */
 /* make text red  */
 p { 
-    padding-left: 30px;
-    font-size: 14pt;
+    padding-left: 15px;
+    font-size: 11pt;
     font-family: Verdana, palatino, serif;
+    color: #c8c9cb;
 }
 
 /* Styles for blockquote */
 blockquote {
-    font-size: 12pt;
+    font-size: 25pt;
     font-family: georgia, palatino, serif;
 }
 
@@ -35,8 +36,17 @@ li {
     font-size: 14pt;
 }
 
- nav {
-    background-color: #2c3e50; /* Change color to your preference */
-    padding: 1em;
-    font-size: 1em;
-  }
+/* Background color for body */
+body {
+    background-color: #003152; /* Use hex color code */
+}
+
+/* change the yaml title color to the #003152 */
+h1 {
+    color: white;
+}
+
+/* set for all h3 to h6 to have light grey color */
+h2, h3, h4 {
+    color: white;
+}

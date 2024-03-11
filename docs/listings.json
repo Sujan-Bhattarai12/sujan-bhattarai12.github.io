@@ -28,17 +28,5 @@
       "/featured_projects/ml_spotify/index.html",
       "/featured_projects/econometrics/index.html"
     ]
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/health_posts/a_gut_diversity/index.html",
-      "/health_posts/c_hiking/index.html",
-      "/health_posts/dogs/index.html",
-      "/health_posts/grass_fed vs grain-fed/index.html",
-      "/health_posts/mental_health/index.html",
-      "/health_posts/morning-ritual/index.html",
-      "/health_posts/seasonings/index.html"
-    ]
   }
 ]
