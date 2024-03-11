@@ -9,10 +9,6 @@ format:
 author:
   - name: Sujan Bhattarai
 categories: [Health] # self-defined categories
-draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 <p>The human gut is home to trillions of microorganisms that comprise the

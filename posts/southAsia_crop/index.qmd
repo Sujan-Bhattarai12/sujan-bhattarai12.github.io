@@ -21,8 +21,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 
-
-
 ## Background
 In South Asian cities, extreme air pollution during winter is a recurring issue, attributed significantly to crop burning in agricultural lands. Another contributing factor is the reduced wind circulation caused by fog during the winter season, preventing the dispersion of city dust.As part of this project, the focus will be on assessing the strength of the relationships between crop burning and the air quality index in South Asian nations. The analysis will address three key questions:
 
