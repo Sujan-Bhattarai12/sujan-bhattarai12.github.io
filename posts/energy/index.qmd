@@ -15,7 +15,7 @@ editor:
     wrap: 72
 ---
 
-## Introduction
+### Introduction
 
 Sustainable energy is a critical component in addressing global
 challenges such as climate change and achieving sustainable development
@@ -46,7 +46,7 @@ library(sf)
 library(kableExtra)
 ```
 
-## Data Cleaning
+### Data Cleaning
 
 The process begins with reading the "energy_data.csv" file, and the
 first code chunk calculates the total count of missing values for each
@@ -159,6 +159,7 @@ for (i in which(colnames(joined)=="Year"): which(colnames(joined)=="pop_density"
 
 ```
 
+### Data visualization
 The following code chunk explores the correlation between variables in
 the processed energy dataset (energy_data1). The correlation matrix is
 visualized as a heatmap using the ggplot package, with colors ranging
@@ -177,11 +178,7 @@ corelation_matrix <- reshape2::melt(
 
 ```
 
-```{#create a heatmap of the plot}
-ggplot(data= corelation_matrix, aes(Var1, Var2)) + 
-  geom_tile(aes(fill = value)) +
-  scale_fill_gradient(low="blue", high ="orange")
-```
+`{#create a heatmap of the plot} ggplot(data= corelation_matrix, aes(Var1, Var2)) +    geom_tile(aes(fill = value)) +   scale_fill_gradient(low="blue", high ="orange")`
 
 The subsequent analysis narrows the focus to Nepal by filtering the
 energy data for this specific country. A series of line graphs is then
@@ -195,7 +192,7 @@ period.
 nepal_energy_data <- energy_data %>% filter(Entity=="Nepal")
 ```
 
-Observe the general trend for all variables
+#### Observe the general trend for all variables
 
 ```{r}
 for (i in which(colnames(nepal_energy_data)=="Year"):which(colnames    (nepal_energy_data)== "Density\\n(P/Km2)")){
@@ -251,8 +248,7 @@ kableExtra:: kable(forward$anova)
 kableExtra:: kable(forward$coefficients)
 
 ```
-
-Step3: Feature selection
+### Feature selection
 
 result from step-wise regression shows that only six variables are
 significant in defining co2 emission. this could be wrong but I believe
@@ -271,6 +267,7 @@ energy_intensity = `Energy intensity level of primary energy (MJ/$2017 PPP GDP)`
 
 ```
 
+### Model Building
 Split the data into test and train model
 
 ```{r}
@@ -298,7 +295,7 @@ summary(lm_model)
 t(broom::glance(lm_model)) ##glance creates in long columns, transpose changes it to one column format
 ```
 
-Test model accuracy using test dataset
+### Model Evaluation
 
 ```{r}
 train["model_predict"] <- predict(lm_model, train)
@@ -318,6 +315,7 @@ MAE <- (1/nrow(train))*sum((train$model_predict- train$Co2_emission), na.rm = TR
 print(MAE)
 ```
 
+### Conclusion
 The MAE calculation gave output a number. It's hard to interpret.
 Normalize it between 0 to 1, so that low values of MAE is the best fit
 

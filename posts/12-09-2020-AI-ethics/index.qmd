@@ -7,7 +7,7 @@ author:
     url: https://sujan-bhattarai12.github.io/
     affiliation: Master of Environmental Data Science Program @ The Bren School (UCSB) 
     affiliation-url: https://ucsb-meds.github.io/ 
-date: 12-05-2023
+date: 2023-05-01
 categories: [Artificial Intelligence, Ethics, Developing nations] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---

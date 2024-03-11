@@ -1,7 +1,7 @@
 ---
-title: "Soccer players attributes comparison: Conclusion From Data visualization"
+title: "Soccer players attributes comparison: Conclusion from Data visualization"
 image: "static_image/infographics.png"
-Date : "2023-08-20"
+date : "2024-03-05"
 format:
   html:
     toc: true
@@ -22,10 +22,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 <blockquote>
-
 #### Introduction about the project
-
-<p>
 
 This project aims to create infographics comparing attributes of soccer
 players, sourced from a European soccer database available on Kaggle.
@@ -41,7 +38,6 @@ Important Note: The ggplot package version used in this project is
 that modern versions of ggplot might conflict when used in combination
 with other packages employed here.
 
-</p>
 
 ```{r, warning=FALSE, message=FALSE}
 #| echo: FALSE

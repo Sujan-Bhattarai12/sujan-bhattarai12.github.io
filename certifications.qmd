@@ -1,5 +1,12 @@
+---
+title: "Self Learning and MOOC(online open courses)"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: /featured_projects/style.css
+---
 
-#### Since 2019
 ```{r, out.width = "100%", out.height="100%", fig.align = "center", echo = F}
 #use knit to add the pdf
 knitr::include_graphics("files/certificates/data_scientist_with_r.jpg")

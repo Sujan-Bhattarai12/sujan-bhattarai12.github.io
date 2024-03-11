@@ -5,5 +5,5 @@ listing:
   type: default # or `default` or `table`; each type has its own set of yaml options to include
   grid-columns: 4
   sort: "date desc" # can also sort on more than one field
-  categories: false # allows you to sort posts by assigned categories 
+  categories: true # allows you to sort posts by assigned categories 
 ---

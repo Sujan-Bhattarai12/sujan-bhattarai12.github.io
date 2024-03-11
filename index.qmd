@@ -15,7 +15,7 @@ about:
       href: https://github.com/Sujan-Bhattarai12/
     - text: Resume
       icon: file-text
-      href: Bhattarai_sujan_resume.pdf
+      href: resume.pdf
   id: ppc
 navbar:
   links:
@@ -40,12 +40,12 @@ navbar:
 <style>
   #tagline {
     animation: fadeInOut 1s ease infinite;
-    color: #3498db; /* Change color to your preference */
+    color: white ; /* Change color to your preference #3498db */
   }
 
  #description {
     font-size: 1.2em;
-    color: #555;
+    color: lightgrey;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -57,7 +57,7 @@ navbar:
   }
 
   nav a {
-    color: #3498db; /* Change color to your preference */
+    color: white; /* Change color to your preference */
     margin: 0 1em;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -65,7 +65,7 @@ navbar:
   }
 
   nav a:hover {
-    color: #3498db; /* Change color to your preference */
+    color: white; /* Change color to your preference */
   }
   
    nav a:hover::before {
@@ -73,7 +73,7 @@ navbar:
     position: absolute;
     width: 100%;
     height: 5px; /* Adjust thickness as needed */
-    background-color: #3498db; /* Change color to your preference */
+    background-color: white; /* Change color to your preference */
     bottom: -2px; /* Adjust distance from text */
     left: 0;
   }
@@ -88,7 +88,7 @@ navbar:
   }
   
   body {
-    background-color: #ffffff; /* Change color to your preference */
+    background-color: #003152; /* Change color to your preference */
   }
 </style>
   

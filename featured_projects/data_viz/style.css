@@ -1,8 +1,20 @@
+/*changing the yaml category */
+.quarto-category {
+    color: white;
+}
+
+/*for changing the yaml contents color*/
+.quarto-title-meta-contents p {
+    background-color: transparent;
+    color: grey /* Set background color to transparent */
+}
+
+
 /* Styles for span */
 span {
     font-size: 10pt;
     font-family: Verdana, palatino, serif;
-    background-color: white; /* Add white background */
+    background-color: none; /* Add white background */
 }
 
 /* Styles for strong */
@@ -49,6 +61,7 @@ body {
     /* This property will make the background image cover the entire body */
 }
 
+/*change the heading to white color */
 h1 {
     color: white;
 }

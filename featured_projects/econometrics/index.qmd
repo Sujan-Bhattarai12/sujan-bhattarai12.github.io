@@ -59,12 +59,8 @@ smoking_data <- read_csv(here("featured_projects/econometrics/data/SMOKING_EDS24
 
 #### Mean Differences, Assumptions, and Covariates 
 
-a)  What is the mean difference in birth weight of infants with smoking and non-smoking mothers ? Under what assumption does this correspond to the average treatment effect of maternal smoking during pregnancy on infant birth weight. Calculate and create a table demonstrating the differences in the mean proportions/values of covariates observed in smokers and non-smokers 
-
 ```{r , include=TRUE}
 ## Calculate mean difference. Remember to calculate a measure of statistical significance
-# considering the ignorability assumptions, where there is potentially no confounding varibles
-# that could influence the outcome. Or it could be that confounding variables only affects treatments and not the outcome, but this will influence covariates in x.
 
 ## calculating difference using t.test when tobacco is 1 and 0
 smoking_mothers = smoking_data %>% filter(tobacco == 1)
@@ -135,8 +131,6 @@ For all other covariates, there is significant difference between the treatment 
 
 #### ATE and Covariate Balance 
 
-Assume that maternal smoking is randomly assigned conditional on the observable covariates listed above. Estimate the effect of maternal smoking on birth weight using an OLS regression with NO linear controls for the covariates. Perform the same estimate including the control variables. Next, compute indices of covariate imbalance between the treated and non-treated regarding these covariates.
-
 ```{r , include=TRUE}
 # ATE Regression univariate
 tobacco_univariate <- lm(birthwgt ~ tobacco, data = smoking_data)
@@ -170,8 +164,6 @@ as.data.frame(x[1]) %>%
 Based on the outputs above, several covariates, except the presence of diabetes in mothers, shows statistically significant relationships with birthweight, having p values close to zero. This means our assumption of ignorability for this observational studies is violated and not fulfilled becuase there are several confounders that is significantly influencing the outcome. So we can't make casual inference that tobacco has caused lower birth weights in smoker mothers.
 
 #### Propensity Score Estimation
-
-Next, estimate propensity scores (i.e. probability of being treated) for the sample, using the provided covariates. Create a regression table reporting the results of the regression and discuss what the covariate coefficients indicate and interpret one coefficient. Create histograms of the propensity scores comparing the distributions of propensity scores for smokers ('treated') and non-smokers ('control'), discuss the overlap and what it means.
 
 ```{r , include=TRUE}
 ## Propensity Scores estimation with logistic regression
@@ -274,7 +266,7 @@ After the matching, the nature and weight of the regression coefficients changed
 
 #### ATE with Nearest Neighbor 
 
- Estimate the ATT using the matched dataset. Report and interpret your result
+Estimate the ATT using the matched dataset.
 
 ```{r , include=TRUE}
 ## calculate ATE based on nearest neighbor matching
@@ -292,8 +284,6 @@ ATT_weighted_count
 For the treated smoker mothers, the tobacco effects on their child birth weight is lower by 13 grams on average than for its counterfactual non smoking mothers. This means that the treatment has caused lower birth weight in the treated group of mothers. For any other units of population who shares similar covariates as treated group, the birth weight of their child will be lower by 13 grams on average if they were to start smoking tobacco.
 
 #### ATE with WLS Matching 
-
- Last, use the original dataset and perform the weighted least squares estimation of the ATE using the propensity scores (including controls). Report and interpret your results, here include both size and precision of estimate in reporting and interpretation.
 
 ```{r , include=TRUE}
 ## Weighted least Squares (WLS) estimator Preparation
@@ -319,12 +309,9 @@ There are certain factors that influences the output more than other covariates.
 \newpage
 
 ### Part 2 Panel model and fixed effects 
-
-\indent We will use the progresa data from last time as well as a new dataset. In the original dataset, treatment households had been receiving the transfer for a year. Now, you get an additional dataset with information on the same households from before the program was implemented, establishing a baseline study (from 1997), and the same data we worked with last time (from 1999). \indent \*Note: You will need to install the packages plm and dplyr (included in template preamble). Again, you can find a description of the variables at the bottom of PDF and HERE.
-
 #### Estimating Effect with First Difference 
 
-Setup: Load the new baseline data (progresa_pre_1997.csv) and the follow-up data (progresa_post_1999.csv) into R. Note that we created a time denoting variable (with the same name, 'year') in BOTH datasets. Then, create a panel dataset by appending the data (i.e. binding the dataset row-wise together creating a single dataset). We want to examine the same outcome variable as before, value of animal holdings (vani).
+Working with new sets of data:
 
 ```{r , include=TRUE}
 ## Load the datasets
@@ -337,7 +324,7 @@ progresa <- rbind(progresa_pre_1997, progresa_post_1999)
 
 ```
 
-a)  Estimate a first-difference (FD) regression manually, interpret the results briefly (size of coefficient and precision!) \indent \*Note: Calculate the difference between pre- and post- program outcomes for each family. To do that, follow these steps and the code given in the R-template:
+Estimate a first-difference (FD) regression manually, interpret the results briefly (size of coefficient and precision!) \indent \*Note: Calculate the difference between pre- and post- program outcomes for each family.
 
 ```{r, include=TRUE}
 ### Code included to help get you started
