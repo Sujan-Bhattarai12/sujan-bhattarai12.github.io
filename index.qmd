@@ -1,7 +1,7 @@
 ---
 title: "Sujan Bhattarai"
-image: pic.jpg
 resources: resume.pdf
+image: pic.jpg
 about:
   template: jolla
   image-shape: round

@@ -9,14 +9,15 @@ website:
     right:
       - href: index.qmd
         text: Home
+      - href: featured_projects.qmd
+        text: Projects
       - href: posts.qmd
-        text: Data-science
+        text: Statistics
       - href: health.qmd
         text: Health
       - href: certifications.qmd
         text: Certificates
-      - href: featured_projects.qmd
-        text: Featured_projects
+
       - href: about.qmd
         text: About
  

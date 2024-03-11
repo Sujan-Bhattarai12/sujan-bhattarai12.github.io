@@ -1,10 +1,6 @@
 ---
-title: "About Me"
-format:
-  html:
-    toc: true
-    html-math-method: katex
-    css: /featured_projects/style.css
+style:
+  css: featured_posts/style.css
 ---
 
 
