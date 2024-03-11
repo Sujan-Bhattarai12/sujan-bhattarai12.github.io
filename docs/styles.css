@@ -1,0 +1,20 @@
+
+/* make text red  */
+p { 
+    padding-left: 15px;
+    font-size: 11pt;
+    font-family: Verdana, palatino, serif;
+    color: white;
+}
+
+
+/* Background color for body */
+body {
+    background-color: #003152; /* Use hex color code */
+}
+
+/* set for all h3 to h6 to have light grey color */
+h1, h2, h3, h4 {
+    color: lightgrey;
+}
+
