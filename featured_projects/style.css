@@ -87,3 +87,11 @@ h1, h2, h3, h4 {
     left: 0;
   }
 
+pre code {
+    background-color: WHITE; /* Light grey background */
+    padding: 10px; /* Add padding for better readability */
+    border-radius: 5px; /* Rounded corners */
+    overflow-x: auto; /* Add horizontal scroll for long lines */
+    font-family: "Courier New", Courier, monospace; /* Use monospace font for code */
+    color: #990099; /* Dark grey text color */
+}
