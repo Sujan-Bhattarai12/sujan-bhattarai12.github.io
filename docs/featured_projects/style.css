@@ -29,11 +29,20 @@ blockquote {
 /* Styles for ol */
 ol {
     margin-left: 20px;
+    /*set font color*/
+    color: #FFA500 !important;
 }
 
 /* Styles for li */
 li {
-    font-size: 14pt;
+    font-size: 11pt;
+    color: #FFA500 !important;
+}
+
+/* Styles for the page title */
+/* Styles for h1 elements with class title */
+h1.title {
+    color: #003152; /* Black color for the h1 title */
 }
 
 /* Background color for body */
@@ -46,6 +55,15 @@ h1, h2, h3, h4 {
     color: lightgrey;
 }
 
+/* Styles for the div with class quarto-title-meta-heading */
+.quarto-title-meta-heading {
+    color: lightgrey; /* Light grey color */
+}
+
+/* Styles for the div with class quarto-categories */
+.quarto-categories {
+    color: #990099; /* Light grey color */
+}
 
 /*******setttings for navbar so that it is fixed at the top of the page********/
 /* this setup is for the navbar size and margin */
