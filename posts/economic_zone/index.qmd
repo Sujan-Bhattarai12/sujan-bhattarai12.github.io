@@ -246,16 +246,16 @@ washington <- us_geo %>% filter(NAME == "Washington")
 #| fig-height: 4.5
 ##use tmshape to plot the data
 tm_shape(combined_v_areas_under)+
-  tm_polygons(fill = 'percentage_of_area')+
-  tm_shape(california)+
-  tm_text("California", size = 0.8, col = "black", bg.col = "white")+
-  tm_borders(col = 'black')+
-  tm_shape(oregon)+
-  tm_text("Oregon", size = 0.8, col = "black", bg.col = "white")+
-  tm_borders()+
-  tm_shape(washington)+
-  tm_text("Washington", size = 0.8, col = "black", bg.col = "white")+
-  tm_borders()
+  tm_polygons(fill = 'percentage_of_area')
+  # tm_shape(california)+
+  # tm_text("California", size = 0.8, col = "black", bg.col = "white")+
+  # tm_borders(col = 'black')+
+  # tm_shape(oregon)+
+  # tm_text("Oregon", size = 0.8, col = "black", bg.col = "white")+
+  # tm_borders()+
+  # tm_shape(washington)+
+  # tm_text("Washington", size = 0.8, col = "black", bg.col = "white")+
+  # tm_borders()
 ```
 
 ### Create a Function
