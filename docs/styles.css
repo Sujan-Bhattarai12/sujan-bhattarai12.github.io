@@ -30,6 +30,10 @@ h1.title {
     font-size: 28pt !important;
 }
 
+.quarto-title h1.title {
+    color:white /* Your desired color */;
+}
+
 /* Animation text on the front page */
 #tagline {
     animation: fadeInOut 1s ease-in-out infinite;
