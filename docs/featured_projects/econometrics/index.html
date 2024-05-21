@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sujan Bhattarai">
-<meta name="dcterms.date" content="2023-09-20">
 
 <title>Applied Statistics for Social Sciences: How incentivizing household failed?</title>
 <style>
@@ -146,7 +145,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Applied Statistics for Social Sciences: How incentivizing household failed?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Statistics</div>
+                <div class="quarto-category">Econometrics</div>
+                <div class="quarto-category">Causal Inference</div>
+                <div class="quarto-category">R</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sujan Bhattarai </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -161,48 +188,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Applied Statistics for Social Sciences: How incentivizing household failed?</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Statistics</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sujan Bhattarai </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 20, 2023</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="part-1-treatment-ignorability-assumption-and-applying-matching-estimators" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-treatment-ignorability-assumption-and-applying-matching-estimators">Part 1 Treatment Ignorability Assumption and Applying Matching Estimators</h3>
 <p>The goal is to estimate the causal effect of maternal smoking during pregnancy on infant birth weight using the treatment ignorability assumptions. The data are taken from the National Natality Detail Files, and the extract “SMOKING_EDS241.csv”’ is a random sample of all births in Pennsylvania during 1989-1991. Each observation is a mother-infant pair. The key variables are:</p>
 <p><strong>The outcome and treatment variables are:</strong></p>
 <p>birthwgt=birth weight of infant in grams</p>
 <p>tobacco=indicator for maternal smoking</p>
 <p><strong>The control variables are:</strong></p>
 <p>mage (mother’s age), meduc (mother’s education), mblack (=1 if mother identifies as Black), alcohol (=1 if consumed alcohol during pregnancy), first (=1 if first child), diabete (=1 if mother diabetic), anemia (=1 if mother anemic)</p>
+<section id="part-1-treatment-ignorability-assumption-and-applying-matching-estimators" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-treatment-ignorability-assumption-and-applying-matching-estimators">Part 1 Treatment Ignorability Assumption and Applying Matching Estimators</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data for Part </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>smoking_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"featured_projects/econometrics/data/SMOKING_EDS241.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

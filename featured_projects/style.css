@@ -39,17 +39,16 @@ li {
     color: #FFA500 !important;
 }
 
-/* Styles for the page title */
 /* Styles for h1 elements with class title */
 h1.title {
     color: #003152; /* Black color for the h1 title */
     font-size: 28pt;
 }
 
-/* Background color for body */
+/* Background color for body*/ 
 body {
     background-color: #003152; /* Use hex color code */
-}
+} 
 
 /* set for all h3 to h6 to have light grey color */
 h1, h2, h3, h4 {
@@ -66,54 +65,14 @@ h1, h2, h3, h4 {
     color: #990099; /* Light grey color */
 }
 
-/*******setttings for navbar so that it is fixed at the top of the page********/
-/* this setup is for the navbar size and margin */
-  nav {
-    position: fixed;
-    background-color: #003152; /* Change color to your preference */
-    padding: 1.5em;
-    margin: 0em; /* Change margin of navbar whole box */
-    font-size: 1.1em;
-  }
-
-/*just for smooth transition, but i see no difference at all */
-  nav a {
-    color: white; /* Change color to your preference */
-    text-decoration: none;
-    transition: color 0.3s ease;
-    position: relative;
-  }
-
-/*highlights the navbar */
-  nav a:hover {
-    background-color: white; /* Change color to your preference */
-  }
-
-/*when hovered to navbar, colors all the navbar */  
-  nav:hover {
-    background-color: lightgrey; /* Change background color to your preference */
-    transition: background-color 0.3s ease;
-}
-  
-nav a:hover::before {
-content: '';
-position: absolute;
-width: 100%;
-height: 5px; /* Adjust thickness as needed */
-background-color: #003152; /* Change color to your preference */
-bottom: -2px; /* Adjust distance from text */
-left: 0;
-}
-
 pre code {
-    background-color: WHITE; /* Light grey background */
+    background-color: white; /* Light grey background */
     padding: 10px; /* Add padding for better readability */
     border-radius: 5px; /* Rounded corners */
     overflow-x: auto; /* Add horizontal scroll for long lines */
     font-family: "Courier New", Courier, monospace; /* Use monospace font for code */
     color: #990099; /* Dark grey text color */
 }
-
 
 /* Container for the TOC */
 /* Style for the TOC container */
@@ -122,5 +81,30 @@ pre code {
     top: 400px; /* Distance from the top of the viewport */
 }
 
+/*for navbars */
+/* Navbar styles */
+.navbar {
+    background-color: #003152; /* Match background color with body */
+    padding: 10px 0; /* Add padding to the top and bottom of the navbar */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center-align the list items */
+}
+
+.navbar li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Set link color to white */
+    font-size: 18px; /* Set font size for navbar links */
+    font-family: Georgia, Palatino, serif; /* Match font family with paragraph text */
+}
 
 

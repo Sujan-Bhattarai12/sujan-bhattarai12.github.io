@@ -34,7 +34,6 @@ format:
       - styles.scss
     mainfont: Verdana 
     css: styles.css
-    toc: true 
 
 
 

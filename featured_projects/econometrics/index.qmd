@@ -1,6 +1,6 @@
 ---
-title: 'Applied Statistics for Social Sciences: How incentivizing household failed?'
-date: "2023-09-20"
+title: "Applied Statistics for Social Sciences: How incentivizing household failed?"
+Date: "2023-08-25"
 format:
   html:
     toc: true
@@ -8,13 +8,25 @@ format:
     css: /featured_projects/style.css
 author:
   - name: Sujan Bhattarai
-categories: [Statistics] # self-defined categories
+categories: [Statistics, Econometrics, Causal Inference, R] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 editor: 
   markdown: 
     wrap: 72
+title-block-banner: true
 ---
 
+The goal is to estimate the causal effect of maternal smoking during pregnancy on infant birth weight using the treatment ignorability assumptions. The data are taken from the National Natality Detail Files, and the extract “SMOKING_EDS241.csv”' is a random sample of all births in Pennsylvania during 1989-1991. Each observation is a mother-infant pair. The key variables are:
+
+**The outcome and treatment variables are:**
+
+\indent birthwgt=birth weight of infant in grams
+
+\indent tobacco=indicator for maternal smoking
+
+**The control variables are:**
+
+\indent mage (mother's age), meduc (mother's education), mblack (=1 if mother identifies as Black), alcohol (=1 if consumed alcohol during pregnancy), first (=1 if first child), diabete (=1 if mother diabetic), anemia (=1 if mother anemic)
 
 ```{r, include=FALSE}
 #hide all warnings and messages
@@ -40,17 +52,9 @@ library(Hmisc)
 
 ### Part 1 Treatment Ignorability Assumption and Applying Matching Estimators
 
-The goal is to estimate the causal effect of maternal smoking during pregnancy on infant birth weight using the treatment ignorability assumptions. The data are taken from the National Natality Detail Files, and the extract “SMOKING_EDS241.csv”' is a random sample of all births in Pennsylvania during 1989-1991. Each observation is a mother-infant pair. The key variables are:
 
-**The outcome and treatment variables are:**
 
-\indent birthwgt=birth weight of infant in grams
 
-\indent tobacco=indicator for maternal smoking
-
-**The control variables are:**
-
-\indent mage (mother's age), meduc (mother's education), mblack (=1 if mother identifies as Black), alcohol (=1 if consumed alcohol during pregnancy), first (=1 if first child), diabete (=1 if mother diabetic), anemia (=1 if mother anemic)
 
 ```{r , include=TRUE}
 # Load data for Part 

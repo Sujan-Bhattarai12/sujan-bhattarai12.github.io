@@ -3,7 +3,6 @@
     "listing": "/posts.html",
     "items": [
       "/posts/southAsia_crop/index.html",
-      "/posts/12-09-2020-AI-ethics/index.html",
       "/posts/False_color_analysis/index.html",
       "/posts/economic_zone/index.html",
       "/posts/energy/index.html"
@@ -24,9 +23,9 @@
   {
     "listing": "/featured_projects.html",
     "items": [
+      "/featured_projects/econometrics/index.html",
       "/featured_projects/data_viz/index.html",
-      "/featured_projects/ml_spotify/index.html",
-      "/featured_projects/econometrics/index.html"
+      "/featured_projects/ml_spotify/index.html"
     ]
   }
 ]
