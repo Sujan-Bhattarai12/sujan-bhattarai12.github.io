@@ -24,6 +24,12 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
+/* Styles for h1 elements with class title */
+h1.title {
+    color: #003152; /* Black color for the h1 title */
+    font-size: 28pt;
+}
+
 /* Animation text on the front page */
 #tagline {
     animation: fadeInOut 1s ease-in-out infinite;
