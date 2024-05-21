@@ -99,7 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="../../featured_projects/style.css">
+<link rel="stylesheet" href="../../featured_style_projects.css">
 </head>
 
 <body class="nav-fixed">
@@ -256,13 +256,13 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span> <span class="fu">kable</span>(top_20_songs,</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">caption =</span> <span class="st">"Top 20 most danceable tracks in the dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <caption>Top 20 most danceable tracks in the dataset</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">song_name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">genre</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">danceability</th>
+<th style="text-align: left;">song_name</th>
+<th style="text-align: left;">genre</th>
+<th style="text-align: right;">danceability</th>
 </tr>
 </thead>
 <tbody>
@@ -368,8 +368,6 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <section id="visual-interpretation-of-the-data" class="level5">
@@ -431,20 +429,19 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#specify the recipe</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>knn_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(genre <span class="sc">~</span>., <span class="at">data =</span> train) <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>(), <span class="at">one_hot =</span> T) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## knn spec</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>knn_spec <span class="ot">&lt;-</span> <span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"kknn"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#bake the data</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>baked_train <span class="ot">&lt;-</span> <span class="fu">bake</span>(knn_rec, train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>())</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## knn spec</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>knn_spec <span class="ot">&lt;-</span> <span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"kknn"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#bake the data</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#baked_train &lt;- bake(knn_rec, train)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#apply to testing set</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>baked_test <span class="ot">&lt;-</span> <span class="fu">bake</span>(knn_rec, test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#baked_test &lt;- bake(knn_rec, test)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Train the model with 5 folds validation . The model is then tuned with grid search to find the best value of k. The model is then fit to the testing set and the performance is evaluated with confusion matrix, precision, recall and f1 score.</p>
 <div class="cell">
@@ -453,58 +450,59 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># put all together in workflow</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>knn_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_model</span>(knn_spec) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_recipe</span>(knn_rec)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the resamples and carry out validation</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>knn_res <span class="ot">&lt;-</span> knn_workflow <span class="sc">%&gt;%</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> cv_folds, </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># find the best value of k</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>knn_spec_tune <span class="ot">&lt;-</span> <span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"kknn"</span>)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># define a new workflow</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>wf_knn_tune  <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_model</span>(knn_spec_tune) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_recipe</span>(knn_rec)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># tune the best model with grid search</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>fit_knn_cv <span class="ot">&lt;-</span>  wf_knn_tune <span class="sc">%&gt;%</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tune_grid</span>(cv_folds, <span class="at">grid =</span> <span class="fu">data.frame</span>(<span class="at">neighbors =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="fu">seq</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">10</span>))))</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the fit knn cv with changing value of neighbours</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>fit_knn_cv <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">"roc_auc"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> neighbors, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Accuracy of KNN model with different values of k"</span>,</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of neighbors"</span>,</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Accuracy"</span>) <span class="sc">+</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_recipe</span>(knn_rec) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_model</span>(knn_spec)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the resamples and carry out validation</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>knn_res <span class="ot">&lt;-</span> knn_workflow <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> cv_folds, </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># find the best value of k</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>knn_spec_tune <span class="ot">&lt;-</span> <span class="fu">nearest_neighbor</span>(<span class="at">neighbors =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"kknn"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co"># define a new workflow</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>wf_knn_tune  <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_model</span>(knn_spec_tune) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                <span class="fu">add_recipe</span>(knn_rec)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># tune the best model with grid search</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>fit_knn_cv <span class="ot">&lt;-</span>  wf_knn_tune <span class="sc">%&gt;%</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tune_grid</span>(cv_folds, <span class="at">grid =</span> <span class="fu">data.frame</span>(<span class="at">neighbors =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="fu">seq</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">10</span>))))</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the fit knn cv with changing value of neighbours</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>fit_knn_cv <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">"roc_auc"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> neighbors, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Accuracy of KNN model with different values of k"</span>,</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of neighbors"</span>,</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Accuracy"</span>) <span class="sc">+</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the performance with collect_metrics</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fit_knn_cv <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 7
-   neighbors .metric  .estimator  mean     n  std_err .config              
-       &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;                
- 1         1 accuracy binary     0.965     5 0.00170  Preprocessor1_Model01
- 2         1 roc_auc  binary     0.965     5 0.00309  Preprocessor1_Model01
- 3         5 accuracy binary     0.968     5 0.00176  Preprocessor1_Model02
- 4         5 roc_auc  binary     0.989     5 0.00111  Preprocessor1_Model02
- 5        10 accuracy binary     0.968     5 0.000903 Preprocessor1_Model03
- 6        10 roc_auc  binary     0.993     5 0.000952 Preprocessor1_Model03
- 7        20 accuracy binary     0.967     5 0.00105  Preprocessor1_Model04
- 8        20 roc_auc  binary     0.994     5 0.000923 Preprocessor1_Model04
- 9        30 accuracy binary     0.967     5 0.00143  Preprocessor1_Model05
-10        30 roc_auc  binary     0.994     5 0.000921 Preprocessor1_Model05
-# ℹ 14 more rows</code></pre>
+<pre><code># A tibble: 36 × 7
+   neighbors .metric     .estimator   mean     n  std_err .config              
+       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;                
+ 1         1 accuracy    binary     0.965      5 0.00170  Preprocessor1_Model01
+ 2         1 brier_class binary     0.0351     5 0.00170  Preprocessor1_Model01
+ 3         1 roc_auc     binary     0.965      5 0.00309  Preprocessor1_Model01
+ 4         5 accuracy    binary     0.968      5 0.00176  Preprocessor1_Model02
+ 5         5 brier_class binary     0.0258     5 0.00118  Preprocessor1_Model02
+ 6         5 roc_auc     binary     0.989      5 0.00111  Preprocessor1_Model02
+ 7        10 accuracy    binary     0.968      5 0.000903 Preprocessor1_Model03
+ 8        10 brier_class binary     0.0247     5 0.000804 Preprocessor1_Model03
+ 9        10 roc_auc     binary     0.993      5 0.000952 Preprocessor1_Model03
+10        20 accuracy    binary     0.967      5 0.00105  Preprocessor1_Model04
+# ℹ 26 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a final workflow</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>final_wf <span class="ot">&lt;-</span> wf_knn_tune <span class="sc">%&gt;%</span></span>
@@ -524,11 +522,12 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>final_fit <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  .metric  .estimator .estimate .config             
-  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy binary         0.968 Preprocessor1_Model1
-2 roc_auc  binary         0.992 Preprocessor1_Model1</code></pre>
+<pre><code># A tibble: 3 × 4
+  .metric     .estimator .estimate .config             
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 accuracy    binary        0.968  Preprocessor1_Model1
+2 roc_auc     binary        0.992  Preprocessor1_Model1
+3 brier_class binary        0.0237 Preprocessor1_Model1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bind genre from test data to the predicted data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bind_test_pred <span class="ot">&lt;-</span> spotify_pred <span class="sc">%&gt;%</span> <span class="fu">bind_cols</span>(test)</span>
@@ -635,11 +634,12 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how accurate is this model on the test data?</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>final_tree_result <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  .metric  .estimator .estimate .config             
-  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy binary         0.983 Preprocessor1_Model1
-2 roc_auc  binary         0.982 Preprocessor1_Model1</code></pre>
+<pre><code># A tibble: 3 × 4
+  .metric     .estimator .estimate .config             
+  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 accuracy    binary        0.983  Preprocessor1_Model1
+2 roc_auc     binary        0.982  Preprocessor1_Model1
+3 brier_class binary        0.0166 Preprocessor1_Model1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the confusion matrix</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>final_tree_result <span class="sc">%&gt;%</span> </span>
@@ -706,11 +706,12 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co"># collect metrices</span></span>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>bag_tune <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 6
-  .metric  .estimator  mean     n  std_err .config             
-  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy binary     0.991    10 0.00159  Preprocessor1_Model1
-2 roc_auc  binary     0.998    10 0.000355 Preprocessor1_Model1</code></pre>
+<pre><code># A tibble: 3 × 6
+  .metric     .estimator    mean     n  std_err .config             
+  &lt;chr&gt;       &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;               
+1 accuracy    binary     0.991      10 0.00159  Preprocessor1_Model1
+2 brier_class binary     0.00833    10 0.00112  Preprocessor1_Model1
+3 roc_auc     binary     0.998      10 0.000355 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -806,29 +807,20 @@ Exploring 4 competing popular machine learning model to classify a song into eit
 <span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="co"># collect metrices</span></span>
 <span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>rf_tune <span class="sc">%&gt;%</span> <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 8
-    mtry trees .metric  .estimator  mean     n   std_err .config              
-   &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;                
- 1    10  1748 accuracy binary     0.990     5 0.00121   Preprocessor1_Model01
- 2    10  1748 roc_auc  binary     0.999     5 0.000150  Preprocessor1_Model01
- 3     7    69 accuracy binary     0.993     5 0.00103   Preprocessor1_Model02
- 4     7    69 roc_auc  binary     1.00      5 0.000167  Preprocessor1_Model02
- 5     5  1242 accuracy binary     0.993     5 0.000942  Preprocessor1_Model03
- 6     5  1242 roc_auc  binary     1.00      5 0.0000860 Preprocessor1_Model03
- 7     6   464 accuracy binary     0.993     5 0.000840  Preprocessor1_Model04
- 8     6   464 roc_auc  binary     1.00      5 0.0000934 Preprocessor1_Model04
- 9     7  1963 accuracy binary     0.992     5 0.000649  Preprocessor1_Model05
-10     7  1963 roc_auc  binary     1.00      5 0.0000944 Preprocessor1_Model05
-11     2   363 accuracy binary     0.992     5 0.00141   Preprocessor1_Model06
-12     2   363 roc_auc  binary     1.00      5 0.0000923 Preprocessor1_Model06
-13    10   716 accuracy binary     0.991     5 0.00128   Preprocessor1_Model07
-14    10   716 roc_auc  binary     0.999     5 0.000151  Preprocessor1_Model07
-15     8  1442 accuracy binary     0.992     5 0.000860  Preprocessor1_Model08
-16     8  1442 roc_auc  binary     1.00      5 0.000114  Preprocessor1_Model08
-17     2   917 accuracy binary     0.992     5 0.00109   Preprocessor1_Model09
-18     2   917 roc_auc  binary     1.00      5 0.000117  Preprocessor1_Model09
-19     3  1058 accuracy binary     0.994     5 0.00118   Preprocessor1_Model10
-20     3  1058 roc_auc  binary     1.00      5 0.0000851 Preprocessor1_Model10</code></pre>
+<pre><code># A tibble: 30 × 8
+    mtry trees .metric     .estimator    mean     n   std_err .config           
+   &lt;int&gt; &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;             
+ 1    10  1748 accuracy    binary     0.990       5 0.00121   Preprocessor1_Mod…
+ 2    10  1748 brier_class binary     0.00755     5 0.000711  Preprocessor1_Mod…
+ 3    10  1748 roc_auc     binary     0.999       5 0.000150  Preprocessor1_Mod…
+ 4     7    69 accuracy    binary     0.993       5 0.00103   Preprocessor1_Mod…
+ 5     7    69 brier_class binary     0.00666     5 0.000590  Preprocessor1_Mod…
+ 6     7    69 roc_auc     binary     1.00        5 0.000167  Preprocessor1_Mod…
+ 7     5  1242 accuracy    binary     0.993       5 0.000942  Preprocessor1_Mod…
+ 8     5  1242 brier_class binary     0.00664     5 0.000575  Preprocessor1_Mod…
+ 9     5  1242 roc_auc     binary     1.00        5 0.0000860 Preprocessor1_Mod…
+10     6   464 accuracy    binary     0.993       5 0.000840  Preprocessor1_Mod…
+# ℹ 20 more rows</code></pre>
 </div>
 </div>
 <div class="cell">

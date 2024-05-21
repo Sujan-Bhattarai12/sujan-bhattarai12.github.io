@@ -6,7 +6,7 @@ format:
   html:
     toc: true
     html-math-method: katex
-    css: /featured_projects/style.css
+    css: /featured_style_projects.css
 author:
   - name: Sujan Bhattarai
 categories: [Machine Learning] # self-defined categories
@@ -136,8 +136,7 @@ test =  subset(spotify, split == FALSE)
 #specify the recipe
 knn_rec <- recipe(genre ~., data = train) %>%
   step_dummy(all_nominal(), -all_outcomes(), one_hot = T) %>%
-  step_normalize(all_numeric(), -all_outcomes()) %>%
-  prep()
+  step_normalize(all_numeric(), -all_outcomes())
 
 ## knn spec
 knn_spec <- nearest_neighbor(neighbors = 5) %>%
@@ -145,13 +144,13 @@ knn_spec <- nearest_neighbor(neighbors = 5) %>%
   set_mode("classification")
 
 #bake the data
-baked_train <- bake(knn_rec, train)
+#baked_train <- bake(knn_rec, train)
 ```
 
 
 ```{r}
 #apply to testing set
-baked_test <- bake(knn_rec, test)
+#baked_test <- bake(knn_rec, test)
 ```
 
 Train the model with 5 folds validation . The model is then tuned with grid search to find the best value of k. The model is then fit to the testing set and the performance is evaluated with confusion matrix, precision, recall and f1 score.
@@ -162,8 +161,9 @@ cv_folds <- vfold_cv(train, v = 5)
 
 # put all together in workflow
 knn_workflow <- workflow() %>%
-                add_model(knn_spec) %>% 
-                add_recipe(knn_rec)
+                add_recipe(knn_rec) %>% 
+                add_model(knn_spec)
+                
 
 #fit the resamples and carry out validation
 knn_res <- knn_workflow %>%
