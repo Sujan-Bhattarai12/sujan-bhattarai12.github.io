@@ -15,7 +15,7 @@ strong {
 /* make text red  */
 p { 
     padding-left: 30px;
-    font-size: 14pt;
+    font-size: 12pt;
     font-family: Verdana, palatino, serif;
 }
 
@@ -32,7 +32,7 @@ ol {
 
 /* Styles for li */
 li {
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
  nav {
@@ -40,3 +40,15 @@ li {
     padding: 1em;
     font-size: 1em;
   }
+
+
+/* Styles for the div with class quarto-title-meta-heading */
+.quarto-title-meta-heading {
+    color: lightgrey; /* Light grey color */
+    font-family: Kalam, cursive;
+}
+
+.quarto-title-meta-contents p {
+    font-family: 'Kalam', cursive;
+    color: lightgrey;
+}

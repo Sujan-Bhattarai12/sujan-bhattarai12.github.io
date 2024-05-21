@@ -8,117 +8,50 @@ format:
     css: /health_posts/style.css
 author:
   - name: Sujan Bhattarai
-categories: [Health]
 draft: false
 editor:
   markdown:
     wrap: 72
 ---
 
-<p>It should not be surprising that there exists a suicide forest in
-Japan named Aokigahara, which reports the highest number of suicidal
-incidents worldwide. Historically suicide was considered an act of
-courage by Samurai, trained warriors. However, the present scenario has
-changed, and many suicidal incidents come from stress, financial burden,
-betrayal in love, arguments, etc. A psychologist researching the
-Aokigahara forest identified that many suicidal incidents were from the
-mental cause, primarily from work stress. Well, Japan and Korea report
-the highest number of work hours per day, which makes sense that the
-country has such a high massive death rate from self-slaughter.</p>
+<p>It should not be surprising that there exists a suicide forest in Japan named Aokigahara, which reports the highest number of suicidal incidents worldwide. Historically, suicide was considered an act of courage by Samurai, trained warriors. However, the present scenario has changed, and many suicidal incidents now stem from stress, financial burden, betrayal in love, arguments, and other factors. A psychologist researching the Aokigahara forest identified that many suicidal incidents were primarily due to mental causes, particularly work stress. Japan and Korea report the highest number of work hours per day, which correlates with the high rate of suicides from such stress.</p>
 
-# Hiking in the Mountains: Everybody must try
+# Hiking in the Mountains: Everyone Should Try It
 
 <img src="image1.jpg" class="wp-image-106 alignleft" width="700" height="500"/>
 
-<p>[In modernizing world, it is therefore essential to take breaks from
-daily office schedules and stabilize mental strength using natural and
-native methods. One of the brilliant and proven methods involves hiking.
-Hiking has several psychological and physical benefits, including
-boosting immunity, reduced mental anxiety, increased stamina, and
-reduced hypertension/blood pressure. Considering this fact, a particular
-form of hiking was introduced Japan in the 1980s called
-<em>Shinrin-yoku</em>, forest bathing. Shinrin-yoku is a method where
-participants spend a week traveling to a nearby forest, detaching
-themselves from all electronic devices and the internet. The technique
-has been proven to have brilliant impacts on improvements in
-depression.]{style="font-size: 14pt;"}</p>
+<blockquote>
+In our modernizing world, it is essential to take breaks from daily office schedules and stabilize mental health using natural methods. One highly effective method is hiking. Hiking offers several psychological and physical benefits, including boosting immunity, reducing mental anxiety, increasing stamina, and lowering hypertension and blood pressure. Considering these benefits, a specific form of hiking called <em>Shinrin-yoku</em>, or forest bathing, was introduced in Japan in the 1980s. Participants spend a week in a forest, detached from electronic devices and the internet. This practice has shown significant improvements in depression.
+</blockquote>
 
-<p>[Since Covid 19, hiking activity has gained popularity in most city
-areas. The number of visiting people massively increased, and many
-people made hiking their hobby, which they regularly follow to this day.
-But like everyone else, why should you partake in hiking, and what
-natural healing benefits can you achieve from
-hiking:]{style="font-size: 14pt;"}</p>
+<p>Since Covid-19, hiking has gained popularity in urban areas. Many people have adopted hiking as a regular hobby. But why should you partake in hiking, and what natural healing benefits can you achieve from it?</p>
 
 <figure class="wp-block-image size-large">
-
-<img src="https://images.unsplash.com/photo-1593614903467-60102835caf9?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="wp-image-40" width="600" height="400"/>
-
+  <img src="https://images.unsplash.com/photo-1593614903467-60102835caf9?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="wp-image-40" width="600" height="400"/>
 </figure>
 
-<p>[Ayurveda, the oldest form of medicine in Hindu culture, describes
-the balance of five earth elements(fire, water, sky, earth, air) in our
-body that defines our health. If all these five forms can be activated
-in the body, both body and mind heal themselves. The Psychosomatic
-theory describes the same thing, explaining that the mind can create
-illness in the body. Hiking to natural areas activates all these five
-elements that restore your natural body and mind.
- ]{style="font-size: 14pt;"}</p>
+<blockquote>
+Ayurveda, the oldest form of medicine in Hindu culture, describes the balance of five earth elements (fire, water, sky, earth, air) in our body that defines our health. If all these five elements can be activated in the body, both body and mind can heal themselves. The psychosomatic theory also supports this, explaining that the mind can create illness in the body. Hiking in natural areas activates all these five elements, restoring your body and mind.
+</blockquote>
 
-<p>[Scientifically, it can be explained in a much simpler way. “All
-forms of living species on Earth share some prey-predator relationships.
-The same goes for plants and insects. To protect from insect harm, trees
-release a chemical called phytoncides. The chemical has antifungal and
-antibacterial properties, which help plants fight disease. When
-breathing such chemicals, our bodies respond by increasing white blood
-cells, activating our Natural killer cells. The killer cells protect us
-from diseases and boost our immunity.”]{style="font-size: 14pt;"}</p>
+<p>Scientifically, this can be explained in simpler terms. "All forms of living species on Earth share some prey-predator relationships, including plants and insects. To protect themselves from insects, trees release chemicals called phytoncides. These chemicals have antifungal and antibacterial properties, helping plants fight diseases. When we breathe in these chemicals, our bodies respond by increasing white blood cells, activating our natural killer cells. These killer cells protect us from diseases and boost our immunity."</p>
 
-<p>[2. <strong>Lower blood pressure and
-hypertension:</strong>]{style="font-size: 14pt;"}</p>
+<p><strong>2. Lower blood pressure and hypertension:</strong></p>
 
-<p>[ The benefits of hiking in reducing blood pressure/hypertension have
-been reported globally. Several pieces of research have validated that
-walking in green areas significantly reduces blood pressure. The most
-recent finding was 20 clinical trials where more than 732 participants
-were reviewed. Those participants who regularly walked to green spaces
-or spent some time in green areas in a week significantly reduced blood
-pressure.]{style="font-size: 14pt;"}</p>
+<p>The benefits of hiking in reducing blood pressure and hypertension have been reported globally. Several studies have validated that walking in green areas significantly reduces blood pressure. The most recent finding involved 20 clinical trials with over 732 participants. Those who regularly walked in green spaces or spent some time in green areas weekly significantly reduced their blood pressure.</p>
 
-<p>[In an experiment where the participants were advised to walk in
-green and non-green areas, green areas saw a massive drop in blood
-pressure compared to non-green spaces as well. Such surprising findings
-have something to relate with the human evolutionary lifecycle. Because
-humans evolved in forests and green spaces, it makes sense that they
-naturally prefer green areas that release happy hormones, which
-stabilize the brain.]{style="font-size: 14pt;"}</p>
+<blockquote>
+In an experiment where participants were advised to walk in green and non-green areas, green areas showed a massive drop in blood pressure compared to non-green spaces. These findings may relate to the human evolutionary lifecycle, as humans evolved in forests and green spaces. It makes sense that we naturally prefer green areas that release happy hormones, stabilizing the brain.
+</blockquote>
 
-<p>[3<strong>. Reduces anxiety and panic
-attacks</strong>]{style="font-size: 14pt;"}</p>
+<p><strong>3. Reduces anxiety and panic attacks</strong></p>
 
-<p>[The adrenaline rush produced in the human body accumulates if not
-removed. Over time the collected adrenaline causes muscle tension and
-depression. Walking and hiking help release such recessive energy and
-improves mood and freshness. A study was conducted on forest bathing
-participants, and their mental health and anxiety levels were measured
-during the forest bathing period. The study saw a massive decline in
-anxiety levels, depression symptoms, and
-stress.]{style="font-size: 14pt;"}</p>
+<p>The adrenaline rush produced in the human body accumulates if not released. Over time, this accumulated adrenaline causes muscle tension and depression. Walking and hiking help release this excess energy, improving mood and freshness. A study on forest bathing participants measured their mental health and anxiety levels during the forest bathing period. The study showed a significant decline in anxiety levels, depression symptoms, and stress.</p>
 
-<p>[4. <strong>Improves physical
-health</strong>]{style="font-size: 14pt;"}</p>
+<p><strong>4. Improves physical health</strong></p>
 
-<p>[<img src="image3.jpg" class="wp-image-106 alignleft" width="700" height="500"/>Well,
-improvement of physical health is the most imminent benefit of hiking.
-On average, 100 calories get burnt for every mile of walking at a rate
-of 2.5 miles per hour. If the walking speed increases, the calorie burn
-reaches 500 per hour. All these calorie-burning processes and walking
-increase bone density and reduce bone wear. The exact process also
-reduces arthritis and osteoporosis. Other health benefits include
-increased insulin resistance and prevention of diabetes that develops
-from increased physical activities such as walking in the
-forest.]{style="font-size: 14pt;"}</p>
+<img src="image3.jpg" class="wp-image-106 alignleft" width="700" height="500"/>
 
-<p>[<!-- /wp:paragraph -->]{style="font-size: 14pt;"}</p>
+<p>Improvement of physical health is the most immediate benefit of hiking. On average, 100 calories are burned for every mile walked at a rate of 2.5 miles per hour. If the walking speed increases, the calorie burn can reach 500 per hour. These calorie-burning activities and walking increase bone density and reduce bone wear. The same process also helps reduce arthritis and osteoporosis. Other health benefits include increased insulin resistance and prevention of diabetes, which develop from increased physical activities like walking in the forest.</p>
 
 <p> </p>

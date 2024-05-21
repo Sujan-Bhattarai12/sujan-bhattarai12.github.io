@@ -53,6 +53,23 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Styles for the div with class quarto-categories */
+.quarto-categories {
+    color: #990099; /* Light grey color */
+}
+
+/* Styles for ol */
+ol {
+    margin-left: 20px;
+    /*set font color*/
+    color: #FFA500 !important;
+}
+
+/* Styles for li */
+li {
+    font-size: 11pt;
+    color: #FFA500 !important;
+}
 
 /*for navbars */
 /* Navbar styles */
@@ -79,5 +96,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 18px; /* Set font size for navbar links */
     font-family: Georgia, Palatino, serif; /* Match font family with paragraph text */
 }
+
 
 

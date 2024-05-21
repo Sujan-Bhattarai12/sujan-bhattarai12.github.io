@@ -65,10 +65,6 @@ h1, h2, h3, h4 {
     color: #990099; /* Light grey color */
 }
 
-/*******setttings for navbar so that it is fixed at the top of the page********/
-/* Navbar styles */
-
-
 pre code {
     background-color: white; /* Light grey background */
     padding: 10px; /* Add padding for better readability */
@@ -84,3 +80,31 @@ pre code {
     position: fixed; /* Fix position relative to the viewport */
     top: 400px; /* Distance from the top of the viewport */
 }
+
+/*for navbars */
+/* Navbar styles */
+.navbar {
+    background-color: #003152; /* Match background color with body */
+    padding: 10px 0; /* Add padding to the top and bottom of the navbar */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center-align the list items */
+}
+
+.navbar li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Set link color to white */
+    font-size: 18px; /* Set font size for navbar links */
+    font-family: Georgia, Palatino, serif; /* Match font family with paragraph text */
+}
+
+
