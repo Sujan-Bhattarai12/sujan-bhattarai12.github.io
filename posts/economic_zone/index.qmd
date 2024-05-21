@@ -1,5 +1,5 @@
 ---
-title: 'Exploring Optimal Locations for Marine Aquaculture: A Comprehensive Analysis'
+title: 'Exploring Optimal Locations for Marine Aquaculture: A Comprehensive Spatial Analysis'
 author: "Sujan"
 format:
   html:
