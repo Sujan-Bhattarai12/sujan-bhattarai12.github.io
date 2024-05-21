@@ -388,20 +388,20 @@ percent_area <- ggplot(combined_v_areas_under)+
                                         style = north_arrow_minimal())
 
 ##plot with basemap, to show where each location fall under
-with_basemap <- tm_shape(combined_v_areas_under)+
-                tm_polygons(fill = 'percentage_of_area')+
-                tm_shape(california)+
-                tm_text("California", size = 0.8, col = "black", bg.col = "white")+
-                tm_borders()+
-                tm_shape(oregon)+
-                tm_text("Oregon", size = 0.8, col = "black", bg.col = "white")+
-                tm_borders()+
-                tm_shape(washington)+
-                tm_text("Washington", size = 0.8, col = "black", bg.col = "white")+
-                tm_borders()+
-                tm_layout(title = "Percentage area with basemap")
+# with_basemap <- tm_shape(combined_v_areas_under)+
+#                 tm_polygons(fill = 'percentage_of_area')+
+#                 tm_shape(california)+
+#                 tm_text("California", size = 0.8, col = "black", bg.col = "white")+
+#                 tm_borders()+
+#                 tm_shape(oregon)+
+#                 tm_text("Oregon", size = 0.8, col = "black", bg.col = "white")+
+#                 tm_borders()+
+#                 tm_shape(washington)+
+#                 tm_text("Washington", size = 0.8, col = "black", bg.col = "white")+
+#                 tm_borders()+
+#                 tm_layout(title = "Percentage area with basemap")
 
-return(list(suitable_eez, with_basemap))}
+return(list(suitable_eez))}
 ```
 
 #### Function that create EEZ for a sample species
