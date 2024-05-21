@@ -52,3 +52,16 @@ li {
     font-family: 'Kalam', cursive;
     color: lightgrey;
 }
+
+/* Styles for ol */
+ol {
+    margin-left: 20px;
+    /*set font color*/
+    color: #FFA500 !important;
+}
+
+/* Styles for li */
+li {
+    font-size: 11pt;
+    color: #FFA500 !important;
+}
