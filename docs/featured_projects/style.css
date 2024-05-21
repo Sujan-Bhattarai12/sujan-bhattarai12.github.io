@@ -43,6 +43,7 @@ li {
 /* Styles for h1 elements with class title */
 h1.title {
     color: #003152; /* Black color for the h1 title */
+    font-size: 28pt;
 }
 
 /* Background color for body */
@@ -69,7 +70,7 @@ h1, h2, h3, h4 {
 /* this setup is for the navbar size and margin */
   nav {
     position: fixed;
-    background-color: #2c3e50; /* Change color to your preference */
+    background-color: #003152; /* Change color to your preference */
     padding: 1.5em;
     margin: 0em; /* Change margin of navbar whole box */
     font-size: 1.1em;
@@ -113,3 +114,14 @@ pre code {
     font-family: "Courier New", Courier, monospace; /* Use monospace font for code */
     color: #990099; /* Dark grey text color */
 }
+
+
+/* Container for the TOC */
+/* Style for the TOC container */
+#TOC {
+    position: fixed; /* Fix position relative to the viewport */
+    top: 400px; /* Distance from the top of the viewport */
+}
+
+
+
