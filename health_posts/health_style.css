@@ -61,7 +61,7 @@ li {
 
 /* Navbar styles */
 .navbar {
-    background-color: #003152; /* Match background color with body */
+    background-color: #white; /* Match background color with body */
     padding: 10px 0; /* Add padding to the top and bottom of the navbar */
 }
 
@@ -90,15 +90,8 @@ li {
     transform: scale(1.3); /* Zoom in the text slightly when hovered */
 }
 
-/*the navbar zooms and changes to white color */
 .navbar-nav .nav-link:hover {
     color: white !important;
-}
-
-/* Styles for strong */
-strong {
-    font-size: 14pt;
-    font-family: Georgia, palatino, serif;
 }
 
 
