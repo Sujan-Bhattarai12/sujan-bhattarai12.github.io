@@ -35,6 +35,11 @@ h1.title {
     font-family: cursive; /* Your desired color */
 }
 
+.quarto-title-block .title {
+    color: #ff5733; /* You can replace #ff5733 with any color code or color name you prefer */
+}
+
+
 /* Animation text on the front page */
 #tagline {
     animation: fadeInOut 1s ease-in-out infinite;
