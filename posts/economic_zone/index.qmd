@@ -15,7 +15,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ## Introduction
-
 Marine aquaculture stands at the forefront of sustainable solutions for meeting the growing global demand for protein. In comparison to conventional land-based meat production, marine aquaculture offers a more eco-friendly approach. Previous research, such as the work by [Gentry et al. (2017)](https://www.nature.com/articles/s41559-017-0257-9), has mapped the global potential for marine aquaculture, considering various constraints. In this project, my focus narrows to the Exclusive Economic Zones (EEZ) along the West Coast of the United States, aiming to identify the most suitable regions for developing marine aquaculture, specifically for various species of oysters.
 
 Oysters, known for their unique ecological contributions and nutritional value, thrive under specific conditions. To ensure optimal growth, factors such as sea surface temperature and ocean depth play a crucial role. My analysis leverages data from NOAA and GEBCO to characterize these conditions and pinpoint the most favorable locations for oyster aquaculture.
