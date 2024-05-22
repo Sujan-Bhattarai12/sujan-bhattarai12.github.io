@@ -1,6 +1,7 @@
 ---
 style:
-  css: featured_posts/style.css
+  #css: featured_posts/style.css
+  css:final_style.css
 ---
 
 <div id="header" style="text-align: center;">

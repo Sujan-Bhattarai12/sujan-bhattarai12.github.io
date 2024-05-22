@@ -1,0 +1,169 @@
+/* Paragraph styles */
+/* Set the title to not bold */
+.title {
+    font-weight: normal;
+}
+
+p {
+    padding-left: 15px;
+    font-size: 11pt;
+    font-family: Verdana, Palatino, serif;
+    color: white;
+}
+
+/* Background color for body */
+body {
+    background-color: #003152;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Header colors for h3 to h6 */
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+/* Styles for h1 elements with class title */
+h1.title {
+    color: #003152; /* Black color for the h1 title */
+    font-size: 28pt !important;
+}
+
+.quarto-title h1.title {
+    color: white;
+    font-family: cursive; /* Your desired color */
+}
+
+/* Animation text on the front page */
+#tagline {
+    animation: fadeInOut 1s ease-in-out infinite;
+    color: white;
+    font-size: 1.2em; /* Increase font size for better visibility */
+    text-align: center; /* Center the text */
+    margin-top: 10px; /* Adjust margin for better positioning */
+}
+
+/* Description on the front page */
+#description {
+    font-size: 1em;
+    color: lightgrey;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Adjust margin for better positioning */
+}
+
+/* Keyframes for fade-in-out animation */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Styles for the div with class quarto-categories */
+.quarto-categories {
+    color: white; /* Light grey color */
+}
+
+/*for changing the category box */
+.quarto-category {
+    color: orange; /* Light grey color */
+}
+
+/* Styles for ol */
+ol {
+    margin-left: 20px;
+    /*set font color*/
+    color: #FFA500 !important;
+}
+
+/* Styles for li */
+li {
+    font-size: 11pt;
+    color: #FFA500 !important;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #003152; /* Match background color with body */
+    padding: 10px 0; /* Add padding to the top and bottom of the navbar */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center-align the list items */
+}
+
+.navbar li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Set link color to white */
+    font-size: 18px; /* Set font size for navbar links */
+    font-family: Georgia, Palatino, serif; /* Match font family with paragraph text */
+    transition: all 0.3s ease; /* Add transition effect for smooth animation */
+}
+
+.navbar a:hover {
+    color: white; /* Change link color to white when hovered */
+    font-weight: bold; /* Make the font bold when hovered */
+    transform: scale(1.3); /* Zoom in the text slightly when hovered */
+}
+
+/*the navbar zooms and changes to white color */
+.navbar-nav .nav-link:hover {
+    color: white !important;;
+}
+
+/* Styles for the div with class quarto-categories */
+.listing-category {
+    color: orange;
+}
+
+/* Styles for span */
+span {
+    font-size: 10pt;
+    font-family: Verdana, palatino, serif;
+}
+
+/* Styles for strong */
+strong {
+    font-size: 14pt;
+    font-family: Georgia, palatino, serif;
+}
+
+/* Styles for blockquote */
+blockquote {
+    font-size: 12pt;
+    font-family: georgia, palatino, serif;
+}
+
+/* Styles for the div with class quarto-title-meta-heading */
+.quarto-title-meta-heading {
+    color: lightgrey; /* Light grey color */
+}
+
+pre code {
+    background-color: white; /* Light grey background */
+    padding: 10px; /* Add padding for better readability */
+    border-radius: 5px; /* Rounded corners */
+    overflow-x: auto; /* Add horizontal scroll for long lines */
+    font-family: "Courier New", Courier, monospace; /* Use monospace font for code */
+    color: #990099; /* Dark grey text color */
+}
+
+/* Container for the TOC */
+/* Style for the TOC container */
+#TOC {
+    position: fixed; /* Fix position relative to the viewport */
+    top: 400px; /* Distance from the top of the viewport */
+}

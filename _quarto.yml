@@ -33,7 +33,7 @@ format:
     theme: 
       - styles.scss
     mainfont: Verdana 
-    css: styles.css
+    css: final_style.css
 
 
 

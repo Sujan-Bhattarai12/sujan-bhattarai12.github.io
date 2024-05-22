@@ -13,9 +13,7 @@ about:
     - text: GitHub
       icon: github
       href: https://github.com/Sujan-Bhattarai12/
-    - text: Resume
-      icon: file-text
-      href: resume.pdf
+
 ---
 
 :::{#ppc}

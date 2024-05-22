@@ -2,7 +2,8 @@
 title: Massive Online Open Courses and Self Learning
 subtitle: "Certificates"
 style:
-  css: featured_posts/style.css
+  #css: featured_posts/style.css
+  css: /final_style.css
 ---
 
 ```{r, out.width = "100%", out.height="100%", fig.align = "center", echo = F}

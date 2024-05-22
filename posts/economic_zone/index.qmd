@@ -5,7 +5,8 @@ format:
   html:
     code-fold: false
     code-summary: "Show the code"
-    css: /featured_style_projects.css
+    #css: /featured_style_projects.css
+    css: /final_style.css
 date: "2023-12-05"
 categories: [Python, Geospatial]
 ---
