@@ -14,7 +14,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 editor: 
   markdown: 
     wrap: 72
-title-block-banner: true
 ---
 
 ```{r include=FALSE}

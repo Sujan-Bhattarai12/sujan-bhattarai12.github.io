@@ -31,7 +31,8 @@ h1.title {
 }
 
 .quarto-title h1.title {
-    color:white /* Your desired color */;
+    color:white;
+    font-family: cursive; /* Your desired color */
 }
 
 /* Animation text on the front page */
@@ -65,7 +66,11 @@ h1.title {
 
 /* Styles for the div with class quarto-categories */
 .quarto-categories {
-    color: #990099; /* Light grey color */
+    color: white; /* Light grey color */
+}
+
+.quarto-category {
+    color: orange; /* Light grey color */
 }
 
 /* Styles for ol */
@@ -116,6 +121,10 @@ li {
 /*the navbar zooms and changes to white color */
 .navbar-nav .nav-link:hover {
     color: white !important;;
+}
+
+.listing-category {
+    color: orange;
 }
 
 

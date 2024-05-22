@@ -13,7 +13,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 editor: 
   markdown: 
     wrap: 72
-title-block-banner: true
 ---
 
 The goal is to estimate the causal effect of maternal smoking during pregnancy on infant birth weight using the treatment ignorability assumptions. The data are taken from the National Natality Detail Files, and the extract “SMOKING_EDS241.csv”' is a random sample of all births in Pennsylvania during 1989-1991. Each observation is a mother-infant pair. The key variables are:

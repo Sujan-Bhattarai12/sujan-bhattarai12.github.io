@@ -8,7 +8,6 @@ format:
     css: /featured_style_projects.css
 date: "2023-12-05"
 categories: [Python, Geospatial]
-title-block-banner: true
 ---
 
 ```{r setup, include=FALSE}
