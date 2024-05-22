@@ -35,7 +35,6 @@ li {
     font-size: 12pt;
 }
 
-
 /* Styles for the div with class quarto-title-meta-heading */
 .quarto-title-meta-heading {
     color: lightgrey; /* Light grey color */
@@ -59,3 +58,32 @@ li {
     font-size: 11pt;
     color: #FFA500 !important;
 }
+
+
+/*for navbars */
+/* Navbar styles */
+.navbar {
+    background-color: #003152; /* Match background color with body */
+    padding: 10px 0; /* Add padding to the top and bottom of the navbar */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center-align the list items */
+}
+
+.navbar li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Set link color to white */
+    font-size: 18px; /* Set font size for navbar links */
+    font-family: Georgia, Palatino, serif; /* Match font family with paragraph text */
+}
+
+
