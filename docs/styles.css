@@ -124,6 +124,7 @@ li {
     color: white !important;;
 }
 
+/* Styles for the div with class quarto-categories */
 .listing-category {
     color: orange;
 }
