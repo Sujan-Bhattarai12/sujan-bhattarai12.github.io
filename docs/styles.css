@@ -89,7 +89,7 @@ li {
 
 /* Navbar styles */
 .navbar {
-    background-color: #003152; /* Match background color with body */
+    background-color: #lightgrey; /* Match background color with body */
     padding: 10px 0; /* Add padding to the top and bottom of the navbar */
 }
 
@@ -121,7 +121,7 @@ li {
 
 /*the navbar zooms and changes to white color */
 .navbar-nav .nav-link:hover {
-    color: white !important;;
+    color: #045ba5 !important;;
 }
 
 /* Styles for the div with class quarto-categories */
