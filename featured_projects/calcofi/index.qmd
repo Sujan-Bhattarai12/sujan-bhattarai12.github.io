@@ -322,3 +322,4 @@ mse_lm, mse_xgboost
 mse_lm, mse_xgboost
 ```
 
+The XGboost model has lower Bias, and high accuracy. The model wins the linear regression model in overall performance. Upon this data science project, I suggest the CALCOFI to use the XGBOOST model that is already trained, to be ued when new data are brought up in the database.
