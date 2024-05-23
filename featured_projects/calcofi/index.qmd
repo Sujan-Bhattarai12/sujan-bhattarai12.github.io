@@ -1,6 +1,6 @@
 ---
 title: "Ocean Carbon prediction:serving Calcofi dataset to make data driven Decision"
-Date: "2024-02-01"
+Date: "2023-12-15"
 format:
   html:
     toc: true
@@ -62,10 +62,15 @@ train_calcofi = train_calcofi.drop(columns=['unnamed: 12'])
 train_calcofi.rename(columns={'ta1.x': 'ta1'}, inplace=True)
 
 train_calcofi.head()
+
 #--test the range and distribution of values
 train_calcofi.describe()
+
 # test for NA values
 train_calcofi.info()
+```
+
+```{python}
 #plot the correlation between variables to investigate linear linear relationshiop
 #most values shows either strong positive or negative associatoin
 #Linear regression can be still be better
@@ -74,12 +79,12 @@ corr_matrix = train_calcofi.corr()
 
 # Plot the heatmap
 plt.figure(figsize=(8, 6))
-sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+sns.heatmap(corr_matrix, annot=False, cmap='coolwarm', fmt=".1f")
 plt.title('Correlation Heatmap')
 plt.show()
 ```
 
-#####Machine Learning
+##### Machine Learning
 For this project, I will delve into using different machine learning models, from the simplest also called the Linear regression, then gradually moving up to the best model, called XGboost, which is also called the Queen of the Machine Learning models.
 
 
