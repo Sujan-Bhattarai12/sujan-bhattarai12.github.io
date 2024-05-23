@@ -14,12 +14,14 @@ editor:
   markdown: 
     wrap: 72
 ---
+
 CalCOFI, the California Cooperative Oceanic Fisheries Investigations, was established in 1949 to investigate the ecological factors contributing to the collapse of the Pacific sardine population off California. Over time, its scope expanded to encompass the entire ecosystem of the southern California Current System, utilizing cutting-edge observation techniques. Its extensive time series data provides invaluable insights into the long-term impacts of environmental changes on marine ecosystems and the communities reliant on them, not only within the California Current System but also extending to the North Pacific and beyond on an international scale.
 
 ```{python}
 #hide all warnings
 import warnings
 warnings.filterwarnings("ignore")
+
 #### Import all necessary libraries
 # import all required libraries
 import numpy as np
@@ -41,8 +43,8 @@ from sklearn.linear_model import Ridge
 #### Read the data and store ID, required for submission to kaggle
 #-----read train and test set
 
-train_calcofi = pd.read_csv("train.csv")
-test_calcofi  = pd.read_csv("test.csv")  
+train_calcofi = pd.read_csv("data/train.csv")
+test_calcofi  = pd.read_csv("data/test.csv")  
 
 
 #collect the test ids for testcalcofi, required for submission dataset
@@ -319,3 +321,4 @@ mse_lm, mse_xgboost
 #create a table bring just mae score from linear regression and xgboost
 mse_lm, mse_xgboost
 ```
+
