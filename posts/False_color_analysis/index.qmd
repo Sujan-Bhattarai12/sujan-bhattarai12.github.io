@@ -8,6 +8,7 @@ format:
     css: /featured_style_projects.css
 date: 12-15-2023
 categories: [Python, Geospatial]
+engine: knitr
 ---
 
 ```{r setup, include=FALSE}

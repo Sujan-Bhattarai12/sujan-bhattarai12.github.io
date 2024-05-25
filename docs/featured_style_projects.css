@@ -53,6 +53,8 @@ ol {
     color: #990099; /* Light grey color */
 }
 
+
+/*the box where the code output is displayed */
 pre code {
     background-color: white; /* Light grey background */
     padding: 10px; /* Add padding for better readability */
@@ -61,7 +63,7 @@ pre code {
     font-family: "Courier New", Courier, monospace; /* Use monospace font for code */
     color: #990099; /* Dark grey text color */
 }
-
+/*----------------------------------*/
 
 /*this is for table genrated by kableextra */
 tbody tr {
@@ -86,10 +88,6 @@ caption {
     position: fixed; /* Fix position relative to the viewport */
     top: 400px; /* Distance from the top of the viewport */
 }
-
-/*for navbars */
-/* Navbar styles */
-/* Navbar styles */
 
 /* Styles for Python code blocks */
 .sourceCode.python {

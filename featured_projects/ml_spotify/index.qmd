@@ -13,6 +13,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 editor: 
   markdown: 
     wrap: 72
+engine: knitr
 ---
 
 <p> Exploring 4 competing popular machine learning model to classify a song into either of the two genre. The dataset is from Spotify API and it contains 18 audio features of the song. The dataset is filtered to include only the tracks of the two genres, Underground Rap and dnb. The models are k-nearest neighbor, decision tree, bagged tree and random forest. The models are compared based on their accuracy, sensitivity and specificity. The best model is then selected based on the comparison.</p>

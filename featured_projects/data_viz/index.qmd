@@ -14,6 +14,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 editor: 
   markdown: 
     wrap: 72
+engine: knitr
 ---
 
 ```{r include=FALSE}
@@ -450,7 +451,7 @@ knitr::include_graphics("static_image/infographics.png")
 ```
 
 
-<blockquote style="background-color: #f2f2f2; border-left: 6px">
+<blockquote>
 
 #### For further information and the Initial motivation behind project, please follow:
 
