@@ -13,7 +13,7 @@ p {
 
 /* Background color for body */
 body {
-    background-color: #003152;
+    background-color: #213343;
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -35,6 +35,15 @@ h1.title {
     font-family: cursive; /* Your desired color */
 }
 
+.listing-description {
+    color: darkgrey;
+}
+
+/*for home page which is also description */
+#ppc #description {
+    color: white;
+}
+
 /* Animation text on the front page */
 #tagline {
     animation: fadeInOut 1s ease-in-out infinite;
@@ -47,7 +56,7 @@ h1.title {
 /* Description on the front page */
 #description {
     font-size: 1em;
-    color: lightgrey;
+    color: #363737;
     max-width: 600px;
     margin: 0 auto;
     text-align: center; /* Center the text */
@@ -74,30 +83,46 @@ h1.title {
     color: orange; /* Light grey color */
 }
 
-/* Styles for ol */
-ol {
-    margin-left: 20px;
-    /*set font color*/
-    color: #FFA500 !important;
+.listing-category {
+    color: white;
 }
 
-/* Styles for li */
-li {
-    font-size: 11pt;
-    color: #FFA500 !important;
+/*color the menu text */
+.menu-text {
+    color: white;
+    font-family: cursive;
 }
+
+/*color li and ol */
+ol {
+    margin-left: 20px;
+    color: lightblue !important;
+}
+
+/*color li and ol */
+li {
+    margin-left: 20px;
+    color: lightblue !important;
+}
+
+#toc-title {
+    color: lightblue;
+    font-size: 14px;
+}
+
 
 /* Navbar styles */
 .navbar {
-    background-color: #lightgrey; /* Match background color with body */
+    background-color: #213343; /* Match background color with body */
     padding: 10px 0; /* Add padding to the top and bottom of the navbar */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center-align the navbar */
 }
 
 .navbar ul {
     list-style-type: none; /* Remove bullet points from the list */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
-    text-align: center; /* Center-align the list items */
 }
 
 .navbar li {
@@ -121,13 +146,7 @@ li {
 
 /*the navbar zooms and changes to white color */
 .navbar-nav .nav-link:hover {
-    color: #045ba5 !important;
+    color: white !important;
 }
-
-/* Styles for the div with class quarto-categories */
-.listing-category {
-    color: orange;
-}
-
 
 
