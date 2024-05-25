@@ -13,6 +13,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 editor: 
   markdown: 
     wrap: 72
+engine: knitr
 ---
 
 CalCOFI, the California Cooperative Oceanic Fisheries Investigations, was established in 1949 to investigate the ecological factors contributing to the collapse of the Pacific sardine population off California. Over time, its scope expanded to encompass the entire ecosystem of the southern California Current System, utilizing cutting-edge observation techniques. Its extensive time series data provides invaluable insights into the long-term impacts of environmental changes on marine ecosystems and the communities reliant on them, not only within the California Current System but also extending to the North Pacific and beyond on an international scale.
@@ -39,24 +40,29 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score, KFold
 from sklearn.linear_model import SGDRegressor
 from sklearn.linear_model import Ridge
+```
 
 #### Read the data and store ID, required for submission to kaggle
+```{python}
 #-----read train and test set
-
 train_calcofi = pd.read_csv("data/train.csv")
 test_calcofi  = pd.read_csv("data/test.csv")  
-
 
 #collect the test ids for testcalcofi, required for submission dataset
 test_ids = test_calcofi.id
 test_calcofi = test_calcofi.drop(columns=['id'])
+```
+
+```{python}
 #----inspect the head and take the insights of data
 train_calcofi.head()
 #### Data cleaning and preprocessing
 #the column names are in snake case, change all to lowercase
 train_calcofi.columns = map(str.lower, train_calcofi.columns)
 test_calcofi.columns = map(str.lower, test_calcofi.columns)
+```
 
+```{python}
 #remove the unnamed:12 column
 train_calcofi = train_calcofi.drop(columns=['unnamed: 12'])
 train_calcofi.rename(columns={'ta1.x': 'ta1'}, inplace=True)

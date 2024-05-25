@@ -48,11 +48,7 @@ library(kableExtra)
 
 ### Data Cleaning
 
-The process begins with reading the "energy_data.csv" file, and the
-first code chunk calculates the total count of missing values for each
-column in the dataset. Subsequently, it checks for and reports any
-duplicated rows in the dataset. The next code chunk iteratively examines
-the data types of each column and prints the results.
+Data cleaning is an essential step in data analysis. We begin by reading the "energy_data.csv" file and calculating the total count of missing values for each column in the dataset. We then check for and report any duplicated rows in the dataset. The data types of each column are inspected to ensure consistency.
 
 ```{r  message=FALSE, warning=FALSE, collapse=TRUE}
 ##read the energy data
@@ -73,11 +69,7 @@ for (i in seq_along(energy_data)){
 
 ```
 
-Following the initial data inspection, the document proceeds to address
-data type inconsistencies. The code iterates through the columns,
-converting character columns to factors and numeric columns to
-appropriate numeric types. This step is crucial for ensuring the
-dataset's readiness for subsequent analysis.
+To ensure consistency, we convert character columns to factors and numeric columns to appropriate numeric types. This step is crucial for ensuring the dataset's readiness for subsequent analysis.
 
 ```{r}
 #Data-type is in correct format except for country. 
@@ -91,10 +83,7 @@ for (i in seq_along(energy_data)){
 }
 ```
 
-Subsequently, the document shortens the column names for ease of
-reference and plotting, using the rename function. The new column names
-are more concise and user-friendly, facilitating clearer data
-visualization and interpretation.
+Next, I shorten the column names for ease of reference and plotting. The new column names are more concise and user-friendly, facilitating clearer data visualization and interpretation.
 
 ```{r}
 #Shorten the column names, useful when plotting and also #refferint to the columns
@@ -120,10 +109,7 @@ energy_data1 <- energy_data %>%
           Lon = "Longitude")
 ```
 
-The initial code chunk generates a world map using the ne_countries
-function, presenting countries at a medium scale. The resulting map is
-created using the ggplot package with the geom_sf function, providing a
-visual representation of global geography.
+The initial code chunk generates a world map using the ne_countries function, presenting countries at a medium scale. The resulting map is created using the ggplot package with the geom_sf function, providing a visual representation of global geography.
 
 ```{r}
 world_map <- ne_countries(returnclass = "sf", scale = "medium")
@@ -132,73 +118,58 @@ map <- world_map %>%
        geom_sf()
 ```
 
-The code performs a right join between the world map data and the
-processed energy data (energy_data1) based on the country ID (sovereignt
-and Entity). The resulting joined dataset (joined) is then filtered to
-include only the data for the year 2020. For each variable from the year
-to population density, individual maps are created and displayed using
-the geom_sf function. These maps offer a spatial representation of the
-selected variable across countries, aiding in the identification of
-patterns or disparities.
+I perform a right join between the world map data and the processed energy data (energy_data1) based on the country ID (sovereignt and Entity). The resulting joined dataset is then filtered to include only the data for the year 2020. For each variable from the year to population density, individual maps are created and displayed using the geom_sf function. These maps offer a spatial representation of the selected variable across countries, aiding in the identification of patterns or disparities.
 
 ```{r  message=FALSE, warning=FALSE}
-joined <- right_join(world_map,energy_data1,
-                     by=c("sovereignt"="Entity")) %>% 
-          filter(Year==2020)
+joined <- right_join(world_map, energy_data1, by=c("sovereignt"="Entity")) %>% 
+          filter(Year == 2020)
 
-for (i in which(colnames(joined)=="Year"): which(colnames(joined)=="pop_density")){
-  maps <- world_map %>% 
-    st_transform(crs="+proj=robin") %>% 
-    ggplot()+
-    geom_sf(color="darkgrey")+
-    geom_sf(data=joined, aes(fill=joined[[i+1]]))+
-    xlab(colnames(joined[i+1][1]))+
-    theme(legend.title=element_blank())+
-    theme(legend.title= element_text(""))
+for (i in which(colnames(joined) == "Year"):which(colnames(joined) == "pop_density")){
+  map_var <- colnames(joined)[i + 1]
+  map_plot <- world_map %>%
+    st_transform(crs = "+proj=robin") %>%
+    ggplot() +
+    geom_sf(color = "darkgrey") +
+    geom_sf(data = joined, aes(fill = joined[[i + 1]])) +
+    labs(x = map_var, fill = map_var) +
+    theme_minimal() +
+    theme(legend.title = element_blank())
+  print(map_plot)
 }
 
 ```
 
-### Data visualization
-The following code chunk explores the correlation between variables in
-the processed energy dataset (energy_data1). The correlation matrix is
-visualized as a heatmap using the ggplot package, with colors ranging
-from blue (indicating lower correlation) to orange (indicating higher
-correlation). This analysis helps assess the degree of association
-between different energy-related variables, providing insights into
-potential multicollinearity.
+### Exploring Correlations
+I explore the correlation between variables in the processed energy dataset (energy_data1). The correlation matrix is visualized as a heatmap using the ggplot package, with colors ranging from blue (indicating lower correlation) to orange (indicating higher correlation). This analysis helps assess the degree of association between different energy-related variables, providing insights into potential multicollinearity.
 
 ```{r}
-#plot the correlation between all variables 
+# Plot the correlation between all variables 
 data_for_correlation <- as.matrix(energy_data1[10:length(energy_data1)])
 
-
 corelation_matrix <- reshape2::melt(
-  round(cor(data_for_correlation, use = 'pairwise.complete.obs'), 2))
+  round(cor(data_for_correlation, use = 'pairwise.complete.obs'), 2)
+)
+
+ggplot(data = corelation_matrix, aes(Var1, Var2)) + 
+  geom_tile(aes(fill = value)) + 
+  scale_fill_gradient(low = "blue", high = "orange") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 ```
 
-`{#create a heatmap of the plot} ggplot(data= corelation_matrix, aes(Var1, Var2)) +    geom_tile(aes(fill = value)) +   scale_fill_gradient(low="blue", high ="orange")`
-
-The subsequent analysis narrows the focus to Nepal by filtering the
-energy data for this specific country. A series of line graphs is then
-generated to visualize the general trends of various energy-related
-variables in Nepal from 2000 to 2020. These visualizations offer an
-overview of the country's energy landscape over the selected time
-period.
+### Focus on Nepal
+I narrow our focus to Nepal by filtering the energy data for this specific country. A series of line graphs is then generated to visualize the general trends of various energy-related variables in Nepal from 2000 to 2020. These visualizations offer an overview of the country's energy landscape over the selected time period.
 
 ```{r}
 #filter only for Nepal
-nepal_energy_data <- energy_data %>% filter(Entity=="Nepal")
-```
+# Filter only for Nepal
+nepal_energy_data <- energy_data %>% filter(Entity == "Nepal")
 
-#### Observe the general trend for all variables
-
-```{r}
-for (i in which(colnames(nepal_energy_data)=="Year"):which(colnames    (nepal_energy_data)== "Density\\n(P/Km2)")){
-  graph =ggplot(nepal_energy_data, aes(Year, nepal_energy_data[[i]]))+
-    geom_line()+
-    xlab(colnames(nepal_energy_data[i][1]))+ ylab("Measure")+
+# Observe the general trend for all variables
+for (i in which(colnames(nepal_energy_data) == "Year"):which(colnames(nepal_energy_data) == "Density\\n(P/Km2)")){
+  graph <- ggplot(nepal_energy_data, aes(Year, nepal_energy_data[[i]])) +
+    geom_line() +
+    labs(x = "Year", y = colnames(nepal_energy_data)[i]) +
     theme_bw()
   print(graph)
 }
@@ -229,7 +200,7 @@ nepal_energy_data <- nepal_energy_data %>%
                             `Access to electricity (% of population)`: `Energy intensity level of primary energy (MJ/$2017 PPP GDP)`)
 ```
 
-step 2: Step wise regression to see if all variables are predictors for
+step 2: **Step wise regression**: see if all variables are predictors for
 CO2 emission
 
 ```{r}

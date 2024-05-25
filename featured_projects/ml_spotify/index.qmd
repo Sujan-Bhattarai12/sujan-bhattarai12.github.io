@@ -1,6 +1,5 @@
 ---
 title: "Comparing competing Machine Learning models in classifying Spotify songs"
-image: "image.jpg"
 date: 2024-01-20
 format:
   html:

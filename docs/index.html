@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sujan Bhattarai</title>
+<title>index</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,6 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -113,42 +114,99 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="pic.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Sujan Bhattarai</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<div id="ppc">
-<h1 id="tagline">
-Applied Statistician and Data scientist
-</h1>
-<center>
-<p id="description">
-“Empowering Profitable Decisions Through Data Science Expertise {R, Python, SQL, SAS, Big Data}”
-</p>
-</center>
-</div>
+<main class="content" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="mailto:sujan@ucsb.edu" class="about-link" rel="" target="">
-    <i class="bi bi-envelope-check"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://github.com/Sujan-Bhattarai12/" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .areas-of-interest {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+  }
+  .areas-of-interest h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .areas-of-interest p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .column h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 768px) {
+    .columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+
+  <section class="areas-of-interest">
+    <h1>Areas of Interest</h1>
+    <p>Take a look at some of the things I love working on.</p>
+    <div class="columns">
+      <div class="column">
+        <h3 class="anchored">Cloud Computing</h3>
+        <p>I maintain servers for database storage, model training, and model deployment.</p>
+      </div>
+      <div class="column">
+        <h3 class="anchored">NLP</h3>
+        <p>I have worked with researchers to apply NLP techniques to make sense of the motivations behind human interactions.</p>
+      </div>
+      <div class="column">
+        <h3 class="anchored">Machine Learning</h3>
+        <p>Machine learning is more than an API call to scikit-learn, I love the math and theory as well as the implementation.</p>
+      </div>
+      <div class="column">
+        <h3 class="anchored">Parallel Computing</h3>
+        <p>I regularly extract data from Hadoop databases using the HIVE framework.</p>
+      </div>
+      <div class="column">
+        <h3 class="anchored">Model Deployment</h3>
+        <p>Implement machine learning models in real world production systems using REST API.</p>
+      </div>
+      <div class="column">
+        <h3 class="anchored">Data Analytics</h3>
+        <p>I love telling a story. Making a beautiful and compelling presentation is one of my favorite skills.</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -169,6 +227,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

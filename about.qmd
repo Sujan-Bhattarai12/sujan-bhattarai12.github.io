@@ -1,7 +1,6 @@
 ---
 style:
   css: featured_posts/style.css
- 
 ---
 
 <div id="header" style="text-align: center;">
@@ -19,13 +18,11 @@ style:
 </h1>
 
 
-
 ## Updates:
-   🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br>
-   🚀 Learning Big Data System with Apache Hive & Impala<br>
-   📚 Reading Machine Learning with Scikit Learn book by O'Reilly<br>
-   🌐 Initiating a new Python project for a new blog in ML 
-
+🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br>
+🚀 Learning Big Data System with Apache Hive & Impala<br>
+📚 Reading Machine Learning with Scikit Learn book by O'Reilly<br>
+🌐 Initiating a new Python project for a new blog in ML 
 
 ## Tech Skills
 1. Python 🐍
@@ -41,9 +38,7 @@ style:
 11. Bash Scripting 📜
 12. Web Development 🌐
 
-
 ## Blogs:
-
 [Forecasting Air-Quality Emission](https://sujan-bhattarai12.github.io/posts/southAsia_crop/) 🌬️
 
 [Geospatial Analysis](https://sujan-bhattarai12.github.io/posts/economic_zone/) 🗺️
@@ -57,3 +52,28 @@ style:
 If you have come this far, revise Hadoop CLI(HDFS DFS) commands, extremely useful if you are using SQL for Big data analysis)
 [Apache_CLI](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .areas-of-interest {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+  }
+  .areas-of-interest h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .areas-of-interest p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
