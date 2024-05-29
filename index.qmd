@@ -9,7 +9,7 @@
   .areas-of-interest {
     text-align: center;
     margin: 0 auto;
-    width: 110%;
+    width: 120%;
     padding: 20px;
   }
   .areas-of-interest h1 {
@@ -19,7 +19,7 @@
   }
   .areas-of-interest p {
     font-size: 1em;
-    font-style: cursive;
+    font-family: cursive;
     line-height: 1.5;
     margin-bottom: 10px;
     text-align: center;
@@ -38,6 +38,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #274755;
   }
   .colu h3 {
     font-size: 1.5em;
