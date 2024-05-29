@@ -128,25 +128,28 @@ ul.task-list li input[type="checkbox"] {
   .areas-of-interest {
     text-align: center;
     margin: 0 auto;
-    width: 80%;
+    width: 110%;
     padding: 20px;
   }
   .areas-of-interest h1 {
     font-size: 2em;
     margin-bottom: 20px;
+    text-algin: center;
   }
   .areas-of-interest p {
-    font-size: 1.2em;
+    font-size: 1em;
+    font-style: cursive;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: center;
   }
-  .columns {
+  .colu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-items: center;
   }
-  .column {
+  .colus {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,17 +158,17 @@ ul.task-list li input[type="checkbox"] {
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  .column h3 {
+  .colu h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
   }
-  @media (max-width: 768px) {
-    .columns {
+  @media (max-width: 900px) {
+    .colu {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media (max-width: 480px) {
-    .columns {
+  @media (max-width: 600px) {
+    .colu {
       grid-template-columns: 1fr;
     }
   }
@@ -173,33 +176,33 @@ ul.task-list li input[type="checkbox"] {
 
 
   <section class="areas-of-interest">
-    <h1>Areas of Interest</h1>
-    <p>Take a look at some of the things I love working on.</p>
-    <div class="columns">
-      <div class="column">
-        <h3 class="anchored">Cloud Computing</h3>
-        <p>I maintain servers for database storage, model training, and model deployment.</p>
+    <h2 class="anchored">Areas of Interest</h2>
+    <div class="colu">
+    <div class="colus">
+        <h3 class="anchored">Data Science</h3>
+        <p>I love analytical thinking and data-driven decision making, using data and programming tools to answer questions. I also regularly post about Data Science and Statistics on LinkedIn.</p>
       </div>
-      <div class="column">
-        <h3 class="anchored">NLP</h3>
-        <p>I have worked with researchers to apply NLP techniques to make sense of the motivations behind human interactions.</p>
-      </div>
-      <div class="column">
+      <div class="colus">
         <h3 class="anchored">Machine Learning</h3>
-        <p>Machine learning is more than an API call to scikit-learn, I love the math and theory as well as the implementation.</p>
+        <p> When physical based modelling is not an option, my last go to is Machine Learning. I have strong grasp of both theoritical and conceptual understanding behind ML</p>
       </div>
-      <div class="column">
-        <h3 class="anchored">Parallel Computing</h3>
-        <p>I regularly extract data from Hadoop databases using the HIVE framework.</p>
+      <div class="colus">
+        <h3 class="anchored">Cloud Computing</h3>
+        <p>I am self-taught in Big Data, including Hadoop, PySpark, BDMS, and RDBMS. Additionally, I hold certifications in data warehouse platforms like Snowflake.</p>
       </div>
-      <div class="column">
-        <h3 class="anchored">Model Deployment</h3>
-        <p>Implement machine learning models in real world production systems using REST API.</p>
+      <div class="colus">
+        <h3 class="anchored">NLP</h3>
+        <p>I have worked with several news article data to measure the sentiments of newspapers over timeseries, and also ML modelling with Text data in R.</p>
       </div>
-      <div class="column">
-        <h3 class="anchored">Data Analytics</h3>
-        <p>I love telling a story. Making a beautiful and compelling presentation is one of my favorite skills.</p>
+      <div class="colus">
+        <h3 class="anchored">Applied Statistics</h3>
+        <p>I frequently extract data from open source platforms, run simulation experiments, and calculate model output uncertainties using statistics.</p>
       </div>
+      <div class="colus">
+        <h3 class="anchored">Data Visualization</h3>
+        <p>I excel in data visualization with ggplot in R, ensuring scientific aesthetics, correct color contrasts, and plots that answer specific questions.</p>
+      </div>
+      
     </div>
   </section>
   
