@@ -8,7 +8,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> Data Science with R </h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px solid darkgrey; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>Fundamentals of R programming</li>
         <li>Data manipulation with dplyr and tidyr</li>
@@ -27,7 +27,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> SAS programming </h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px solid darkgrey; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>SAS function, tables, Schemas</li>
         <li>Data cleaning and analysis with SAS</li>
@@ -45,7 +45,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> Concepts on Big data </h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px solid darkgrey; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>Conceptual understanding of Big Data</li>
         <li>Big Data technologies and ecosystems</li>
@@ -63,7 +63,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> Big Data Modelling, Map-reduce</h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px solid darkgrey; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>Understanding of Big Data modeling techniques</li>
         <li>Application of predictive analytics in Big Data</li>
@@ -81,7 +81,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> Derivates and integrals for ML</h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px solid darkgrey; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>Functions of several variables</li>
         <li>Partial derivatives and gradients</li>
@@ -99,7 +99,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> Vector application in ML </h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px solid darkgrey; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>Systems of linear equations</li>
         <li>Matrix operations and properties</li>
@@ -116,7 +116,7 @@ title: Self-Directed Internet Learning
 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1;">
     <h5> Associate Data Analyst with SQL </h5>
-    <div style="background-color: #213343; font-size: 16px; border: 1px solid white; padding: 10px; margin-top: 10px; border-radius: 10px;">
+    <div style="background-color: #213343; font-size: 16px; border: 1px darkgrey white; padding: 10px; margin-top: 10px; border-radius: 10px;">
       <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li>Basic SQL syntax and queries</li>
         <li>Data manipulation with SQL</li>

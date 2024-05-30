@@ -60,7 +60,7 @@
 </head>
 <body>
   <section class="areas-of-interest">
-    <h2>Areas of Interest</h2>
+    <h2>Areas of Proficiency </h2>
     <div class="colu">
       <div class="colus">
         <h3>Data Science</h3>
