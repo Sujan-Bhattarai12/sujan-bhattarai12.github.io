@@ -13,10 +13,10 @@ website:
         text: Projects
       - href: posts.qmd
         text: Statistics
-      - href: health.qmd
-        text: Health
       - href: certifications.qmd
         text: Certificates
+      - href: health.qmd
+        text: Health
       - href: about.qmd
         text: About
  
