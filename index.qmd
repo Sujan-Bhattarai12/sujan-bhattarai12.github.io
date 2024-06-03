@@ -65,7 +65,7 @@
       background-color: rgba(255, 255, 255, 0.1);
     }
     .colus h3, .colus p {
-      color: #bbb; /* Dim text color */
+      color: white; /* Dim text color */
       transition: color 0.3s ease-out;
     }
     .colus:hover h3, .colus:hover p {
