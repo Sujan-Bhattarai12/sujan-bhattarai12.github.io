@@ -28,7 +28,7 @@ blockquote {
 
 /* Background color for body*/ 
 body {
-    background-color: #213343; /* Use hex color code */
+    background-color:  #213343; /* Use hex color code */
 } 
 
 /* set for all h3 to h6 to have light grey color */
@@ -101,5 +101,4 @@ caption {
     line-height: 1.5;
     overflow-x: auto; /* Enable horizontal scroll if needed */
 }
-
 
