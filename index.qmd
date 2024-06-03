@@ -1,5 +1,6 @@
 
 ```{=html}
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -65,7 +66,7 @@
       background-color: rgba(255, 255, 255, 0.1);
     }
     .colus h3, .colus p {
-      color: #bbb; /* Dim text color */
+      color: white; /* Dim text color */
       transition: color 0.3s ease-out;
     }
     .colus:hover h3, .colus:hover p {
@@ -131,6 +132,7 @@
 
     // Floating Hollow Cubes Animation with Three.js
     let scene, camera, renderer, cubes = [];
+    const colusElements = document.querySelectorAll('.colus');
 
     function init() {
       scene = new THREE.Scene();
@@ -149,15 +151,35 @@
         let material = new THREE.LineBasicMaterial({ color: colors[Math.floor(Math.random() * colors.length)] });
         let cube = new THREE.LineSegments(edges, material);
 
-        cube.position.x = (Math.random() - 0.5) * 10;
-        cube.position.y = (Math.random() - 0.5) * 10;
-        cube.position.z = (Math.random() - 0.5) * 10;
+        let isInsideColus = false;
 
-        cube.rotation.x = Math.random() * 2 * Math.PI;
-        cube.rotation.y = Math.random() * 2 * Math.PI;
+        // Check if cube is inside any .colus element
+        for (let j = 0; j < colusElements.length; j++) {
+          const colusRect = colusElements[j].getBoundingClientRect();
+          const cubeRect = cube.geometry.boundingBox.clone().applyMatrix4(cube.matrixWorld);
 
-        scene.add(cube);
-        cubes.push(cube);
+          if (
+            cubeRect.min.x > colusRect.left &&
+            cubeRect.max.x < colusRect.right &&
+            cubeRect.min.y > colusRect.top &&
+            cubeRect.max.y < colusRect.bottom
+          ) {
+            isInsideColus = true;
+            break;
+          }
+        }
+
+        if (!isInsideColus) {
+          cube.position.x = (Math.random() - 0.5) * 10;
+          cube.position.y = (Math.random() - 0.5) * 10;
+          cube.position.z = (Math.random() - 0.5) * 10;
+
+          cube.rotation.x = Math.random() * 2 * Math.PI;
+          cube.rotation.y = Math.random() * 2 * Math.PI;
+
+          scene.add(cube);
+          cubes.push(cube);
+        }
       }
 
       animate();
@@ -186,5 +208,4 @@
 </html>
 
 ```
-
 
