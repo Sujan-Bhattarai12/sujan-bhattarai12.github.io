@@ -134,17 +134,6 @@ ul.task-list li input[type="checkbox"] {
       color: white; /* Text color */
       position: relative;
     }
-    .torchlight {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: radial-gradient(circle at center, rgba(255, 255, 0, 0.15), transparent 200px);
-      transition: background 0.2s ease-out;
-      z-index: -1; /* Move behind other content */
-    }
     canvas {
       position: fixed;
       top: 0;
@@ -155,69 +144,70 @@ ul.task-list li input[type="checkbox"] {
     }
   </style>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        let scene, camera, renderer, stars = [];
+        const numStars = 30;
 
-  <div class="torchlight"></div>
-  <canvas id="cube-animation"></canvas>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script>
-    document.addEventListener('mousemove', (e) => {
-      const torchlight = document.querySelector('.torchlight');
-      torchlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 0, 0.3), transparent 200px)`;
-    });
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
 
-    // Floating Hollow Cubes Animation with Three.js
-    let scene, camera, renderer, cubes = [];
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
 
-    function init() {
-      scene = new THREE.Scene();
-      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 5;
+            const colors = [0xffffff, 0xffff00, 0xadd8e6]; // white, yellow, light blue
 
-      renderer = new THREE.WebGLRenderer({ alpha: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
+            for (let i = 0; i < numStars; i++) {
+                let geometry = new THREE.SphereGeometry(0.1, 5, 5); // Star-shaped geometry
+                let material = new THREE.MeshBasicMaterial({ color: colors[Math.floor(Math.random() * colors.length)] });
+                let star = new THREE.Mesh(geometry, material);
 
-      const colors = [0xffffff, 0xffff00, 0xadd8e6]; // white, yellow, light blue
+                star.position.x = (Math.random() - 0.5) * 10;
+                star.position.y = (Math.random() - 0.5) * 10;
+                star.position.z = (Math.random() - 0.5) * 10;
 
-      for (let i = 0; i < 50; i++) {
-        let geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5); // Smaller cubes
-        let edges = new THREE.EdgesGeometry(geometry);
-        let material = new THREE.LineBasicMaterial({ color: colors[Math.floor(Math.random() * colors.length)] });
-        let cube = new THREE.LineSegments(edges, material);
+                scene.add(star);
+                stars.push(star);
+            }
 
-        cube.position.x = (Math.random() - 0.5) * 10;
-        cube.position.y = (Math.random() - 0.5) * 10;
-        cube.position.z = (Math.random() - 0.5) * 10;
+            animate();
+        }
 
-        cube.rotation.x = Math.random() * 2 * Math.PI;
-        cube.rotation.y = Math.random() * 2 * Math.PI;
+        function animate() {
+            requestAnimationFrame(animate);
 
-        scene.add(cube);
-        cubes.push(cube);
-      }
+            stars.forEach(star => {
+                // Add wobbling effect
+                star.position.x += Math.sin(star.position.z * 2) * 0.01;
+                star.position.y += Math.cos(star.position.x * 3) * 0.02;
+                star.position.z += Math.sin(star.position.y * 4) * 0.02;
 
-      animate();
-    }
+                // Check if the star is out of the view, if yes, reset its position
+                if (
+                    star.position.x > 5 || star.position.x < -5 ||
+                    star.position.y > 5 || star.position.y < -5 ||
+                    star.position.z > 5 || star.position.z < -5
+                ) {
+                    star.position.x = (Math.random() - 0.5) * 10;
+                    star.position.y = (Math.random() - 0.5) * 10;
+                    star.position.z = (Math.random() - 0.5) * 10;
+                }
+            });
 
-    function animate() {
-      requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
 
-      cubes.forEach(cube => {
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-      });
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
 
-      renderer.render(scene, camera);
-    }
-
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    init();
-  </script>
+        init();
+    </script>
 
 
 
@@ -233,7 +223,9 @@ ul.task-list li input[type="checkbox"] {
 </h1>
 <section id="updates" class="level2">
 <h2 class="anchored" data-anchor-id="updates">Updates:</h2>
-<p>🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br> 🚀 Learning Big Data System with Apache Hive &amp; Impala<br> 📚 Reading Machine Learning with Scikit Learn book by O’Reilly<br> 🌐 Initiating a new Python project for a new blog in ML</p>
+<ul>
+🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br> 🚀 Learning Big Data System with Apache Hive &amp; Impala<br> 📚 Reading Machine Learning with Scikit Learn book by O’Reilly<br> 🌐 Initiating a new Python project for a new blog in ML
+</ul>
 </section>
 <section id="tech-skills" class="level2">
 <h2 class="anchored" data-anchor-id="tech-skills">Tech Skills</h2>
@@ -254,9 +246,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="blogs" class="level2">
 <h2 class="anchored" data-anchor-id="blogs">Blogs:</h2>
-<p><a href="https://sujan-bhattarai12.github.io/posts/southAsia_crop/">Forecasting Air-Quality Emission</a> 🌬️</p>
-<p><a href="https://sujan-bhattarai12.github.io/posts/economic_zone/">Geospatial Analysis</a> 🗺️</p>
-<p><a href="https://sujan-bhattarai12.github.io/posts/12-09-2020-AI-ethics/">Artificial Intelligence and Nature Conservation</a> 🌿</p>
+<ul>
+<li>
+<a href="https://sujan-bhattarai12.github.io/posts/southAsia_crop/">Forecasting Air-Quality Emission 🌬️</a>
+</li>
+<li>
+<a href="https://sujan-bhattarai12.github.io/posts/economic_zone/">Geospatial Analysis 🗺️</a>
+</li>
+<li>
+<a href="https://sujan-bhattarai12.github.io/posts/12-09-2020-AI-ethics/">Artificial Intelligence and Nature Conservation 🌿</a>
+</li>
+</ul>
 </section>
 <section id="statistics" class="level2">
 <h2 class="anchored" data-anchor-id="statistics">Statistics:</h2>
@@ -264,16 +264,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="thanks-for-visiting" class="level3">
 <h3 class="anchored" data-anchor-id="thanks-for-visiting">Thanks for Visiting</h3>
 <p>If you have come this far, revise Hadoop CLI(HDFS DFS) commands, extremely useful if you are using SQL for Big data analysis) <a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/FileSystemShell.html">Apache_CLI</a></p>
-<style>
-<p>body { font-family: sans-serif; margin: 0; padding: 0; box-sizing: border-box; } .areas-of-interest { text-align: center; margin: 0 auto; width: 80%; padding: 20px; } .areas-of-interest h1 { font-size: 2em; margin-bottom: 20px; } .areas-of-interest p { font-size: 1.2em; line-height: 1.5; margin-bottom: 20px; } .columns { display: grid; grid-template-columns: repeat(3, 1fr);</p>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-navbar:Home">Home</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Projects">Projects</span> <span class="hidden" data-render-id="quarto-int-navbar:/featured_projects.html">/featured_projects.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Statistics">Statistics</span> <span class="hidden" data-render-id="quarto-int-navbar:/posts.html">/posts.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Certificates">Certificates</span> <span class="hidden" data-render-id="quarto-int-navbar:/certifications.html">/certifications.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Health">Health</span> <span class="hidden" data-render-id="quarto-int-navbar:/health.html">/health.html</span> <span class="hidden" data-render-id="quarto-int-navbar:About">About</span> <span class="hidden" data-render-id="quarto-int-navbar:/about.html">/about.html</span> <span class="hidden" data-render-id="footer-right-Copyright 2023, Sujan Bhattarai">Copyright 2023, Sujan Bhattarai</span></p>
-</div>
 
 
+</section>
+</section>
 
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -507,7 +503,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
@@ -535,4 +531,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</style></section></section></main></div></body></html>
+</body></html>

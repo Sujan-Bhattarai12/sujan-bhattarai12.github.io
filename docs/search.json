@@ -163,7 +163,7 @@
   {
     "objectID": "certifications.html",
     "href": "certifications.html",
-    "title": "Self-Directed Internet Learning",
+    "title": "",
     "section": "",
     "text": "Certificate Page\n    \n\n\n    \n    \n\n    \n    \n        \n            Data Science with R\n            \n                Fundamentals of R programming\n                Data manipulation with dplyr and tidyr\n                Data visualization using ggplot2\n                Statistical analysis and hypothesis testing\n                Machine learning with R\n            \n        \n        \n            \n        \n    \n\n    \n        \n            SAS programming\n            \n                SAS function, tables, Schemas\n                Data cleaning and analysis with SAS\n                Statistical analysis with SAS procedures\n                Creation of reports and graphics\n            \n        \n        \n            \n        \n    \n\n    \n        \n            Concepts on Big data\n            \n                Conceptual understanding of Big Data\n                Big Data technologies and ecosystems\n                Data processing and storage techniques\n                Big Data analytics and applications\n            \n        \n        \n            \n        \n    \n\n    \n        \n            Big Data Modelling\n            \n                Understanding of Big Data modeling techniques\n                Application of predictive analytics in Big Data\n                Hands-on experience with Hadoop\n                Designing and implementing Big Data solutions\n            \n        \n        \n            \n        \n    \n\n    \n        \n            Data Analyst with SQL\n            \n                Basic SQL syntax and queries\n                Data manipulation with SQL\n                Joining and aggregating data\n                Writing subqueries and complex queries"
   },
@@ -172,7 +172,7 @@
     "href": "about.html#updates",
     "title": "\n\n",
     "section": "Updates:",
-    "text": "Updates:\n🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard 🚀 Learning Big Data System with Apache Hive & Impala 📚 Reading Machine Learning with Scikit Learn book by O’Reilly 🌐 Initiating a new Python project for a new blog in ML"
+    "text": "Updates:\n\n🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard 🚀 Learning Big Data System with Apache Hive & Impala 📚 Reading Machine Learning with Scikit Learn book by O’Reilly 🌐 Initiating a new Python project for a new blog in ML"
   },
   {
     "objectID": "about.html#tech-skills",
@@ -186,7 +186,7 @@
     "href": "about.html#blogs",
     "title": "\n\n",
     "section": "Blogs:",
-    "text": "Blogs:\nForecasting Air-Quality Emission 🌬️\nGeospatial Analysis 🗺️\nArtificial Intelligence and Nature Conservation 🌿"
+    "text": "Blogs:\n\n\nForecasting Air-Quality Emission 🌬️\n\n\nGeospatial Analysis 🗺️\n\n\nArtificial Intelligence and Nature Conservation 🌿"
   },
   {
     "objectID": "about.html#statistics",
@@ -334,5 +334,12 @@
     "title": "Crop burning and Air quality in South Asia",
     "section": "Next Steps",
     "text": "Next Steps\n\nValuate the accuracy of each individual model employed in the combination.\nGather monthly data specifically for crop emissions to investigate whether winter months contribute significantly to the Air Quality Index (AQI) in South Asia.\nLeverage World Bank data, which includes emissions for all countries worldwide, to implement clustering techniques for identifying groups of countries emitting similar amounts of CO2."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "",
+    "section": "",
+    "text": "&lt;!DOCTYPE html&gt;\n\n\n\n\n\nCube Animation with Torchlight\n\n\n\n\n\n\n\n\n\n&lt;div id=\"header\" style=\"text-align: center;\"&gt;\n  &lt;img src=\"https://media2.giphy.com/media/3o7qE1YN7aBOFPRw8E/giphy.gif?cid=ecf05e471znfcirjxm6vianun3sbijamo88oa489zph9lh30&ep=v1_gifs_related&rid=giphy.gif&ct=g\" width=\"200\"/&gt;\n&lt;/div&gt;\n\n&lt;div id=\"badges\" style=\"text-align: center;\"&gt;\n  &lt;a href=\"https://www.linkedin.com/in/bhattarai1/\"&gt;\n    &lt;img src=\"https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white\" alt=\"LinkedIn Badge\"/&gt;\n  &lt;/a&gt;\n&lt;/div&gt;\n\n&lt;h1 style=\"text-align: center;\"&gt;\n  &lt;img src=\"https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif\" width=\"30px\"/&gt;\n&lt;/h1&gt;\n\n\n&lt;div class=\"areas-of-interest\"&gt;\n  &lt;h1&gt;Updates:&lt;/h1&gt;\n  &lt;ul&gt;\n    &lt;li&gt;🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard&lt;/li&gt;\n    &lt;li&gt;🚀 Learning Big Data System with Apache Hive & Impala&lt;/li&gt;\n    &lt;li&gt;📚 Reading Machine Learning with Scikit Learn book by O'Reilly&lt;/li&gt;\n    &lt;li&gt;🌐 Initiating a new Python project for a new blog in ML&lt;/li&gt;\n  &lt;/ul&gt;\n\n  &lt;h1&gt;Tech Skills:&lt;/h1&gt;\n  &lt;ul&gt;\n    &lt;li&gt;Python 🐍&lt;/li&gt;\n    &lt;li&gt;R 📊&lt;/li&gt;\n    &lt;li&gt;SQL 💾&lt;/li&gt;\n    &lt;li&gt;SAS 📈&lt;/li&gt;\n    &lt;li&gt;Big Data 🌐&lt;/li&gt;\n    &lt;li&gt;Machine Learning 🤖&lt;/li&gt;\n    &lt;li&gt;Data Visualization 📊&lt;/li&gt;\n    &lt;li&gt;Geospatial Analysis 🌍&lt;/li&gt;\n    &lt;li&gt;Data Mining ⛏️&lt;/li&gt;\n    &lt;li&gt;High performance computing 🚀&lt;/li&gt;\n    &lt;li&gt;Bash Scripting 📜&lt;/li&gt;\n    &lt;li&gt;Web Development 🌐&lt;/li&gt;\n  &lt;/ul&gt;\n\n  &lt;h1&gt;Blogs:&lt;/h1&gt;\n  &lt;ul&gt;\n    &lt;li&gt;&lt;a href=\"https://sujan-bhattarai12.github.io/posts/southAsia_crop/\"&gt;Forecasting Air-Quality Emission 🌬️&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a href=\"https://sujan-bhattarai12.github.io/posts/economic_zone/\"&gt;Geospatial Analysis 🗺️&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a href=\"https://sujan-bhattarai12.github.io/posts/12-09-2020-AI-ethics/\"&gt;Artificial Intelligence and Nature Conservation 🌿&lt;/a&gt;&lt;/li&gt;\n  &lt;/ul&gt;\n\n  &lt;h1&gt;Statistics:&lt;/h1&gt;\n  &lt;p&gt;&lt;a href=\"https://git.io/streak-stats?v=1\"&gt;&lt;img src=\"http://github-readme-streak-stats.herokuapp.com?user=sujan-bhattarai12&theme=dark&background=000000\" alt=\"GitHub Streak\"/&gt;&lt;/a&gt;&lt;/p&gt;\n\n  &lt;h1&gt;Thanks for Visiting&lt;/h1&gt;\n  &lt;p&gt;If you have come this far, revise Hadoop CLI(HDFS DFS) commands, extremely useful if you are using SQL for Big data analysis: &lt;a href=\"https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/FileSystemShell.html\"&gt;Apache CLI&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;"
   }
 ]

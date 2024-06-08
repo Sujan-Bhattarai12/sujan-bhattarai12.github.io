@@ -1,7 +1,3 @@
----
-title: Self-Directed Internet Learning
----
-
 
 ```{=html}
 <!DOCTYPE html>
@@ -16,7 +12,7 @@ title: Self-Directed Internet Learning
             margin: 0;
             padding: 0;
             background: #f7f7f7; /* Background for the certificates */
-            font-family: Arial, sans-serif;
+            font-family: Georgia, sans-serif;
         }
 
         .certificate-container {
@@ -86,7 +82,7 @@ title: Self-Directed Internet Learning
             width: 10px;
             height: 10px;
             background-color: #ffc107;
-            opacity: 0.7;
+            opacity: 0.9;
             animation: confetti-fall linear infinite;
         }
 
