@@ -208,28 +208,37 @@ ul.task-list li input[type="checkbox"] {
       height: 100%;
       z-index: 0;
     }
-    .about-me {
-      text-align: center;
-      position: absolute;
-      left: 0px;
-      top : 70px;
-    }
-   .name-heading {
-      font-size: 1.5em;
-      font-family: cursive;
-      line-height: 1.5;
-      margin-bottom: 10px;
-      text-align: center;
-}
     
+  .about-me {
+    text-align: center;
+    position: absolute;
+    top: 70px;
+    left: 200px;
+  }
+  
+  .name-heading {
+    font-size: 1.5em;
+    font-family: cursive;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Media Queries */
+  @media only screen and (max-width: 768px) {
+    .about-me {
+      top: 30px; /* Adjust as needed for mobile view */
+    }
+  
+
 
   </style>
 
 
 
   <div class="about-me">
-    <p class="name-heading"> Sujan Bhattarai</p> 
-    <p class="name-heading">Welcome to my Dataverse</p>
+    <p class="name-heading"> Sujan Bhattarai<br>
+     Welcome to my Dataverse</p>
   </div>
   <div class="areas-of-interest">
     <div>
