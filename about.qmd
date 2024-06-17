@@ -94,9 +94,9 @@ style:
 
         init();
     </script>
-</body>
-</body>
-</head>
+  </body>
+  </body>
+ </head>
 </html>
 ```
 

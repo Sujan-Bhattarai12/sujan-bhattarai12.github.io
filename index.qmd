@@ -92,7 +92,7 @@
     }
     
   .about-me {
-    text-align: center;
+    text-align: left;
     position: absolute;
     top: 70px;
     left: 200px;
@@ -103,7 +103,7 @@
     font-family: cursive;
     line-height: 1.5;
     margin-bottom: 10px;
-    text-align: center;
+    text-align: left;
   }
   
   /* Media Queries */
@@ -119,8 +119,8 @@
 
 <body>
   <div class="about-me">
-    <p class = "name-heading" > Sujan Bhattarai</br>
-     Welcome to my Dataverse</p>
+    <p class = "name-heading" > SUJAN BHATTARAI</br>
+     Welcome to The Dataverse</p>
   </div>
   <div class="areas-of-interest">
     <div>
@@ -133,15 +133,15 @@
       </div>
       <div class="colus">
         <h3>Machine Learning</h3>
-        <p>Strong grasp of ML theory and concepts when physical modeling isn't an option.</p>
+        <p>Strong understanding of underlying maths in ML models, Linear algebra, and calculus.</p>
       </div>
       <div class="colus">
-        <h3>Cloud Computing</h3>
-        <p>Self-taught in Big Data and certified in Snowflake for data warehousing.</p>
+        <h3>Geospatial analysis</h3>
+        <p>Knowledge about spatial data to make space based data driven decision making</p>
       </div>
       <div class="colus">
-        <h3>NLP</h3>
-        <p>Worked on sentiment analysis of news articles and ML modeling with text data.</p>
+        <h3>Database and Cloud</h3>
+        <p>Self-taught in Big Data and certified in Snowflake for data warehousing, proficient at RDBMS and SQL</p>
       </div>
       <div class="colus">
         <h3>Applied Statistics</h3>
