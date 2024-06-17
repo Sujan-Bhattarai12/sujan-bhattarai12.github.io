@@ -118,10 +118,17 @@ style:
 
 
 ## Updates:
-<ul>🖥️ Working on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br>
-🚀 Learning Big Data System with Apache Hive & Impala<br>
-📚 Reading Machine Learning with Scikit Learn book by O'Reilly<br>
-🌐 Initiating a new Python project for a new blog in ML 
+<ul>
+📊 Practising SQL from HackerRank and learning DSA in LeetCode<br>
+🧠 Mastering neural network architecture and learning PyTorch from Coursera and DataCamp<br>
+</ul>
+
+#### Recently completed:
+<ul>
+🖥 Worked on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard<br>
+🚀 Learnt Big Data System with Apache Hive & Impala<br>
+📚 Read Machine Learning with Scikit Learn book by O'Reilly<br>
+🌐 Initiated a new Python project for a new blog in ML 
 </ul>
 
 ## Tech Skills
