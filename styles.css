@@ -1,66 +1,67 @@
-/* Paragraph styles */
-/* Set the title to not bold */
-.title {
-    font-weight: normal;
-}
-
-p {
-    padding-left: 15px;
-    font-size: 11pt;
-    font-family: Verdana, Palatino, serif;
-    color: white;
-}
-
-/* Background color for body */
+/* General Styles */
 body {
-    background-color: #213343;
+    background-color: #213343; /* Darker background for contrast */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     overflow-x: hidden; /* Hide horizontal scrollbar */
+    color: #EAEAEA; /* Default text color for better readability */
+    font-family: Arial, sans-serif; /* Modern font */
 }
 
-/* Header colors for h3 to h6 */
+/* Paragraph styles */
+p {
+    padding-left: 15px;
+    font-size: 12pt;
+    color: #EAEAEA; /* Paragraph text color */
+}
+
+/* Header styles */
 h1, h2, h3, h4, h5, h6 {
-    color: white;
+    color: #FFD700; /* Gold color for headers */
 }
 
-/* Styles for h1 elements with class title */
+/* Specific h1 styles */
 h1.title {
-    color: #003152; /* Black color for the h1 title */
+    color: #003152; /* Deep blue for main title */
     font-size: 28pt !important;
 }
 
+/* Quarto title styles */
 .quarto-title h1.title {
-    color:white;
-    font-family: cursive; /* Your desired color */
+    color: #FFD700; /* Gold color for h1 */
+    font-family: 'Times New Roman', serif;
 }
 
-.listing-description {
-    color: darkgrey;
+/* Link styles */
+a {
+    color: #00BFFF; /* Bright blue for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/*for home page which is also description */
-#ppc #description {
-    color: white;
+a:hover {
+    color: #FFD700; /* Change to gold on hover */
 }
 
-/* Animation text on the front page */
+/* Listing and category styles */
+.listing-description,
+#ppc #description,
+#tagline {
+    color: #EAEAEA; /* Ensuring description texts are white */
+}
+
+.listing-title,
+.listing-subtitle,
+.listing-category {
+    color: #EAEAEA; /* Ensure listing text is white */
+}
+
+/* Animation styles */
 #tagline {
     animation: fadeInOut 1s ease-in-out infinite;
-    color: white;
     font-size: 1.2em; /* Increase font size for better visibility */
     text-align: center; /* Center the text */
     margin-top: 10px; /* Adjust margin for better positioning */
-}
-
-/* Description on the front page */
-#description {
-    font-size: 1em;
-    color: #363737;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center; /* Center the text */
-    margin-top: 20px; /* Adjust margin for better positioning */
 }
 
 /* Keyframes for fade-in-out animation */
@@ -73,79 +74,92 @@ h1.title {
     }
 }
 
-/* Styles for the div with class quarto-categories */
+/* Category styles */
 .quarto-categories {
-    color: white; /* Light grey color */
+    color: #EAEAEA; /* Ensure categories are white */
 }
 
-/*for changing the category box */
 .quarto-category {
-    color: orange; /* Light grey color */
+    color: #FFD700; /* Gold for category text */
 }
 
-.listing-category {
-    color: white;
-}
-
-/*color the menu text */
+/* Menu text styles */
 .menu-text {
-    color: white;
-    font-family: cursive;
+    color: #EAEAEA; /* Menu text color */
 }
 
-/*color li and ol */
-ol {
+/* Ordered and list item styles */
+ol, li {
     margin-left: 18px;
-    color: lightblue !important;
+    color: #A9D0F5; /* Light blue for ordered and list items */
 }
 
-/*color li and ol */
-li {
-    margin-left: 18px;
-    color: lightblue !important;
+/* Table styles */
+tbody tr {
+    color: #EAEAEA !important; /* Ensuring table row text is white */
 }
-
-#toc-title {
-    color: lightblue;
-    font-size: 14px;
+tbody tr td {
+    color: #EAEAEA !important; /* Ensuring table cell text is white */
+}
+th {
+    color: #FFD700 !important; /* Gold for table headers */
+}
+caption {
+    color: #EAEAEA !important; /* Table caption text color */
 }
 
 /* Navbar styles */
 .navbar {
-    background-color: #213343; /* Match background color with body */
-    padding: 10px 0; /* Add padding to the top and bottom of the navbar */
+    background-color: #213343; /* Dark background for navbar */
+    padding: 10px 0; /* Add padding to navbar */
     display: flex; /* Use flexbox */
-    justify-content: center; /* Center-align the navbar */
+    justify-content: center; /* Center-align navbar */
 }
 
 .navbar ul {
-    list-style-type: none; /* Remove bullet points from the list */
+    list-style-type: none; /* Remove bullet points */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
 }
 
 .navbar li {
-    display: inline; /* Display list items horizontally */
-    margin-right: 20px; /* Add spacing between list items */
+    display: inline; /* Horizontal display */
+    margin-right: 20px; /* Space between items */
 }
 
 .navbar a {
-    text-decoration: none; /* Remove underline from links */
-    color: white; /* Set link color to white */
-    font-size: 18px; /* Set font size for navbar links */
-    font-family: Georgia, Palatino, serif; /* Match font family with paragraph text */
-    transition: all 0.3s ease; /* Add transition effect for smooth animation */
+    color: #EAEAEA; /* Light color for navbar links */
+    font-size: 18px; /* Font size for navbar links */
+    transition: color 0.3s ease; /* Smooth color change */
 }
 
 .navbar a:hover {
-    color: white; /* Change link color to white when hovered */
-    font-weight: bold; /* Make the font bold when hovered */
-    transform: scale(1.3); /* Zoom in the text slightly when hovered */
+    color: #white; /* Gold on hover */
 }
 
-/*the navbar zooms and changes to white color */
-.navbar-nav .nav-link:hover {
-    color: white !important;
+/* Preformatted text styles */
+pre code {
+    background-color: #white; /* Dark background for code blocks */
+    padding: 10px; /* Padding for readability */
+    border-radius: 5px; /* Rounded corners */
+    color: #EAEAEA; /* Code text color */
 }
 
+/* Table generated by kableextra */
+tbody tr {
+    color: #EAEAEA !important; /* Ensuring table row text is white */
+}
+tbody tr td {
+    color: #EAEAEA !important; /* Ensuring table cell text is white */
+}
+th {
+    color: #white !important; /* Gold for table headers */
+}
+caption {
+    color: #EAEAEA !important; /* Table caption text color */
+}
 
+/* Set all text to white in second level homepage*/
+body, .body, .listing-title, .listing-subtitle, .listing-categories, .listing-category, .listing-description, a {
+    color: white !important; /* Use !important to override any other styles */
+}

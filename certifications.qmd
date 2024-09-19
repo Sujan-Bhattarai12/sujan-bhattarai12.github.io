@@ -11,7 +11,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: #f7f7f7; /* Background for the certificates */
+            background: #213343; /* Background for the certificates */
             font-family: Georgia, sans-serif;
         }
 

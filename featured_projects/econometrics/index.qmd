@@ -5,7 +5,7 @@ format:
   html:
     toc: false
     html-math-method: katex
-    css: /featured_style_projects.css
+    css: /styles.css
 author:
   - name: Sujan Bhattarai
 categories: [Statistics, Econometrics, Causal Inference, R] # self-defined categories
