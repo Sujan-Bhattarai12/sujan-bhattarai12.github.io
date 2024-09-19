@@ -1,105 +1,160 @@
-
-/* Styles for strong */
-strong {
-    font-size: 14pt;
-    font-family: Georgia, palatino, serif;
-}
-
-/* Styles for p */
-/* add georgia font */
-/* make text red  */
-p { 
-    padding-left: 15px;
-    font-size: 11pt;
-    font-family: Verdana, palatino, serif;
-    color: white;
-}
-
-/* Styles for blockquote */
-blockquote {
-    font-size: 12pt;
-    font-family: georgia, palatino, serif;
-}
-
-
-.quarto-title h1.title {
-    color: white /* Your desired color */;
-}
-
-/* Background color for body*/ 
+/* General Styles */
 body {
-    background-color:  #213343; /* Use hex color code */
-} 
-
-/* set for all h3 to h6 to have light grey color */
-h1, h2, h3, h4 {
-    color: lightgrey;
+    background-color: #2A374C; /* Darker background for contrast */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    color: #EAEAEA; /* Default text color for better readability */
+    font-family: Arial, sans-serif; /* Modern font */
 }
 
-/*color li and ol */
-ol {
-    margin-left: 20px;
-    color: lightblue !important;
+/* Paragraph styles */
+p {
+    padding-left: 15px;
+    font-size: 12pt;
+    color: #EAEAEA; /* Paragraph text color */
 }
 
-
-/* Styles for the div with class quarto-title-meta-heading */
-.quarto-title-meta-heading {
-    color: darkgrey; /* Light grey color */
+/* Header styles */
+h1, h2, h3, h4, h5, h6 {
+    color: #FFD700; /* Gold color for headers */
 }
 
-/* Styles for the div with class quarto-categories */
+/* Specific h1 styles */
+h1.title {
+    color: #003152; /* Deep blue for main title */
+    font-size: 28pt !important;
+}
+
+/* Quarto title styles */
+.quarto-title h1.title {
+    color: #FFD700; /* Gold color for h1 */
+    font-family: 'Times New Roman', serif;
+}
+
+/* Link styles */
+a {
+    color: #00BFFF; /* Bright blue for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+a:hover {
+    color: #FFD700; /* Change to gold on hover */
+}
+
+/* Listing and category styles */
+.listing-description,
+#ppc #description,
+#tagline {
+    color: #EAEAEA; /* Ensuring description texts are white */
+}
+
+.listing-title,
+.listing-subtitle,
+.listing-category {
+    color: #EAEAEA; /* Ensure listing text is white */
+}
+
+/* Animation styles */
+#tagline {
+    animation: fadeInOut 1s ease-in-out infinite;
+    font-size: 1.2em; /* Increase font size for better visibility */
+    text-align: center; /* Center the text */
+    margin-top: 10px; /* Adjust margin for better positioning */
+}
+
+/* Keyframes for fade-in-out animation */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Category styles */
 .quarto-categories {
-    color: #990099; /* Light grey color */
+    color: #EAEAEA; /* Ensure categories are white */
 }
 
-
-/*the box where the code output is displayed */
-pre code {
-    background-color: white; /* Light grey background */
-    padding: 10px; /* Add padding for better readability */
-    border-radius: 5px; /* Rounded corners */
-    overflow-x: auto; /* Add horizontal scroll for long lines */
-    font-family: "Courier New", Courier, monospace; /* Use monospace font for code */
-    color: #990099; /* Dark grey text color */
+.quarto-category {
+    color: #FFD700; /* Gold for category text */
 }
-/*----------------------------------*/
 
-/*this is for table genrated by kableextra */
+/* Menu text styles */
+.menu-text {
+    color: #EAEAEA; /* Menu text color */
+}
+
+/* Ordered and list item styles */
+ol, li {
+    margin-left: 18px;
+    color: #A9D0F5; /* Light blue for ordered and list items */
+}
+
+/* Table styles */
 tbody tr {
-    color: white !important;
+    color: #EAEAEA !important; /* Ensuring table row text is white */
 }
 tbody tr td {
-    color: white !important;
+    color: #EAEAEA !important; /* Ensuring table cell text is white */
 }
 th {
-    color: white !important;
+    color: #FFD700 !important; /* Gold for table headers */
 }
 caption {
-    color: white !important;
+    color: #EAEAEA !important; /* Table caption text color */
 }
 
-/*----------------*/
-
-
-/* Container for the TOC */
-/* Style for the TOC container */
-#TOC {
-    position: fixed; /* Fix position relative to the viewport */
-    top: 400px; /* Distance from the top of the viewport */
+/* Navbar styles */
+.navbar {
+    background-color: #1A2328; /* Dark background for navbar */
+    padding: 10px 0; /* Add padding to navbar */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center-align navbar */
 }
 
-/* Styles for Python code blocks */
-.sourceCode.python {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-family: monospace;
-    font-size: 16px;
-    line-height: 1.5;
-    overflow-x: auto; /* Enable horizontal scroll if needed */
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
+.navbar li {
+    display: inline; /* Horizontal display */
+    margin-right: 20px; /* Space between items */
+}
 
+.navbar a {
+    color: #EAEAEA; /* Light color for navbar links */
+    font-size: 18px; /* Font size for navbar links */
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+.navbar a:hover {
+    color: #FFD700; /* Gold on hover */
+}
+
+/* Preformatted text styles */
+pre code {
+    background-color: #1C1E22; /* Dark background for code blocks */
+    padding: 10px; /* Padding for readability */
+    border-radius: 5px; /* Rounded corners */
+    color: #EAEAEA; /* Code text color */
+}
+
+/* Table generated by kableextra */
+tbody tr {
+    color: #EAEAEA !important; /* Ensuring table row text is white */
+}
+tbody tr td {
+    color: #EAEAEA !important; /* Ensuring table cell text is white */
+}
+th {
+    color: #FFD700 !important; /* Gold for table headers */
+}
+caption {
+    color: #EAEAEA !important; /* Table caption text color */
+}
