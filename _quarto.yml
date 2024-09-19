@@ -3,18 +3,33 @@ project:
   output-dir: docs
 
 website:
-  title: "sujan-bhattarai12.github.io"
+  favicon: pic.jpg
+  title: ""
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - href: featured_projects.qmd
+        text: DS-projects
+      - href: certifications.qmd
+        text: Certificates
+      - href: about.qmd
+        text: About
+ 
+  page-footer:
+    background: light
+    right:
+      - "Copyright 2023, Sujan Bhattarai"
+    left: 
+      - icon: github
+        href: https://github.com/Sujan-Bhattarai12
+    
 format:
   html:
-    theme: cosmo
+    theme: 
+      - styles.scss
+    mainfont: Verdana 
     css: styles.css
-    toc: true
 
 
 
