@@ -8,7 +8,7 @@ format:
     css: /style
 author:
   - name: Sujan Bhattarai
-categories: [Statistics, Econometrics, Causal Inference, R] # self-defined categories
+categories: [Causal Inference, R] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 editor: 
   markdown: 
