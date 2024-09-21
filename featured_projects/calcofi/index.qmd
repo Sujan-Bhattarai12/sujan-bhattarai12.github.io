@@ -1,7 +1,7 @@
 ---
 title: "Using AI for Good: Helping non profits in predicting carbon calculation"
 image: "/featured_projects/calcofi/data/earth.jpg"
-Date: "2023-12-15"
+Date: "2024-06-15"
 format:
   html:
     toc: false

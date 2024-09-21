@@ -9,7 +9,7 @@ format:
     css: /styles.css
 author:
   - name: Sujan Bhattarai
-categories: [Machine Learning] # self-defined categories
+categories: [Machine Learning, R] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 editor: 
   markdown: 
