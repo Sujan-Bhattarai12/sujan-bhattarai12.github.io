@@ -7,8 +7,6 @@ format:
     toc: false
     html-math-method: katex
     css: /styles.css
-author:
-  - name: Sujan Bhattarai
 categories: [Machine Learning, Python] # self-defined categories
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 editor: 
@@ -17,33 +15,81 @@ editor:
 engine: knitr
 ---
 
-XYZ, name hidden for security purpose, was established in 1910 to
-investigate the ecological factors contributing to the collapse of the
-Pacific sardine population. Its extensive time series data provides
-invaluable insights into the long-term impacts of environmental changes
-on marine ecosystems and the communities reliant on them, not only
-within the California Current System but also extending to the North
-Pacific and beyond on an international scale.
+**Technologies:** Machine Learning, Python, XGBoost, Linear Regression  
+**Author:** Sujan Bhattarai
 
-As a part of this project, I am supporting the XYZ in predicting the
-ocean carbon values, which is a crucial part of the marine ecosystem.
-The dataset contains 12 columns, with 1 response variable and 11
-predictors. The response variable is the dissolved inorganic carbon
-(DIC) concentration in the ocean, which is a key component of the marine
-carbon cycle. The predictors include various physical and chemical
-properties of the ocean, such as temperature, salinity, and oxygen
-concentration.
+## Project Overview
 
-The goal of this project is to develop two machine learning models
-that can accurately predict the DIC concentration in the ocean based on
-the given predictors. This model will help better
-understand the factors influencing ocean carbon levels and make
-data-driven decisions to protect marine ecosystems.
+This project supports a marine research organization (established in 1910) in developing predictive models for ocean carbon concentrations—a critical component of marine ecosystem health. The organization's extensive time series dataset provides invaluable insights into environmental changes affecting Pacific marine ecosystems and the communities that depend on them.
 
-### Stepwise Flow of the Project
+## Objective
 
-1.  Linear Regression Model
-2.  Fine Tuned XGBoost Model
+Develop accurate machine learning models to predict dissolved inorganic carbon (DIC) concentrations in ocean waters using various oceanographic parameters. These predictions will enhance understanding of marine carbon cycles and support data-driven conservation decisions.
+
+## Dataset Description
+
+- **Size:** 12 columns with 1 target variable and 11 predictors
+- **Target Variable:** Dissolved Inorganic Carbon (DIC) concentration
+- **Features:** Physical and chemical ocean properties including temperature, salinity, oxygen concentration, and geographical coordinates
+- **Scope:** California Current System extending to North Pacific waters
+
+## Methodology
+
+### 1. Data Preprocessing and Exploration
+- Standardized column naming conventions
+- Removed columns with missing or inappropriate values
+- Applied correlation analysis to understand feature relationships
+- Visualized data patterns using correlation heatmaps
+
+### 2. Model Development
+
+#### Linear Regression with Polynomial Features
+- **Approach:** Implemented polynomial feature engineering with regularization
+- **Optimization:** Tested polynomial degrees (1-5) and Ridge regularization parameters
+- **Pipeline:** PolynomialFeatures → StandardScaler → Ridge Regression
+- **Best Configuration:** Degree 1 polynomial with alpha=50 regularization
+
+#### XGBoost Implementation
+- **Base Model:** Out-of-the-box XGBoost with cross-validation
+- **Hyperparameter Tuning:** Grid search optimization across multiple parameters
+- **Final Parameters:** 
+  - n_estimators: 1450
+  - max_depth: 5
+  - learning_rate: 0.01
+  - colsample_bytree: 0.5
+
+### 3. Model Evaluation and Validation
+- Applied train-validation-test splits for robust evaluation
+- Used cross-validation with early stopping to prevent overfitting
+- Compared models using R² scores and RMSE metrics
+
+## Key Results
+
+| Model | Training R² | Validation R² | RMSE |
+|-------|-------------|---------------|------|
+| Linear Regression | 0.9964 | 0.9964 | ~6.0 |
+| XGBoost | 0.9979 | 0.9979 | 3.61 |
+
+## Key Findings
+
+1. **Strong Predictive Performance:** Both models achieved high accuracy (>99.6% R²), indicating robust relationships between oceanographic parameters and carbon concentrations.
+
+2. **XGBoost Superiority:** The gradient boosting model outperformed linear regression with:
+   - Higher validation accuracy (0.9979 vs 0.9964)
+   - Lower prediction error (RMSE: 3.61 vs ~6.0)
+   - Better handling of complex feature interactions
+
+3. **Feature Importance:** Physical and chemical ocean properties demonstrate strong predictive power for carbon concentration levels.
+
+## Technical Implementation
+
+```python
+# Key libraries and frameworks used
+- scikit-learn: Model development and evaluation
+- XGBoost: Gradient boosting implementation
+- pandas/numpy: Data manipulation and analysis
+- matplotlib/seaborn: Data visualization
+- GridSearchCV: Hyperparameter optimization
 
 ```{python}
 #hide all warnings
@@ -312,9 +358,11 @@ model_xgb = xgb.train(
 preds = model_xgb.predict(dtest_reg)
 
 #check for rmse
-mse = mean_squared_error(y_test, preds, squared=False)
+# Predict and calculate RMSE manually (fix for older sklearn)
+mse = mean_squared_error(y_test, preds)
+rmse = np.sqrt(mse)
+print(f"RMSE of the test model: {rmse:.3f}")
 
-print(f"MSE of the test model: {mse:.3f}")
 ```
 
 \*\*GRID TUNED XGBOOST MODEL
