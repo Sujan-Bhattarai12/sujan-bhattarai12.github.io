@@ -15,14 +15,6 @@ website:
         text: Certificates
       - href: about.qmd
         text: About
- 
-  page-footer:
-    background: light
-    right:
-      - "Copyright 2023, Sujan Bhattarai"
-    left: 
-      - icon: github
-        href: https://github.com/Sujan-Bhattarai12
     
 format:
   html:
