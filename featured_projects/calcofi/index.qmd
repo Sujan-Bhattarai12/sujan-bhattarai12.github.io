@@ -2,6 +2,8 @@
 title: "Using AI for Good: Helping non profits in predicting carbon calculation"
 image: "/featured_projects/calcofi/data/earth.jpg"
 Date: "2024-06-15"
+author:
+  - name: Sujan Bhattarai
 format:
   html:
     toc: false

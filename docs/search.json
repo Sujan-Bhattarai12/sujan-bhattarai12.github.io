@@ -11,35 +11,14 @@
     "href": "featured_projects.html",
     "title": "",
     "section": "",
-    "text": "Using AI for Good: Helping non profits in predicting carbon calculation\n\n\n\n\n\n\nMachine Learning\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDid Smoking Mothers Have Lowered Weight Children?\n\n\n\n\n\n\nCausal Inference\n\n\nR\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nSoccer players attributes comparison: Conclusion from Data visualization\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nExploring the Impact of Marketing Strategiese: A Deep Dive into EDA and A/B Testing\n\n\n\n\n\n\nABTest\n\n\nPython\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nComparing competing Machine Learning models in classifying Spotify songs\n\n\n\n\n\n\nMachine Learning\n\n\nR\n\n\n\n\n\n\n\n\n\nJan 20, 2024\n\n\nSujan Bhattarai\n\n\n\n\n\n\nNo matching items"
+    "text": "Using AI for Good: Helping non profits in predicting carbon calculation\n\n\n\n\n\n\nMachine Learning\n\n\nPython\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nDid Smoking Mothers Have Lowered Weight Children?\n\n\n\n\n\n\nCausal Inference\n\n\nR\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nComparing competing Machine Learning models in classifying Spotify songs\n\n\n\n\n\n\nMachine Learning\n\n\nR\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nSoccer players attributes comparison: Conclusion from Data visualization\n\n\n\n\n\n\nData Visualization\n\n\nR\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\n\n\n\n\n\n\nExploring the Impact of Marketing Strategiese: A Deep Dive into EDA and A/B Testing\n\n\n\n\n\n\nABTest\n\n\nPython\n\n\n\n\n\n\n\n\n\nSujan Bhattarai\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "about.html#updates",
-    "href": "about.html#updates",
-    "title": "\n\n",
-    "section": "Updates:",
-    "text": "Updates:\n\n📊 Practising SQL from HackerRank and learning DSA in LeetCode 🧠 Mastering neural network architecture and learning PyTorch from Coursera and DataCamp\n\n\nRecently completed:\n\n🖥 Worked on 4TB data on NCAR supercomputer, for developing Machine Learning model and a web-interactive dashboard 🚀 Learnt Big Data System with Apache Hive & Impala 📚 Read Machine Learning with Scikit Learn book by O’Reilly 🌐 Initiated a new Python project for a new blog in ML"
-  },
-  {
-    "objectID": "about.html#tech-skills",
-    "href": "about.html#tech-skills",
-    "title": "\n\n",
-    "section": "Tech Skills",
-    "text": "Tech Skills\n\nPython 🐍\nR 📊\nSQL 💾\nSAS 📈\nBig Data 🌐\nMachine Learning 🤖\nData Visualization 📊\nGeospatial Analysis 🌍\nData Mining ⛏️\nHigh performance computing 🚀\nBash Scripting 📜\nWeb Development 🌐"
-  },
-  {
-    "objectID": "about.html#blogs",
-    "href": "about.html#blogs",
-    "title": "\n\n",
-    "section": "Blogs:",
-    "text": "Blogs:\n\n\nForecasting Air-Quality Emission 🌬️\n\n\nGeospatial Analysis 🗺️\n\n\nArtificial Intelligence and Nature Conservation 🌿"
-  },
-  {
-    "objectID": "about.html#statistics",
-    "href": "about.html#statistics",
-    "title": "\n\n",
-    "section": "Statistics:",
-    "text": "Statistics:\n 📈\n\nThanks for Visiting\nIf you have come this far, revise Hadoop CLI(HDFS DFS) commands, extremely useful if you are using SQL for Big data analysis) Apache_CLI"
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "",
+    "section": "",
+    "text": "Technical Skills - Sujan Bhattarai\n  \n\n\n  \n    \n      Technical Skills\n      \n        Python 🐍\n        R 📊\n        SQL 💾\n        SAS 📈\n        Big Data 🌐\n        Machine Learning 🤖\n        Data Visualization 📊\n        Geospatial Analysis 🌍\n        Data Mining ⛏️\n        HPC 🚀\n        Bash Scripting 📜\n        Web Development 🌐"
   },
   {
     "objectID": "featured_projects/data_viz/index.html",
@@ -131,12 +110,5 @@
     "title": "",
     "section": "",
     "text": "Certificate Page\n    \n\n\n    \n    \n\n    \n    \n        \n            Data Science with R\n            \n                Fundamentals of R programming\n                Data manipulation with dplyr and tidyr\n                Data visualization using ggplot2\n                Statistical analysis and hypothesis testing\n                Machine learning with R\n            \n        \n        \n            \n        \n    \n\n    \n        \n            SAS programming\n            \n                SAS function, tables, Schemas\n                Data cleaning and analysis with SAS\n                Statistical analysis with SAS procedures\n                Creation of reports and graphics\n            \n        \n        \n            \n        \n    \n\n    \n        \n            Concepts on Big data\n            \n                Conceptual understanding of Big Data\n                Big Data technologies and ecosystems\n                Data processing and storage techniques\n                Big Data analytics and applications\n            \n        \n        \n            \n        \n    \n\n    \n        \n            Big Data Modelling\n            \n                Understanding of Big Data modeling techniques\n                Application of predictive analytics in Big Data\n                Hands-on experience with Hadoop\n                Designing and implementing Big Data solutions\n            \n        \n        \n            \n        \n    \n\n    \n        \n            Data Analyst with SQL\n            \n                SQL queries and RDBMS foundation\n                Data manipulation with SQL\n                Joining and aggregating data\n                Writing subqueries and CTEs\n            \n        \n        \n            \n        \n    \n\n    \n    \n     \n        \n            Hands-On Essentials: Data Warehouse\n            \n                Create, edit, and load snoflake Tables\n                Create and Use Snowflake resources\n                Create and edit COPY statements\n                Transform and parse CSV and JSON data"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "",
-    "section": "",
-    "text": "Technical Skills - Sujan Bhattarai\n  \n\n\n  \n    \n      Technical Skills\n      \n        Python 🐍\n        R 📊\n        SQL 💾\n        SAS 📈\n        Big Data 🌐\n        Machine Learning 🤖\n        Data Visualization 📊\n        Geospatial Analysis 🌍\n        Data Mining ⛏️\n        HPC 🚀\n        Bash Scripting 📜\n        Web Development 🌐"
   }
 ]

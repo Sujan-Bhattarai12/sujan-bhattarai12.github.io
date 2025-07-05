@@ -163,3 +163,159 @@ caption {
 body, .body, .listing-title, .listing-subtitle, .listing-categories, .listing-category, .listing-description, a {
     color: white !important; /* Use !important to override any other styles */
 }
+
+/* Style for project listing cards */
+.quarto-listing-default .listing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.quarto-listing-default .listing-item {
+  background-color: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 24px;
+  width: 100%;
+  max-width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quarto-listing-default .listing-item:hover {
+  transform: translateY(-5px);
+  border-color: #FFD700;
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.15);
+}
+
+.quarto-listing-default .listing-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 8px;
+}
+
+.quarto-listing-default .listing-description {
+  color: #EAEAEA;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.quarto-listing-default .listing-category {
+  font-size: 0.8em;
+  color: #FFD700;
+  background-color: #334155;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.quarto-category {
+  font-size: 0.85em;
+  padding: 4px 10px;
+  background-color: #334155;
+  border-radius: 12px;
+  color: #FFD700;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+.listing {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Listing item with image on left and text on right */
+.quarto-listing-default .listing-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  padding: 0;
+}
+
+.quarto-listing-default .listing-item:hover {
+  transform: translateY(-4px);
+  border-color: #FFD700;
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.15);
+}
+
+/* Thumbnail image */
+.quarto-listing-default .listing-image-left {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Text content wrapper */
+.quarto-listing-default .listing-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Title inside card */
+.quarto-listing-default .listing-title {
+  font-size: 1.4em;
+  color: #FFD700;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Description text */
+.quarto-listing-default .listing-description {
+  font-size: 1em;
+  color: #EAEAEA;
+  margin-bottom: 10px;
+}
+
+/* Metadata like author, technologies */
+.quarto-listing-default .listing-body p {
+  font-size: 0.9em;
+  color: #A9D0F5;
+  margin: 2px 0;
+  padding: 0;
+}
+
+/* Category chip */
+.quarto-listing-default .listing-category {
+  font-size: 0.8em;
+  color: #FFD700;
+  background-color: #334155;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-right: 8px;
+  margin-top: 10px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .quarto-listing-default .listing-item {
+    flex-direction: column;
+  }
+
+  .quarto-listing-default .listing-image-left {
+    width: 100%;
+    height: auto;
+  }
+
+  .quarto-listing-default .listing-body {
+    padding: 16px;
+  }
+}
+
+
